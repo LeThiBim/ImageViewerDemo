@@ -56,7 +56,7 @@
 - (NSURL*) getImageURLOfIndex:(NSInteger)index
 {
     NSDictionary* item = (NSDictionary*) [self.imageList objectAtIndex:index];
-    NSString* imageLink = [item objectForKey:@"url"];
+    NSString* imageLink = [item objectForKey:@"thumb"];
     NSURL *imageURL = [NSURL URLWithString:imageLink];
     
     return imageURL;

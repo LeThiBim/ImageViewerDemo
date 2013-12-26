@@ -11,7 +11,7 @@
 #import "UIImageView+WebCache.h"
 
 #define IMAGE_WIDTH         320
-#define IMAGE_HEIGHT        568
+#define IMAGE_HEIGHT        480
 
 @interface ImageViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -47,15 +47,17 @@
 {
     for (int i = 0; i < [self.imageList count]; i++)
     {
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(i*IMAGE_WIDTH, 0, IMAGE_WIDTH, IMAGE_HEIGHT)];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(i*IMAGE_WIDTH, 480 - 568, IMAGE_WIDTH, IMAGE_HEIGHT)];
         
         NSDictionary* item = (NSDictionary*) [self.imageList objectAtIndex:i];
-        NSString* imageLink = [item objectForKey:@"url"];
+        NSString* imageLink = [item objectForKey:@"image"];
         NSURL *imageURL = [NSURL URLWithString:imageLink];
         
         NSLog(@"IMAGE URL : %@", imageLink);
         
         [imgView setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"media_app.png"]];
+        
+         NSLog(@"ImageView Y : %f", imgView.frame.origin.y);
         
         [self.scrollView addSubview:imgView];
     }
