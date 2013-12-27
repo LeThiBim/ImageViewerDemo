@@ -7,12 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "DataSource.h"
-#import "ViewController.h"
+#import "ListAlbumsSource.h"
+#import "ListAlbumsController.h"
 
 @interface AppDelegate ()
-
-@property (nonatomic, readwrite) DataSource *dataSource;
 
 @end
 
@@ -22,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.dataSource = [[DataSource alloc] init];
+    self.dataSource = [[ListAlbumsSource alloc] init];
 
 
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;

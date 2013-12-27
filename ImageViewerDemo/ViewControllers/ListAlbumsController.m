@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ViewController.h"
+#import "ListAlbumsController.h"
 #import "Cell.h"
 #import "UIImageView+WebCache.h"
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AlbumViewController.h"
 
-NSString *kCellID = @"cellID";
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -29,12 +28,10 @@ NSString *kCellID = @"cellID";
     
     [self.collectionView addPullToRefreshWithActionHandler:^{
         
-    }];
-    
-    
-    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        //TODO: reload data
         
     }];
+    
 
 }
 
@@ -58,16 +55,16 @@ NSString *kCellID = @"cellID";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
-    Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:kCellID forIndexPath:indexPath];
+    Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
     {
         cell.label.textColor = [UIColor grayColor];
     }
     
-    //NSString *imageIdentifier = [self.dataSource identifierForIndexPath:indexPath];
     NSString *text = [self.dataSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
-    [cell.image setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
+    [cell.image setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
+               placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
     [cell scheduleMoveTitle];
     
@@ -84,10 +81,10 @@ NSString *kCellID = @"cellID";
 
         
         AlbumViewController *albumViewController = [segue destinationViewController];
-        albumViewController.getAlbumSource = [[GetAlbumSource alloc] init];
-        albumViewController.getAlbumSource.delegate = albumViewController;
-        albumViewController.getAlbumSource.albumId = albumId;
-        [albumViewController.getAlbumSource getImageLinksFromServer];
+        albumViewController.albumSource = [[AlbumSource alloc] init];
+        albumViewController.albumSource.delegate = albumViewController;
+        albumViewController.albumSource.albumId = albumId;
+        [albumViewController.albumSource getImageLinksFromServer];
         
     }
 }

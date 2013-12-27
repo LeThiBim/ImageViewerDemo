@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ViewController.h
 //  ImageViewerDemo
 //
 //  Created by HuyNguyenQuang on 12/19/13.
@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ListAlbumsSource.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface ViewController : UICollectionViewController <ListAlbumsSourceDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, readwrite) ListAlbumsSource *dataSource;
+@property (nonatomic, strong) ListAlbumsSource *dataSource;
 
 @end
