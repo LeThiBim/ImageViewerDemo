@@ -9,6 +9,7 @@
 #import "AlbumSource.h"
 #import "AFAppDotNetAPIClient.h"
 #import "APIService.h"
+#import "UIImageView+WebCache.h"
 
 @interface AlbumSource()
 
@@ -59,6 +60,12 @@
     NSDictionary* item = (NSDictionary*) [self.imageList objectAtIndex:index];
     NSString* imageLink = [item objectForKey:@"thumb"];
     NSURL *imageURL = [NSURL URLWithString:imageLink];
+    
+//    NSString* imageLink1 = [item objectForKey:@"image"];
+//    NSURL *imageURL1 = [NSURL URLWithString:imageLink1];
+//    
+//    UIImageView* tempImage = [[UIImageView alloc] init];
+//    [tempImage setImageWithURL:imageURL1 placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
     return imageURL;
 }

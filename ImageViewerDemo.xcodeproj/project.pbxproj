@@ -56,6 +56,8 @@
 		17B91B3918628DC00018D4E2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17B91B3718628DC00018D4E2 /* InfoPlist.strings */; };
 		17B91B3B18628DC00018D4E2 /* ImageViewerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B91B3A18628DC00018D4E2 /* ImageViewerDemoTests.m */; };
 		17C235281867D5CD003C0446 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17C235271867D5CD003C0446 /* QuartzCore.framework */; };
+		B2F7F47F1871B94100D2ED95 /* media_app.png in Resources */ = {isa = PBXBuildFile; fileRef = B2F7F47D1871B94100D2ED95 /* media_app.png */; };
+		B2F7F4801871B94100D2ED95 /* media_app@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B2F7F47E1871B94100D2ED95 /* media_app@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -160,6 +162,8 @@
 		17B91B3818628DC00018D4E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17B91B3A18628DC00018D4E2 /* ImageViewerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewerDemoTests.m; sourceTree = "<group>"; };
 		17C235271867D5CD003C0446 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B2F7F47D1871B94100D2ED95 /* media_app.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = media_app.png; sourceTree = "<group>"; };
+		B2F7F47E1871B94100D2ED95 /* media_app@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "media_app@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +240,8 @@
 		17A46AB5186D6FB90005475C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B2F7F47D1871B94100D2ED95 /* media_app.png */,
+				B2F7F47E1871B94100D2ED95 /* media_app@2x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -480,7 +486,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2F7F47F1871B94100D2ED95 /* media_app.png in Resources */,
 				17B91B2818628DC00018D4E2 /* Images.xcassets in Resources */,
+				B2F7F4801871B94100D2ED95 /* media_app@2x.png in Resources */,
 				17B91B1A18628DC00018D4E2 /* InfoPlist.strings in Resources */,
 				17B91B2318628DC00018D4E2 /* Main.storyboard in Resources */,
 			);
