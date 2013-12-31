@@ -15,20 +15,27 @@
 #import "AlbumViewController.h"
 
 
-@interface ViewController ()
+@interface ListAlbumsController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 
-@implementation ViewController
+@implementation ListAlbumsController
+
+- (void) adjustContentInsetForLegacy {
+    self.collectionView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0, 0.0);
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    typeof (&*self) __weak weakSelf = self;
     [self.collectionView addPullToRefreshWithActionHandler:^{
         
         //TODO: reload data
+        [weakSelf.dataSource getImageLinksFromServer];
         
     }];
     
@@ -95,6 +102,17 @@
 - (void) finishGetImageLinksFromServer
 {
     [self.collectionView reloadData];
+    [self.collectionView.pullToRefreshView stopAnimating];
+    
+    [self performSelector:@selector(logPosition) withObject:nil afterDelay:2.0];
+}
+
+- (void) logPosition
+{
+    NSLog(@"VIEW POSITION Y : %f", self.view.frame.origin.y);
+    NSLog(@"COLLECTION VIEW POSITION Y : %f", self.collectionView.contentOffset.y);
+
+
 }
 
 

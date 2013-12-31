@@ -22,16 +22,30 @@
     // Override point for customization after application launch.
     self.dataSource = [[ListAlbumsSource alloc] init];
 
+    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    ViewController *viewController = (ViewController *)[navigationController.viewControllers objectAtIndex:0];
+    ListAlbumsController *viewController = (ListAlbumsController *)[navigationController.viewControllers objectAtIndex:0];
     viewController.dataSource = self.dataSource;
     
     viewController.dataSource.delegate = viewController;
     [viewController.dataSource getImageLinksFromServer];
     
     navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    navigationController.navigationBar.translucent = YES;
+    //navigationController.navigationBar.translucent = YES;
+
+    
+    [self.window makeKeyAndVisible];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
+    {
+        [viewController setWantsFullScreenLayout:YES];
+       // [viewController adjustContentInsetForLegacy];
+    }
+    else
+    {
+         navigationController.navigationBar.translucent = YES;
+    }
+
 
     
     return YES;

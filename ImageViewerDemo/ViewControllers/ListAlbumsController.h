@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "ListAlbumsSource.h"
 
-@interface ViewController : UICollectionViewController <ListAlbumsSourceDelegate>
+@interface ListAlbumsController : UICollectionViewController <ListAlbumsSourceDelegate>
 
 @property (nonatomic, strong) ListAlbumsSource *dataSource;
 
+- (void) adjustContentInsetForLegacy;
 @end
