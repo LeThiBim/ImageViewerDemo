@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AFHTTPRequestOperation.h"
 
 @interface APIService : NSObject
 
-+ (void) getListAlbumWithSuccessBlock:(void(^)(NSURLSessionDataTask * __unused task, id JSON))successBlock
++ (void) getListAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                            faildBlock:(void(^)(NSError *error))faildBlock;
 
 
 + (void) getListImageInAlbumWithAlbumId:(NSString*) albumId
-                           successBlock:(void(^)(NSURLSessionDataTask * __unused task, id JSON))successBlock
+                           successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                              faildBlock:(void(^)(NSError *error))faildBlock;
 
 @end

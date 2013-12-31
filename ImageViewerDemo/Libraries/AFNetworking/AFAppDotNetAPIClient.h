@@ -22,8 +22,9 @@
 
 #import <Foundation/Foundation.h>
 #import "AFHTTPSessionManager.h"
+#import "AFHTTPRequestOperationManager.h"
 
-@interface AFAppDotNetAPIClient : AFHTTPSessionManager
+@interface AFAppDotNetAPIClient : AFHTTPRequestOperationManager
 
 + (instancetype)sharedClient;
 

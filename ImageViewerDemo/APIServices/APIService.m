@@ -12,33 +12,35 @@
 
 @implementation APIService
 
-+ (void) getListAlbumWithSuccessBlock:(void(^)(NSURLSessionDataTask * __unused task, id JSON))successBlock
++ (void) getListAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                            faildBlock:(void(^)(NSError *error))faildBlock
 {
     [[AFAppDotNetAPIClient sharedClient] GET:[ServiceConfigs getAlbumUrl]
-                                  parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON)
+                                  parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         if (successBlock)
-             successBlock(task, JSON);
+         NSLog(@"LIST ALBUMS : %@", responseObject);
          
-     } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+         if (successBlock)
+             successBlock(operation, responseObject);
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
      }];
 
 }
 
 + (void) getListImageInAlbumWithAlbumId:(NSString*) albumId
-                           successBlock:(void(^)(NSURLSessionDataTask * __unused task, id JSON))successBlock
+                           successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                              faildBlock:(void(^)(NSError *error))faildBlock
 {
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs getImagesListOfAlbum], albumId]
-                                  parameters:nil success:^(NSURLSessionDataTask * __unused task, id JSON)
+                                  parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
          
          if (successBlock)
-             successBlock(task, JSON);
+             successBlock(operation, responseObject);
          
-     } failure:^(NSURLSessionDataTask *__unused task, NSError *error) {
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
      }];
 

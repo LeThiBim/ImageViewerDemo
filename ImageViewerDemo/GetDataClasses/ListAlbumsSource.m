@@ -196,9 +196,9 @@ Data Source to manage assets used by the app.
 - (void) getImageLinksFromServer
 {
         
-    [APIService getListAlbumWithSuccessBlock:^(NSURLSessionDataTask *task, id JSON) {
+    [APIService getListAlbumWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        self.imageList = JSON;
+        self.imageList = responseObject;
         if (self.delegate)
         {
             dispatch_async(dispatch_get_main_queue(),

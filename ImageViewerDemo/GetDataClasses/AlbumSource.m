@@ -74,9 +74,9 @@
 - (void) getImageLinksFromServer
 {
     [APIService getListImageInAlbumWithAlbumId:self.albumId
-                                  successBlock:^(NSURLSessionDataTask *task, id JSON) {
+                                  successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        self.imageList = [JSON objectForKey:@"pictures"];
+        self.imageList = [responseObject objectForKey:@"pictures"];
 
         if (self.delegate)
         {
