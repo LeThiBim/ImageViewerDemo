@@ -49,10 +49,10 @@
     
     self.totalHeight = 0;
     
-    UIEdgeInsets insets = UIEdgeInsetsMake(2, 2, 2, 2);
+    UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
     
     
-    int itemCount = [appDelegate.listAlbumSource.imageList count];
+    int itemCount = (int) [appDelegate.listAlbumSource.imageList count];
     
     NSLog(@"Total Item : %d", itemCount);
     
@@ -95,7 +95,7 @@
     if ([self.columnHeights count] >0)
     {
     
-        int longestColumnIndex = [self longestColumnIndex];
+        int longestColumnIndex = (int) [self longestColumnIndex];
         float contentHeight    = [[self.columnHeights objectAtIndex:longestColumnIndex] floatValue];
         contentSize.height     = contentHeight;
     }
@@ -118,7 +118,7 @@
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(2, 2, 2, 2);
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 #pragma mark - Private Methods
@@ -170,11 +170,11 @@
     if ([self.columnHeights count] == self.columnCount)
     {
     
-        int shortestColumnIndex = [self shortestColumnIndex];
+        int shortestColumnIndex = (int) [self shortestColumnIndex];
         
-        NSLog(@"SHORTEST COLUMN INDEX : %d", shortestColumnIndex);
+
+        positionX = 150*shortestColumnIndex + 5*shortestColumnIndex;
         
-        positionX = 150*shortestColumnIndex;
         positionY = 0;
         
         if ([self.columnHeights count] == self.columnCount)
@@ -186,7 +186,7 @@
     }
     else
     {
-        positionX = [self.columnHeights count]*150;
+        positionX = [self.columnHeights count]*150 + 5*[self.columnHeights count];
         positionY = 0;
         [self.columnHeights addObject:@(positionY + scaledHeight)];
     }

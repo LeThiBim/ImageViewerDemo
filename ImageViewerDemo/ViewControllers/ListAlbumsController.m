@@ -94,7 +94,6 @@
     
     NSString *text = [self.dataSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
-    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, 300, cell.frame.size.height);
     
     [cell.image setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
                placeholderImage:[UIImage imageNamed:@"media_app.png"]];
@@ -134,15 +133,6 @@
     [self.collectionView reloadData];
     [self.collectionView.pullToRefreshView stopAnimating];
     
-    [self performSelector:@selector(logPosition) withObject:nil afterDelay:2.0];
-}
-
-- (void) logPosition
-{
-    NSLog(@"VIEW POSITION Y : %f", self.view.frame.origin.y);
-    NSLog(@"COLLECTION VIEW POSITION Y : %f", self.collectionView.contentOffset.y);
-
-
 }
 
 
