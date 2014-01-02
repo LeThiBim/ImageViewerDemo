@@ -102,8 +102,6 @@ Data Source to manage assets used by the app.
 
 @interface ListAlbumsSource ()
 
-@property (nonatomic) NSDictionary *data;
-@property (nonatomic) NSArray* imageList;
 
 @end
 
@@ -112,7 +110,7 @@ Data Source to manage assets used by the app.
 - (instancetype) init {
     self = [super init];
     if (self) {
-           
+        
     }
     return self;
 }
@@ -121,6 +119,7 @@ Data Source to manage assets used by the app.
     
     if (self.imageList)
         return [self.imageList count];
+
     return 0;
 }
 
@@ -190,6 +189,38 @@ Data Source to manage assets used by the app.
     NSURL *imageURL     = [NSURL URLWithString:imageLink];
     
     return imageURL;
+}
+
+- (float) getScaledHeightOfImageAtIndexPath:(NSInteger) index
+{
+    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
+    
+    NSString* widthStr  = [item objectForKey:@"width"];
+    NSString* heightStr = [item objectForKey:@"height"];
+    
+    
+    float realWidth  = [widthStr floatValue];
+    float realHeight = [heightStr floatValue];
+    
+    float scaledHeight = realHeight*150/realWidth;
+    
+    return scaledHeight;
+    
+}
+
+- (float) getScaledHeightOfCellAtIndexPath:(NSInteger) index
+{
+    return ([self getScaledHeightOfImageAtIndexPath:index] + 21);
+}
+
+- (CGSize) getSizeForItemAtIndexPath:(NSInteger) index
+{
+    
+    float scaledWidth  = 150;
+    float scaledHeight = [self getScaledHeightOfCellAtIndexPath:index];
+    
+    return CGSizeMake(scaledWidth, scaledHeight);
+
 }
 
 

@@ -70,7 +70,6 @@
     return imageURL;
 }
 
-
 - (void) getImageLinksFromServer
 {
     [APIService getListImageInAlbumWithAlbumId:self.albumId

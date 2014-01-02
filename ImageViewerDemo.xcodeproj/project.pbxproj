@@ -42,6 +42,7 @@
 		17A46B08186D71140005475C /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AEA186D71140005475C /* UIImageView+WebCache.m */; };
 		17A46B09186D71140005475C /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */; };
 		17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */; };
+		17B7F8771874FAF6002ED94B /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */; };
 		17B91B1018628DC00018D4E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B0F18628DC00018D4E2 /* Foundation.framework */; };
 		17B91B1218628DC00018D4E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B1118628DC00018D4E2 /* CoreGraphics.framework */; };
 		17B91B1418628DC00018D4E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B1318628DC00018D4E2 /* UIKit.framework */; };
@@ -144,6 +145,8 @@
 		17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		17A46AEF186D71140005475C /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		17B7F8751874FAF6002ED94B /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
+		17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		17B91B0C18628DC00018D4E2 /* ImageViewerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B91B0F18628DC00018D4E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17B91B1118628DC00018D4E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -332,6 +335,15 @@
 			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
+		17B7F8741874FAF6002ED94B /* CustomLayout */ = {
+			isa = PBXGroup;
+			children = (
+				17B7F8751874FAF6002ED94B /* CustomCollectionViewLayout.h */,
+				17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */,
+			);
+			path = CustomLayout;
+			sourceTree = "<group>";
+		};
 		17B91B0318628DC00018D4E2 = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +378,7 @@
 		17B91B1518628DC00018D4E2 /* ImageViewerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				17B7F8741874FAF6002ED94B /* CustomLayout */,
 				17A46AB6186D71140005475C /* Libraries */,
 				17A46AB5186D6FB90005475C /* Resources */,
 				17A46A9E186D5E2C0005475C /* ViewControllers */,
@@ -512,6 +525,7 @@
 				17A46AFF186D71140005475C /* SDWebImageDecoder.m in Sources */,
 				17A46AF2186D71140005475C /* AFHTTPRequestOperation.m in Sources */,
 				17A46AFB186D71140005475C /* MKAnnotationView+WebCache.m in Sources */,
+				17B7F8771874FAF6002ED94B /* CustomCollectionViewLayout.m in Sources */,
 				17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */,
 				17A46A98186D5DE80005475C /* CustomCellBackground.m in Sources */,
 				17A46AA6186D5E2C0005475C /* ImageViewController.m in Sources */,

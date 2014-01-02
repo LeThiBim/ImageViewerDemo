@@ -13,6 +13,7 @@
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AlbumViewController.h"
+#import "CustomCollectionViewLayout.h"
 
 
 @interface ListAlbumsController ()
@@ -39,12 +40,34 @@
         
     }];
     
+    self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] init];
 
 }
 
 - (void) viewDidAppear:(BOOL)animated
 {
  //   [self.collectionView triggerPullToRefresh];
+    
+    [self updateLayout];
+}
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+                                         duration:(NSTimeInterval)duration {
+    [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation
+                                            duration:duration];
+    [self updateLayout];
+    
+}
+
+- (void) updateLayout
+{
+    CustomCollectionViewLayout* layout = (CustomCollectionViewLayout*) self.collectionView.collectionViewLayout;
+    
+    layout.contentSizeWith  = self.collectionView.bounds.size.width;
+    layout.columnCount      = self.collectionView.bounds.size.width/150;
+    
+    [layout invalidateLayout];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,8 +91,11 @@
         cell.label.textColor = [UIColor grayColor];
     }
     
+    
     NSString *text = [self.dataSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
+    cell.frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, 300, cell.frame.size.height);
+    
     [cell.image setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
                placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
@@ -94,6 +120,10 @@
         [albumViewController.albumSource getImageLinksFromServer];
         
     }
+}
+
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return NO;
 }
 
 

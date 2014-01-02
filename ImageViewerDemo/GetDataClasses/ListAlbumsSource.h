@@ -105,6 +105,9 @@ Data Source to manage assets used by the app.
 
 @interface ListAlbumsSource : NSObject <UIStateRestoring>
 
+@property (nonatomic) NSDictionary *data;
+@property (nonatomic) NSArray* imageList;
+
 @property (assign, nonatomic) id <ListAlbumsSourceDelegate> delegate;
 
 - (NSInteger) numberOfItemsInSection:(NSInteger)section;
@@ -117,5 +120,9 @@ Data Source to manage assets used by the app.
 - (NSString*) getTitleOfIndex:(NSInteger) index;
 - (NSURL*) getImageURLOfIndex:(NSInteger)index;
 - (NSString*) getAlbumId:(NSInteger) index;
+
+- (float) getScaledHeightOfImageAtIndexPath:(NSInteger) index;
+- (CGSize) getSizeForItemAtIndexPath:(NSInteger) index;
+
 
 @end

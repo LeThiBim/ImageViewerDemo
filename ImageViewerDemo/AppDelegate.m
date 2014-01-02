@@ -20,13 +20,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    self.dataSource = [[ListAlbumsSource alloc] init];
+    self.listAlbumSource = [[ListAlbumsSource alloc] init];
 
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
 
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     ListAlbumsController *viewController = (ListAlbumsController *)[navigationController.viewControllers objectAtIndex:0];
-    viewController.dataSource = self.dataSource;
+    viewController.dataSource = self.listAlbumSource;
     
     viewController.dataSource.delegate = viewController;
     [viewController.dataSource getImageLinksFromServer];
