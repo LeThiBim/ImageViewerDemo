@@ -11,7 +11,6 @@
 @interface CustomCollectionViewLayout : UICollectionViewLayout
 
 @property (nonatomic, strong) NSMutableArray *itemAttributes;
-@property (assign, nonatomic) float totalHeight;
 
 @property (assign, nonatomic) float contentSizeWith;
 

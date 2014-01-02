@@ -47,10 +47,8 @@
    
     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     
-    self.totalHeight = 0;
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
-    
     
     int itemCount = (int) [appDelegate.listAlbumSource.imageList count];
     
@@ -161,10 +159,14 @@
     AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
     CGSize size = [appDelegate.listAlbumSource getSizeForItemAtIndexPath:index];
     
+    
+    float interItemSpacing = (self.contentSizeWith - 150*self.columnCount)/(self.columnCount + 1);
+    
+    
     float scaledWidth  = size.width;
     float scaledHeight = size.height;
     
-    float positionX    = 0;
+    float positionX    = interItemSpacing;
     float positionY    = 0;
     
     if ([self.columnHeights count] == self.columnCount)
@@ -173,12 +175,12 @@
         int shortestColumnIndex = (int) [self shortestColumnIndex];
         
 
-        positionX = 150*shortestColumnIndex + 5*shortestColumnIndex;
+        positionX = 150*shortestColumnIndex + (shortestColumnIndex + 1)*interItemSpacing;
         
         positionY = 0;
         
         if ([self.columnHeights count] == self.columnCount)
-            positionY = [[self.columnHeights objectAtIndex:shortestColumnIndex] floatValue];
+            positionY = [[self.columnHeights objectAtIndex:shortestColumnIndex] floatValue] + interItemSpacing;
             
         
         self.columnHeights[shortestColumnIndex] = @(positionY + scaledHeight);
@@ -186,8 +188,8 @@
     }
     else
     {
-        positionX = [self.columnHeights count]*150 + 5*[self.columnHeights count];
-        positionY = 0;
+        positionX = [self.columnHeights count]*150 + ([self.columnHeights count] + 1)*interItemSpacing;
+        positionY = interItemSpacing;
         [self.columnHeights addObject:@(positionY + scaledHeight)];
     }
     

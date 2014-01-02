@@ -217,7 +217,7 @@ Data Source to manage assets used by the app.
 {
     
     float scaledWidth  = 150;
-    float scaledHeight = [self getScaledHeightOfCellAtIndexPath:index];
+    float scaledHeight = [self getScaledHeightOfCellAtIndexPath:index] + 5;
     
     return CGSizeMake(scaledWidth, scaledHeight);
 
