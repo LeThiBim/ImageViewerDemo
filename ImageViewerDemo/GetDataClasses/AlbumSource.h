@@ -31,9 +31,6 @@
 
 - (void) getImageLinksFromServer;
 
-- (float) getScaledHeightOfImageAtIndexPath:(NSInteger) index;
-- (float) getScaledWidthOfImageWithScaledHeight:(float) scaledHeight AtIndexPath:(NSInteger) index;
-
-- (BOOL) checkIfWidthGreaterThanHeightAtIndexPath:(NSInteger) index;
+- (CGSize) getSuitableScaledSizeOfItemAtIndex:(NSInteger) index FromGeneralScaledWith:(float) generalScaledWidth AndGeneralScaledHeight:(float) generalScaledHeight;
 
 @end

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AlbumSource.h"
 
-@interface ImageViewController : UIViewController
+@interface ImageViewController : UIViewController <UIScrollViewDelegate>
 
 @property (assign, nonatomic) NSInteger currentImageIndex;
 @property (strong, nonatomic) AlbumSource* albumSource;

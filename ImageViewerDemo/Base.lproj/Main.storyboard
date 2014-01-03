@@ -166,22 +166,22 @@
         <scene sceneID="7il-U2-Qlc">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="co1-je-nbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController wantsFullScreenLayout="YES" id="BJJ-Tx-1g6" customClass="ImageViewController" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="BJJ-Tx-1g6" customClass="ImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mRY-IS-D84"/>
                         <viewControllerLayoutGuide type="bottom" id="TcX-9C-abk"/>
                     </layoutGuides>
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="hpq-ql-Xid">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB0-AU-MlY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB0-AU-MlY">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.65098039220000004" green="0.039215686270000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="b69-3u-xNQ">
-                                <rect key="frame" x="0.0" y="460" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Like" id="aEv-Lq-GXe"/>
@@ -201,7 +201,7 @@
                             <constraint firstItem="b69-3u-xNQ" firstAttribute="leading" secondItem="QB0-AU-MlY" secondAttribute="leading" id="qha-JE-fMp"/>
                         </constraints>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" title="Image" id="Y7F-uZ-aQm"/>
                     <connections>
                         <outlet property="scrollView" destination="QB0-AU-MlY" id="uDk-ZE-Lf7"/>

@@ -76,62 +76,7 @@
     NSString* imageLink = [item objectForKey:@"image"];
     NSURL *imageURL = [NSURL URLWithString:imageLink];
     
-    //    NSString* imageLink1 = [item objectForKey:@"image"];
-    //    NSURL *imageURL1 = [NSURL URLWithString:imageLink1];
-    //
-    //    UIImageView* tempImage = [[UIImageView alloc] init];
-    //    [tempImage setImageWithURL:imageURL1 placeholderImage:[UIImage imageNamed:@"media_app.png"]];
-    
     return imageURL;
-}
-
-- (float) getScaledHeightOfImageAtIndexPath:(NSInteger) index
-{
-    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
-    
-    NSString* widthStr  = [item objectForKey:@"width"];
-    NSString* heightStr = [item objectForKey:@"height"];
-    
-    
-    float realWidth  = [widthStr floatValue];
-    float realHeight = [heightStr floatValue];
-    
-    float scaledHeight = realHeight*320/realWidth;
-    
-    return scaledHeight;
-    
-}
-
-- (float) getScaledWidthOfImageWithScaledHeight:(float) scaledHeight AtIndexPath:(NSInteger) index
-{
-    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
-    
-    NSString* widthStr  = [item objectForKey:@"width"];
-    NSString* heightStr = [item objectForKey:@"height"];
-    
-    
-    float realWidth  = [widthStr floatValue];
-    float realHeight = [heightStr floatValue];
-    
-    float scaledWidth = realWidth*scaledHeight/realHeight;
-    
-    return scaledWidth;
-    
-}
-
-- (BOOL) checkIfWidthGreaterThanHeightAtIndexPath:(NSInteger) index
-
-{
-    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
-    
-    NSString* widthStr  = [item objectForKey:@"width"];
-    NSString* heightStr = [item objectForKey:@"height"];
-    
-    float realWidth  = [widthStr floatValue];
-    float realHeight = [heightStr floatValue];
-
-    return ( realWidth > realHeight ? YES : NO );
-
 }
 
 - (void) getImageLinksFromServer
@@ -153,6 +98,32 @@
         
     }];
     
+}
+
+- (CGSize) getSuitableScaledSizeOfItemAtIndex:(NSInteger) index FromGeneralScaledWith:(float) generalScaledWidth AndGeneralScaledHeight:(float) generalScaledHeight
+{
+    CGSize sizeResult = CGSizeZero;
+    
+    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
+    
+    NSString* widthStr  = [item objectForKey:@"width"];
+    NSString* heightStr = [item objectForKey:@"height"];
+    
+    float realWidth  = [widthStr floatValue];
+    float realHeight = [heightStr floatValue];
+    
+    
+    sizeResult.width  = generalScaledWidth;
+    sizeResult.height = realHeight*generalScaledWidth/realWidth;
+    
+    if (sizeResult.height > generalScaledHeight)
+    {
+        sizeResult.width  = realWidth*generalScaledHeight/realHeight;
+        sizeResult.height = generalScaledHeight;
+    }
+    
+    return sizeResult;
+
 }
 
 
