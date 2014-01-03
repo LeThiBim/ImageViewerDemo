@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AlbumSource.h"
 
 @interface ImageViewController : UIViewController
 
-@property (assign, nonatomic) NSInteger* currentImage;
-@property (strong, nonatomic) NSArray* imageList;
+@property (assign, nonatomic) NSInteger currentImageIndex;
+@property (strong, nonatomic) AlbumSource* albumSource;
 
 
 - (void) loadImages;

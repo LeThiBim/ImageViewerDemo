@@ -85,7 +85,6 @@
 - (CGSize)collectionViewContentSize
 {
     
-    
     CGSize contentSize = CGSizeZero;
     
     contentSize.width      = self.contentSizeWith;
@@ -98,7 +97,7 @@
         contentSize.height     = contentHeight;
     }
     
-    NSLog(@"TOTAL HEIGHT : %f", contentSize.height );
+    NSLog(@"TOTAL HEIGHT : %f", contentSize.height);
     
     return contentSize;
 }

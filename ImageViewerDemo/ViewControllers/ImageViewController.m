@@ -10,11 +10,13 @@
 #import "ImageViewController.h"
 #import "UIImageView+WebCache.h"
 
-#define IMAGE_WIDTH         320
+#define IMAGE_WIDTH         [[UIScreen mainScreen] applicationFrame].size.width
 #define IMAGE_HEIGHT        480
 
 @interface ImageViewController ()
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIScrollView* scrollView;
+@property (strong, nonatomic) NSMutableArray* imageList;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
@@ -43,28 +45,55 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - SOME FUNCTIONS TO HANDLE ROTATE EVENT
+
+- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+   
+   // CGRect bounds = [UIScreen mainScreen].bounds;
+   // self.scrollView.bounds = bounds;
+    
+    [self loadImages];
+}
+
+
+
 - (void) loadImages
 {
-    for (int i = 0; i < [self.imageList count]; i++)
+
+    self.imageList = [[NSMutableArray alloc] init];
+    
+    float generalScaledHeight = [[UIScreen mainScreen] applicationFrame].size.height - 64 - 25;
+    float generalScaledWidth  = IMAGE_WIDTH;
+
+    
+    for (int i = 0; i < [self.albumSource.imageList count]; i++)
     {
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(i*IMAGE_WIDTH, 480 - 568, IMAGE_WIDTH, IMAGE_HEIGHT)];
+        UIImageView* imageView;
         
-        NSDictionary* item = (NSDictionary*) [self.imageList objectAtIndex:i];
-        NSString* imageLink = [item objectForKey:@"image"];
-        NSURL *imageURL = [NSURL URLWithString:imageLink];
+        if ([self.albumSource checkIfWidthGreaterThanHeightAtIndexPath:i])
+        {
+            float scaledHeight = [self.albumSource getScaledHeightOfImageAtIndexPath:i];
+
+            imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*IMAGE_WIDTH, 0, generalScaledWidth, scaledHeight)];
+            
+        }
+        else
+        {
+            float scaledWidth = [self.albumSource getScaledWidthOfImageWithScaledHeight:generalScaledWidth AtIndexPath:i];
+            
+            imageView = [[UIImageView alloc] initWithFrame:CGRectMake(i*IMAGE_WIDTH + (IMAGE_WIDTH - scaledWidth)/2, 0, scaledWidth, generalScaledHeight)];
+        }
         
-        NSLog(@"IMAGE URL : %@", imageLink);
+        [imageView setImageWithURL:[self.albumSource getLargeImageURLOfIndex:i] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
         
-        [imgView setImageWithURL:imageURL placeholderImage:[UIImage imageNamed:@"media_app.png"]];
+  
+        [self.scrollView addSubview:imageView];
         
-         NSLog(@"ImageView Y : %f", imgView.frame.origin.y);
-        
-        [self.scrollView addSubview:imgView];
+        [self.imageList addObject:imageView];
     }
     
-    [self.scrollView setContentSize:CGSizeMake(IMAGE_WIDTH*[self.imageList count], IMAGE_HEIGHT)];
-    //[self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-    
+    [self.scrollView setContentSize:CGSizeMake(IMAGE_WIDTH*[self.albumSource.imageList count], generalScaledHeight)];
+    [self.scrollView setContentOffset:CGPointMake(IMAGE_WIDTH*self.currentImageIndex, 0) animated:YES];
     [self.scrollView setPagingEnabled:YES];
 
 }

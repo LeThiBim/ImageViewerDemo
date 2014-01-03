@@ -61,9 +61,11 @@
 
     }
     
+    cell.tag = indexPath.row;
+    
     NSString *text = [self.albumSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
-    [cell.image setImageWithURL:[self.albumSource getImageURLOfIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
+    [cell.image setImageWithURL:[self.albumSource getThumbImageURLOfIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
     [cell scheduleMoveTitle];
     
@@ -75,7 +77,10 @@
     if ([[segue identifier] isEqualToString:@"ImageViewer"])
     {
         ImageViewController *imageViewController = [segue destinationViewController];
-        imageViewController.imageList = self.albumSource.imageList;
+        imageViewController.albumSource = self.albumSource;
+        
+        UICollectionViewCell* selectedCell = (UICollectionViewCell*) sender;
+        imageViewController.currentImageIndex = selectedCell.tag;
     }
 }
 
@@ -84,7 +89,10 @@
 
 - (void) finishGetImageLinksFromServer
 {
-    [self.collectionView reloadData];
+    if (self.collectionView)
+    {
+        [self.collectionView reloadData];
+    }
 }
 
 

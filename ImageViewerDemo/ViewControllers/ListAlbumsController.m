@@ -130,8 +130,11 @@
 
 - (void) finishGetImageLinksFromServer
 {
-    [self.collectionView reloadData];
-    [self.collectionView.pullToRefreshView stopAnimating];
+    if (self.collectionView)
+    {
+        [self.collectionView reloadData];
+        [self.collectionView.pullToRefreshView stopAnimating];
+    }
     
 }
 

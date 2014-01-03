@@ -55,7 +55,7 @@
     
 }
 
-- (NSURL*) getImageURLOfIndex:(NSInteger)index
+- (NSURL*) getThumbImageURLOfIndex:(NSInteger)index
 {
     NSDictionary* item = (NSDictionary*) [self.imageList objectAtIndex:index];
     NSString* imageLink = [item objectForKey:@"thumb"];
@@ -68,6 +68,70 @@
 //    [tempImage setImageWithURL:imageURL1 placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
     return imageURL;
+}
+
+- (NSURL*) getLargeImageURLOfIndex:(NSInteger)index
+{
+    NSDictionary* item = (NSDictionary*) [self.imageList objectAtIndex:index];
+    NSString* imageLink = [item objectForKey:@"image"];
+    NSURL *imageURL = [NSURL URLWithString:imageLink];
+    
+    //    NSString* imageLink1 = [item objectForKey:@"image"];
+    //    NSURL *imageURL1 = [NSURL URLWithString:imageLink1];
+    //
+    //    UIImageView* tempImage = [[UIImageView alloc] init];
+    //    [tempImage setImageWithURL:imageURL1 placeholderImage:[UIImage imageNamed:@"media_app.png"]];
+    
+    return imageURL;
+}
+
+- (float) getScaledHeightOfImageAtIndexPath:(NSInteger) index
+{
+    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
+    
+    NSString* widthStr  = [item objectForKey:@"width"];
+    NSString* heightStr = [item objectForKey:@"height"];
+    
+    
+    float realWidth  = [widthStr floatValue];
+    float realHeight = [heightStr floatValue];
+    
+    float scaledHeight = realHeight*320/realWidth;
+    
+    return scaledHeight;
+    
+}
+
+- (float) getScaledWidthOfImageWithScaledHeight:(float) scaledHeight AtIndexPath:(NSInteger) index
+{
+    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
+    
+    NSString* widthStr  = [item objectForKey:@"width"];
+    NSString* heightStr = [item objectForKey:@"height"];
+    
+    
+    float realWidth  = [widthStr floatValue];
+    float realHeight = [heightStr floatValue];
+    
+    float scaledWidth = realWidth*scaledHeight/realHeight;
+    
+    return scaledWidth;
+    
+}
+
+- (BOOL) checkIfWidthGreaterThanHeightAtIndexPath:(NSInteger) index
+
+{
+    NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
+    
+    NSString* widthStr  = [item objectForKey:@"width"];
+    NSString* heightStr = [item objectForKey:@"height"];
+    
+    float realWidth  = [widthStr floatValue];
+    float realHeight = [heightStr floatValue];
+
+    return ( realWidth > realHeight ? YES : NO );
+
 }
 
 - (void) getImageLinksFromServer

@@ -25,8 +25,15 @@
 
 - (NSInteger)numberOfItemsInSection:(NSInteger)section;
 - (NSString*)       getTitleOfIndex:(NSInteger) index;
-- (NSURL*)       getImageURLOfIndex:(NSInteger)index;
+
+- (NSURL*)       getThumbImageURLOfIndex:(NSInteger)index;
+- (NSURL*)       getLargeImageURLOfIndex:(NSInteger)index;
 
 - (void) getImageLinksFromServer;
+
+- (float) getScaledHeightOfImageAtIndexPath:(NSInteger) index;
+- (float) getScaledWidthOfImageWithScaledHeight:(float) scaledHeight AtIndexPath:(NSInteger) index;
+
+- (BOOL) checkIfWidthGreaterThanHeightAtIndexPath:(NSInteger) index;
 
 @end

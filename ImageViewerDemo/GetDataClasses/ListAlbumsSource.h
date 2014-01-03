@@ -115,6 +115,7 @@ Data Source to manage assets used by the app.
 - (NSString *) titleForIdentifier:(NSString *)identifier;
 - (UIImage *) thumbnailForIdentifier:(NSString *)identifier;
 - (UIImage *) imageForIdentifier:(NSString *)identifier;
+
 - (void) getImageLinksFromServer;
 
 - (NSString*) getTitleOfIndex:(NSInteger) index;
