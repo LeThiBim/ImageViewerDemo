@@ -175,7 +175,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB0-AU-MlY">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB0-AU-MlY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.65098039220000004" green="0.039215686270000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,14 +191,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="b69-3u-xNQ" firstAttribute="top" secondItem="QB0-AU-MlY" secondAttribute="bottom" id="9YN-Xa-ojT"/>
+                            <constraint firstItem="QB0-AU-MlY" firstAttribute="bottom" secondItem="b69-3u-xNQ" secondAttribute="bottom" id="CxC-XB-NSg"/>
                             <constraint firstItem="b69-3u-xNQ" firstAttribute="leading" secondItem="hpq-ql-Xid" secondAttribute="leading" id="KDL-3v-oCz"/>
                             <constraint firstAttribute="bottom" secondItem="b69-3u-xNQ" secondAttribute="bottom" id="TYm-1k-MQ0"/>
-                            <constraint firstItem="b69-3u-xNQ" firstAttribute="trailing" secondItem="QB0-AU-MlY" secondAttribute="trailing" id="YWL-aV-5Iy"/>
                             <constraint firstAttribute="trailing" secondItem="b69-3u-xNQ" secondAttribute="trailing" id="cb5-RA-Mes"/>
                             <constraint firstItem="QB0-AU-MlY" firstAttribute="top" secondItem="hpq-ql-Xid" secondAttribute="top" id="egK-qb-BcT"/>
-                            <constraint firstItem="b69-3u-xNQ" firstAttribute="top" secondItem="QB0-AU-MlY" secondAttribute="bottom" id="jg0-bq-Ob8"/>
-                            <constraint firstItem="b69-3u-xNQ" firstAttribute="leading" secondItem="QB0-AU-MlY" secondAttribute="leading" id="qha-JE-fMp"/>
+                            <constraint firstItem="QB0-AU-MlY" firstAttribute="leading" secondItem="b69-3u-xNQ" secondAttribute="leading" id="hFx-Kp-deJ"/>
+                            <constraint firstItem="QB0-AU-MlY" firstAttribute="trailing" secondItem="b69-3u-xNQ" secondAttribute="trailing" id="say-yx-Mds"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
