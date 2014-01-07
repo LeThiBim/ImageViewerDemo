@@ -144,7 +144,6 @@
                                 <connections>
                                     <outlet property="image" destination="PuA-XM-ozJ" id="Tnz-36-avj"/>
                                     <outlet property="label" destination="oz4-EG-cWC" id="o0y-np-ilk"/>
-                                    <segue destination="BJJ-Tx-1g6" kind="push" identifier="ImageViewer" id="v5h-L7-BvV"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -161,54 +160,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ipQ-rP-aAd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1504" y="85"/>
-        </scene>
-        <!--Image View Controller - Image-->
-        <scene sceneID="7il-U2-Qlc">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="co1-je-nbF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController autoresizesArchivedViewToFullSize="NO" wantsFullScreenLayout="YES" automaticallyAdjustsScrollViewInsets="NO" id="BJJ-Tx-1g6" customClass="ImageViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mRY-IS-D84"/>
-                        <viewControllerLayoutGuide type="bottom" id="TcX-9C-abk"/>
-                    </layoutGuides>
-                    <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="hpq-ql-Xid">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB0-AU-MlY">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.65098039220000004" green="0.039215686270000001" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                            </scrollView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="b69-3u-xNQ">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Like" id="aEv-Lq-GXe"/>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="QB0-AU-MlY" firstAttribute="bottom" secondItem="b69-3u-xNQ" secondAttribute="bottom" id="CxC-XB-NSg"/>
-                            <constraint firstItem="b69-3u-xNQ" firstAttribute="leading" secondItem="hpq-ql-Xid" secondAttribute="leading" id="KDL-3v-oCz"/>
-                            <constraint firstAttribute="bottom" secondItem="b69-3u-xNQ" secondAttribute="bottom" id="TYm-1k-MQ0"/>
-                            <constraint firstAttribute="trailing" secondItem="b69-3u-xNQ" secondAttribute="trailing" id="cb5-RA-Mes"/>
-                            <constraint firstItem="QB0-AU-MlY" firstAttribute="top" secondItem="hpq-ql-Xid" secondAttribute="top" id="egK-qb-BcT"/>
-                            <constraint firstItem="QB0-AU-MlY" firstAttribute="leading" secondItem="b69-3u-xNQ" secondAttribute="leading" id="hFx-Kp-deJ"/>
-                            <constraint firstItem="QB0-AU-MlY" firstAttribute="trailing" secondItem="b69-3u-xNQ" secondAttribute="trailing" id="say-yx-Mds"/>
-                        </constraints>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
-                    <navigationItem key="navigationItem" title="Image" id="Y7F-uZ-aQm"/>
-                    <connections>
-                        <outlet property="scrollView" destination="QB0-AU-MlY" id="uDk-ZE-Lf7"/>
-                        <outlet property="toolBar" destination="b69-3u-xNQ" id="Ned-yy-xQu"/>
-                    </connections>
-                </viewController>
-            </objects>
-            <point key="canvasLocation" x="322" y="1025"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
