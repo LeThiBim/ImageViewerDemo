@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import "ListAlbumsSource.h"
+#import "ListAlbumsController.h"
+#import "MSNavigationPaneViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, readwrite) ListAlbumsSource *listAlbumSource;
 
+@property (strong, nonatomic) UINavigationController* listAlbumController;
 
-
+@property (strong, nonatomic) MSNavigationPaneViewController *navigationPaneViewController;
 @end

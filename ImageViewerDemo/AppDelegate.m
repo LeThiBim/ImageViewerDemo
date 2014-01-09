@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ListAlbumsSource.h"
 #import "ListAlbumsController.h"
+#import "MasterViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,12 +20,29 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+ 
+
+    self.navigationPaneViewController = (MSNavigationPaneViewController *)self.window.rootViewController;
+
+    
+    MasterViewController *masterViewController = (MasterViewController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
+
+
+    masterViewController.navigationPaneViewController = self.navigationPaneViewController;
+    self.navigationPaneViewController.masterViewController = masterViewController;
+    
+
+    
+//=================================================================================================
+
+    
     // Override point for customization after application launch.
     self.listAlbumSource = [[ListAlbumsSource alloc] init];
-
+    
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-
-    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    
+    UINavigationController *navigationController = (UINavigationController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"ListAlbumsNavigationController"];
+    
     ListAlbumsController *viewController = (ListAlbumsController *)[navigationController.viewControllers objectAtIndex:0];
     viewController.dataSource = self.listAlbumSource;
     
@@ -32,20 +50,21 @@
     [viewController.dataSource getImageLinksFromServer];
     
     navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    //navigationController.navigationBar.translucent = YES;
-
+    
     
     [self.window makeKeyAndVisible];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
     {
         [viewController setWantsFullScreenLayout:YES];
-       // [viewController adjustContentInsetForLegacy];
+
     }
     else
     {
-         navigationController.navigationBar.translucent = YES;
+        navigationController.navigationBar.translucent = YES;
     }
 
+
+    [self.navigationPaneViewController setPaneViewController:navigationController animated:YES completion:nil];
 
     
     return YES;

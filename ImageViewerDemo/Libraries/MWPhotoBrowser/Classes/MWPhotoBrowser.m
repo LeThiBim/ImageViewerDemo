@@ -1223,7 +1223,8 @@
         } else {
             
             // Status bar and nav bar positioning
-            if (self.wantsFullScreenLayout) {
+            if (self.wantsFullScreenLayout)
+            {
                 
                 // Need to get heights and set nav bar position to overcome display issues
                 
@@ -1245,7 +1246,10 @@
                 
                 // Set navigation bar frame
                 CGRect navBarFrame = self.navigationController.navigationBar.frame;
-                navBarFrame.origin.y = statusBarHeight;
+                
+                if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
+                    navBarFrame.origin.y = statusBarHeight;
+                
                 self.navigationController.navigationBar.frame = navBarFrame;
                 
             }
