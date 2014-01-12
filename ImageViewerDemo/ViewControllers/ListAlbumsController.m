@@ -33,6 +33,7 @@
     [super viewDidLoad];
     
     typeof (&*self) __weak weakSelf = self;
+    
     [self.collectionView addPullToRefreshWithActionHandler:^{
         
         //TODO: reload data
@@ -46,8 +47,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
- //   [self.collectionView triggerPullToRefresh];
-    
+
     [self updateLayout];
 }
 

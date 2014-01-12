@@ -11,6 +11,7 @@
 #import "MWPhotoBrowser.h"
 #import "MWPhotoBrowserPrivate.h"
 #import "SDImageCache.h"
+#import "ActivityViewCustomActivity.h"
 
 #define PADDING                  10
 #define ACTION_SHEET_OLD_ACTIONS 2000
@@ -1223,8 +1224,7 @@
         } else {
             
             // Status bar and nav bar positioning
-            if (self.wantsFullScreenLayout)
-            {
+            if (self.wantsFullScreenLayout) {
                 
                 // Need to get heights and set nav bar position to overcome display issues
                 
@@ -1384,8 +1384,32 @@
 #pragma mark - Actions
 
 - (void)actionButtonPressed:(id)sender {
-    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:nil applicationActivities:nil];
-    avc.restorationIdentifier = @"Activity";
+    
+    MWPhoto* photo = (MWPhoto*) [self photoAtIndex:self.currentIndex];
+
+    
+    
+    ActivityViewCustomActivity *ca = [[ActivityViewCustomActivity alloc]init];
+    ca.photo = photo;
+    
+    
+    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObject:photo.underlyingImage] applicationActivities:[NSArray arrayWithObject:ca]];
+    
+//    avc.excludedActivityTypes = @[UIActivityTypePostToWeibo,
+//                                         UIActivityTypeAssignToContact,UIActivityTypeCopyToPasteboard,
+//                                         UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypePostToTwitter,
+//                                         UIActivityTypePostToFacebook,UIActivityTypeMessage];
+//    
+//    avc.completionHandler = ^(NSString *activityType, BOOL completed)
+//    {
+//        NSLog(@" activityType: %@", activityType);
+//        NSLog(@" completed: %i", completed);
+//    };
+
+    ca.activityViewController = avc;
+    
+    
+    
     [self presentViewController:avc animated:YES completion:nil];
     
 //    if (_actionsSheet) {

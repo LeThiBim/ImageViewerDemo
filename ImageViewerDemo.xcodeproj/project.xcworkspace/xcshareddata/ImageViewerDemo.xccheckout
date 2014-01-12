@@ -5,59 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>7D6BCCF6-5516-46C7-8D62-623A7E7B57BB</string>
+	<string>A038A767-6B6E-4D48-A829-E3EBCE2F8BFD</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ImageViewerDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5EAF58BD-A6FF-4A9C-AEA0-0A50A6616478</key>
-		<string>http://svn.sgcharo.com/svn/dragon10_client/Tags/Dragron10_2013_10_29</string>
-		<key>BB9A661F-158F-4804-9954-FABD310490D9</key>
-		<string>https://github.com/LeThiBim/ImageViewerDemo.git</string>
+		<key>60983F25-D9C7-4C1E-8BE1-A4D9C471372F</key>
+		<string>https://github.com/LeThiBim/ImageViewerDemo</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>ios/TryUsingMWPhotoBrowser/ImageViewerDemo.xcodeproj/project.xcworkspace</string>
+	<string>ImageViewerDemo.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5EAF58BD-A6FF-4A9C-AEA0-0A50A6616478</key>
-		<string>../../../..</string>
-		<key>BB9A661F-158F-4804-9954-FABD310490D9</key>
+		<key>60983F25-D9C7-4C1E-8BE1-A4D9C471372F</key>
 		<string>../..</string>
 	</dict>
-	<key>IDESourceControlProjectRepositoryRootDictionary</key>
-	<dict>
-		<key>5EAF58BD-A6FF-4A9C-AEA0-0A50A6616478</key>
-		<string>http://svn.sgcharo.com/svn/dragon10_client</string>
-	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>http://svn.sgcharo.com/svn/dragon10_client/Tags/Dragron10_2013_10_29/ios/ImageViewerDemo/ImageViewerDemo.xcodeproj</string>
+	<string>https://github.com/LeThiBim/ImageViewerDemo</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5EAF58BD-A6FF-4A9C-AEA0-0A50A6616478</string>
+	<string>60983F25-D9C7-4C1E-8BE1-A4D9C471372F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BB9A661F-158F-4804-9954-FABD310490D9</string>
+			<string>60983F25-D9C7-4C1E-8BE1-A4D9C471372F</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ImageViewerDemo</string>
-		</dict>
-		<dict>
-			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
-			<string>Branches</string>
-			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
-			<string>public.vcs.subversion</string>
-			<key>IDESourceControlRepositoryTagsRelativeLocationKey</key>
-			<string>Tags</string>
-			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
-			<string>Trunk</string>
-			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5EAF58BD-A6FF-4A9C-AEA0-0A50A6616478</string>
-			<key>IDESourceControlWCCName</key>
-			<string>SourceCode_IOS</string>
+			<string>TryUsingMWPhotoBrowser_New</string>
 		</dict>
 	</array>
 </dict>

@@ -22,4 +22,9 @@
     return @"api/post/%@";
 }
 
++(NSString*) likePhoto
+{
+    return @"http://m.source.vn/api/photo/like/%@/%@";
+}
+
 @end

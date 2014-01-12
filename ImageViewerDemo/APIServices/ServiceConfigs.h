@@ -14,4 +14,6 @@
 
 +(NSString*) getAlbumUrl;
 +(NSString*) getImagesListOfAlbum;
+
++(NSString*) likePhoto;
 @end

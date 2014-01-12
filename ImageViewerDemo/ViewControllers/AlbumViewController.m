@@ -96,11 +96,12 @@
     
     for (int i = 0; i < [self.albumSource.imageList count]; i++)
     {
-        [self.photos addObject:[MWPhoto photoWithURL:[self.albumSource getLargeImageURLOfIndex:i]]];
+        MWPhoto* photo = [MWPhoto photoWithURL:[self.albumSource getLargeImageURLOfIndex:i]];
+        photo.photoId = [self.albumSource getTitleOfIndex:i];
+        
+        [self.photos addObject:photo];
     }
     
-   // [self.photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr//.com/3629/3339128908_7aecabc34b.jpg"]]];
-  //  [self.photos addObject:[MWPhoto photoWithURL:[NSURL URLWithString:@"http://farm4.static.flickr.com/3590/3329114220_5fbc5bc92b.jpg"]]];
     
     // Create browser
     MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
