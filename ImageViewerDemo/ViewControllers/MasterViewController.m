@@ -10,6 +10,7 @@
 #import "ListAlbumsController.h"
 #import "YourAlbumViewController.h"
 #import "ListAlbumsSource.h"
+#import "AppDelegate.h"
 
 @interface MasterViewController ()
 
@@ -148,10 +149,26 @@
             {
                 YourAlbumViewController *yourAlbumController = (YourAlbumViewController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"YourAlbumViewController"];
 
+                yourAlbumController.navigationPaneViewController = self.navigationPaneViewController;
                 
                 UINavigationController *paneNavigationViewController = [[UINavigationController alloc] initWithRootViewController:yourAlbumController];
                 
+                paneNavigationViewController.navigationBar.barStyle = UIBarStyleBlack;
+                
+                
+                if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
+                {
+                    [yourAlbumController setWantsFullScreenLayout:YES];
+                    
+                }
+                else
+                {
+                    paneNavigationViewController.navigationBar.translucent = YES;
+                }
+                
                 [self.navigationPaneViewController setPaneViewController:paneNavigationViewController animated:YES completion:nil];
+
+            
 
         
             }
@@ -160,14 +177,7 @@
                 
             case 2:
             {
-                YourAlbumViewController *yourAlbumController = (YourAlbumViewController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"YourAlbumViewController"];
                 
-                
-                UINavigationController *paneNavigationViewController = [[UINavigationController alloc] initWithRootViewController:yourAlbumController];
-                
-                [self.navigationPaneViewController setPaneViewController:paneNavigationViewController animated:YES completion:nil];
-                
-
             }
                 
                 break;
@@ -176,6 +186,9 @@
                 break;
         }
     }
+    
+    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    appDelegate.currentMainScreenIndex = indexPath.row;
     
     self.selectedIndex = indexPath.row;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];

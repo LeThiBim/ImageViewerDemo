@@ -56,11 +56,12 @@
                  successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                    faildBlock:(void(^)(NSError *error))faildBlock
 {
+    NSLog(@"URL LIKE PHOTO : %@", [NSString stringWithFormat:[ServiceConfigs likePhoto], [self getUUID], photoId]);
     
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs likePhoto], [self getUUID], photoId]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"LIKE PHOTO RESULT: %@", responseObject);
+         
          
          if (successBlock)
              successBlock(operation, responseObject);

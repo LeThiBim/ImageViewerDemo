@@ -2,3 +2,7 @@
 
 "ERROR"                    = "ERROR";
 "INTERNET_OFFLINE_MESSAGE" = "The Internet connection appears to be offline.";
+
+"SUCCESSFUL"                        = "SUCCESSFUL";
+"SUCCESSFUL_MESSAGE"                = "This photo is added to your album!!!";
+"SUCCESSFUL_ALREADY_MESSAGE"        = "This photo is already added to your album!!!";

@@ -19,4 +19,6 @@
 @property (strong, nonatomic) UINavigationController* listAlbumController;
 
 @property (strong, nonatomic) MSNavigationPaneViewController *navigationPaneViewController;
+
+@property (assign, nonatomic) int currentMainScreenIndex;
 @end

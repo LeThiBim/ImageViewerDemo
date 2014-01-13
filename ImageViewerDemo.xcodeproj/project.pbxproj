@@ -10,6 +10,15 @@
 		1717FAD418837EBD00C2C033 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAD618837EBD00C2C033 /* Localizable.strings */; };
 		1717FADF18838AA100C2C033 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1717FADE18838AA100C2C033 /* MasterViewController.m */; };
 		1717FAE21883939400C2C033 /* YourAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1717FAE11883939400C2C033 /* YourAlbumViewController.m */; };
+		1717FAF81883DF0000C2C033 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAEF1883DF0000C2C033 /* Default-568h@2x.png */; };
+		1717FAF91883DF0000C2C033 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF01883DF0000C2C033 /* Default.png */; };
+		1717FAFA1883DF0000C2C033 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF11883DF0000C2C033 /* Default@2x.png */; };
+		1717FAFB1883DF0000C2C033 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF21883DF0000C2C033 /* Icon-120.png */; };
+		1717FAFC1883DF0000C2C033 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF31883DF0000C2C033 /* Icon-80.png */; };
+		1717FAFD1883DF0000C2C033 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF41883DF0000C2C033 /* Icon-Small.png */; };
+		1717FAFE1883DF0000C2C033 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF51883DF0000C2C033 /* Icon-Small@2x.png */; };
+		1717FAFF1883DF0000C2C033 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF61883DF0000C2C033 /* Icon.png */; };
+		1717FB001883DF0000C2C033 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF71883DF0000C2C033 /* Icon@2x.png */; };
 		172E782C187A8EB100167BCF /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172E782B187A8EB100167BCF /* MWPhotoBrowser.bundle */; };
 		172E7832187A8F1A00167BCF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172E7831187A8F1A00167BCF /* ImageIO.framework */; };
 		172E7834187A8F2800167BCF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172E7833187A8F2800167BCF /* MessageUI.framework */; };
@@ -129,6 +138,15 @@
 		1717FADE18838AA100C2C033 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		1717FAE01883939400C2C033 /* YourAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourAlbumViewController.h; sourceTree = "<group>"; };
 		1717FAE11883939400C2C033 /* YourAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourAlbumViewController.m; sourceTree = "<group>"; };
+		1717FAEF1883DF0000C2C033 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1717FAF01883DF0000C2C033 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		1717FAF11883DF0000C2C033 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		1717FAF21883DF0000C2C033 /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
+		1717FAF31883DF0000C2C033 /* Icon-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-80.png"; sourceTree = "<group>"; };
+		1717FAF41883DF0000C2C033 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
+		1717FAF51883DF0000C2C033 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
+		1717FAF61883DF0000C2C033 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		1717FAF71883DF0000C2C033 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		172E782B187A8EB100167BCF /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		172E7831187A8F1A00167BCF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		172E7833187A8F2800167BCF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -335,6 +353,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1717FAEE1883DF0000C2C033 /* App'sImages */ = {
+			isa = PBXGroup;
+			children = (
+				1717FAEF1883DF0000C2C033 /* Default-568h@2x.png */,
+				1717FAF01883DF0000C2C033 /* Default.png */,
+				1717FAF11883DF0000C2C033 /* Default@2x.png */,
+				1717FAF21883DF0000C2C033 /* Icon-120.png */,
+				1717FAF31883DF0000C2C033 /* Icon-80.png */,
+				1717FAF41883DF0000C2C033 /* Icon-Small.png */,
+				1717FAF51883DF0000C2C033 /* Icon-Small@2x.png */,
+				1717FAF61883DF0000C2C033 /* Icon.png */,
+				1717FAF71883DF0000C2C033 /* Icon@2x.png */,
+			);
+			path = "App'sImages";
+			sourceTree = "<group>";
+		};
 		172E781F187A8CFD00167BCF /* MWPhotoBrowser */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,6 +571,7 @@
 		17A46AB5186D6FB90005475C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1717FAEE1883DF0000C2C033 /* App'sImages */,
 				B20A333018810BA100217ACC /* ActivityViewImages */,
 				17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */,
 				17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */,
@@ -831,18 +866,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				17A970D5187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png in Resources */,
+				1717FAFC1883DF0000C2C033 /* Icon-80.png in Resources */,
 				B2F7F47F1871B94100D2ED95 /* media_app.png in Resources */,
 				17B91B2818628DC00018D4E2 /* Images.xcassets in Resources */,
+				1717FAF91883DF0000C2C033 /* Default.png in Resources */,
+				1717FB001883DF0000C2C033 /* Icon@2x.png in Resources */,
 				1717FAD418837EBD00C2C033 /* Localizable.strings in Resources */,
+				1717FAFE1883DF0000C2C033 /* Icon-Small@2x.png in Resources */,
 				172E78A8187A903E00167BCF /* LICENSE in Resources */,
+				1717FAFF1883DF0000C2C033 /* Icon.png in Resources */,
 				172E789A187A903E00167BCF /* README.mdown in Resources */,
+				1717FAFD1883DF0000C2C033 /* Icon-Small.png in Resources */,
 				B2F7F4801871B94100D2ED95 /* media_app@2x.png in Resources */,
 				172E782C187A8EB100167BCF /* MWPhotoBrowser.bundle in Resources */,
+				1717FAFA1883DF0000C2C033 /* Default@2x.png in Resources */,
+				1717FAF81883DF0000C2C033 /* Default-568h@2x.png in Resources */,
 				17A970D6187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png in Resources */,
 				172E78A9187A903E00167BCF /* README.md in Resources */,
 				B20A333318810BA100217ACC /* like_icon.png in Resources */,
 				17B91B1A18628DC00018D4E2 /* InfoPlist.strings in Resources */,
 				B20A333418810BA100217ACC /* like_icon@2x.png in Resources */,
+				1717FAFB1883DF0000C2C033 /* Icon-120.png in Resources */,
 				17B91B2318628DC00018D4E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1071,7 +1115,8 @@
 		17B91B3F18628DC00018D4E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageViewerDemo/ImageViewerDemo-Prefix.pch";
 				INFOPLIST_FILE = "ImageViewerDemo/ImageViewerDemo-Info.plist";
@@ -1083,7 +1128,8 @@
 		17B91B4018628DC00018D4E2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageViewerDemo/ImageViewerDemo-Prefix.pch";
 				INFOPLIST_FILE = "ImageViewerDemo/ImageViewerDemo-Info.plist";

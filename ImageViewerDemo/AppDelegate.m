@@ -22,6 +22,8 @@
 {
  
 
+    _currentMainScreenIndex = 0;
+    
     self.navigationPaneViewController = (MSNavigationPaneViewController *)self.window.rootViewController;
 
     

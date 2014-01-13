@@ -55,23 +55,9 @@
     // This is where you can do anything you want, and is the whole reason for creating a custom
     // UIActivity
     
- //   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=Purple+Software&id=yourappid"]];
- //   [self activityDidFinish:YES];
-    if (_activityViewController)
+     if (_activityViewController)
     {
     
-        NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-        NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", self.photo.photoId]];
-        [UIImagePNGRepresentation(self.photo.underlyingImage) writeToFile:cachedImagePath atomically:YES];
-        
-        NSManagedObjectContext *managedObjectContext = [[DataService sharedInstance] managedObjectContext];
-    
-        IMAGE *image = (IMAGE*) [NSEntityDescription insertNewObjectForEntityForName:@"IMAGE" inManagedObjectContext:managedObjectContext];
-        
-        image.imageId = [NSString stringWithFormat:@"%@", self.photo.photoId];
-        image.imagePath = [NSString stringWithFormat:@"%@", cachedImagePath];
-        
-        [[DataService sharedInstance] saveContext];
         
         [APIService likePhotoWithPhotoId:self.photo.photoId successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
             
@@ -80,16 +66,38 @@
             
             if ([[result valueForKey:@"success"] intValue] == 1)
             {
+                NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+                NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", self.photo.photoId]];
+                [UIImagePNGRepresentation(self.photo.underlyingImage) writeToFile:cachedImagePath atomically:YES];
+                
+                NSManagedObjectContext *managedObjectContext = [[DataService sharedInstance] managedObjectContext];
+                
+                IMAGE *image = (IMAGE*) [NSEntityDescription insertNewObjectForEntityForName:@"IMAGE" inManagedObjectContext:managedObjectContext];
+                
+                image.imageId = [NSString stringWithFormat:@"%@", self.photo.photoId];
+                image.imagePath = [NSString stringWithFormat:@"%@", cachedImagePath];
+                
+                [[DataService sharedInstance] saveContext];
+
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     
-                    UIAlertView* internetErrorAlert = [[UIAlertView alloc] initWithTitle:@"SUCCESSFUL" message:@"This photo is added to your album!!!" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    UIAlertView* internetErrorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SUCCESSFUL", nil) message:NSLocalizedString(@"SUCCESSFUL_MESSAGE", nil)  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
                     [internetErrorAlert show];
                     
                 });
                 
-                
             }
+            else if ([[result valueForKey:@"success"] intValue] == 0)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    UIAlertView* internetErrorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SUCCESSFUL", nil) message:NSLocalizedString(@"SUCCESSFUL_ALREADY_MESSAGE", nil)  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [internetErrorAlert show];
+                    
+                });
 
+            }
             
             
         } faildBlock:^(NSError *error) {

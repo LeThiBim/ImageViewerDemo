@@ -8,3 +8,7 @@
 
 "ERROR"                    = "Đã có lỗi";
 "INTERNET_OFFLINE_MESSAGE" = "Kết nối Internet có vẻ như không hoạt động.";
+
+"SUCCESSFUL"                        = "Thành công";
+"SUCCESSFUL_MESSAGE"                = "Photo này đã được thêm vào album của bạn!!!";
+"SUCCESSFUL_ALREADY_MESSAGE"        = "Photo này đã được thêm vào album của bạn trước đây!!!";

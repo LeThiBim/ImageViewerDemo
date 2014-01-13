@@ -12,6 +12,7 @@
 #import "MWPhotoBrowserPrivate.h"
 #import "SDImageCache.h"
 #import "ActivityViewCustomActivity.h"
+#import "AppDelegate.h"
 
 #define PADDING                  10
 #define ACTION_SHEET_OLD_ACTIONS 2000
@@ -1386,27 +1387,27 @@
 - (void)actionButtonPressed:(id)sender {
     
     MWPhoto* photo = (MWPhoto*) [self photoAtIndex:self.currentIndex];
+    UIActivityViewController *avc = nil;
+    
+    
+    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
 
+    if (appDelegate.currentMainScreenIndex == 0)
+    {
     
-    
-    ActivityViewCustomActivity *ca = [[ActivityViewCustomActivity alloc]init];
-    ca.photo = photo;
-    
-    
-    UIActivityViewController *avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObject:photo.underlyingImage] applicationActivities:[NSArray arrayWithObject:ca]];
-    
-//    avc.excludedActivityTypes = @[UIActivityTypePostToWeibo,
-//                                         UIActivityTypeAssignToContact,UIActivityTypeCopyToPasteboard,
-//                                         UIActivityTypeSaveToCameraRoll,UIActivityTypeMail,UIActivityTypePostToTwitter,
-//                                         UIActivityTypePostToFacebook,UIActivityTypeMessage];
-//    
-//    avc.completionHandler = ^(NSString *activityType, BOOL completed)
-//    {
-//        NSLog(@" activityType: %@", activityType);
-//        NSLog(@" completed: %i", completed);
-//    };
+        ActivityViewCustomActivity *ca = [[ActivityViewCustomActivity alloc]init];
+        ca.photo = photo;
+        
+        
+        avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObject:photo.underlyingImage] applicationActivities:[NSArray arrayWithObject:ca]];
+        
 
-    ca.activityViewController = avc;
+        ca.activityViewController = avc;
+    }
+    else
+    {
+        avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObject:photo.underlyingImage] applicationActivities:nil];
+    }
     
     
     

@@ -64,6 +64,7 @@
 
 - (void) dealloc
 {
+    self.collectionView      = nil;
     self.dataSource.delegate = nil;
     self.collectionView.delegate = nil;
     self.collectionView.dataSource = nil;
@@ -164,8 +165,11 @@
 
 - (void) setUpCustomLayOut
 {
-    self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] init];
-    [self updateLayout];
+    if (self.collectionView)
+    {
+        self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] init];
+        [self updateLayout];
+    }
 }
 
 #pragma mark - DataSource delegate
