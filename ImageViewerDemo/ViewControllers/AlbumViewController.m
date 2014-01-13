@@ -41,6 +41,14 @@
     //   [self.collectionView triggerPullToRefresh];
 }
 
+- (void) dealloc
+{
+    
+    self.albumSource.delegate = nil;
+    self.collectionView.delegate = nil;
+    self.collectionView.dataSource = nil;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

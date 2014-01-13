@@ -64,7 +64,6 @@
 
 - (void) dealloc
 {
-    self.collectionView      = nil;
     self.dataSource.delegate = nil;
     self.collectionView.delegate = nil;
     self.collectionView.dataSource = nil;
