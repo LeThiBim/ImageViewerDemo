@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1717FAD418837EBD00C2C033 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAD618837EBD00C2C033 /* Localizable.strings */; };
+		1717FADF18838AA100C2C033 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1717FADE18838AA100C2C033 /* MasterViewController.m */; };
+		1717FAE21883939400C2C033 /* YourAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1717FAE11883939400C2C033 /* YourAlbumViewController.m */; };
 		172E782C187A8EB100167BCF /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172E782B187A8EB100167BCF /* MWPhotoBrowser.bundle */; };
 		172E7832187A8F1A00167BCF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172E7831187A8F1A00167BCF /* ImageIO.framework */; };
 		172E7834187A8F2800167BCF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172E7833187A8F2800167BCF /* MessageUI.framework */; };
@@ -78,7 +80,6 @@
 		17A970D2187E5C32000C40D1 /* MSNavigationPaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A970D1187E5C32000C40D1 /* MSNavigationPaneViewController.m */; };
 		17A970D5187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */; };
 		17A970D6187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */; };
-		17A970DC187E5F66000C40D1 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A970DB187E5F66000C40D1 /* MasterViewController.m */; };
 		17B7F8771874FAF6002ED94B /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */; };
 		17B91B1018628DC00018D4E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B0F18628DC00018D4E2 /* Foundation.framework */; };
 		17B91B1218628DC00018D4E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B1118628DC00018D4E2 /* CoreGraphics.framework */; };
@@ -121,9 +122,13 @@
 		1717FAD118837E1D00C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
 		1717FAD218837E1D00C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1717FAD318837E1D00C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		1717FAD718837ED400C2C033 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1717FAD818837EF400C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = file; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1717FAD9188381B800C2C033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1717FAD718837ED400C2C033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1717FAD818837EF400C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1717FAD9188381B800C2C033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1717FADD18838AA100C2C033 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		1717FADE18838AA100C2C033 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		1717FAE01883939400C2C033 /* YourAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourAlbumViewController.h; sourceTree = "<group>"; };
+		1717FAE11883939400C2C033 /* YourAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourAlbumViewController.m; sourceTree = "<group>"; };
 		172E782B187A8EB100167BCF /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		172E7831187A8F1A00167BCF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		172E7833187A8F2800167BCF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -263,8 +268,6 @@
 		17A970D1187E5C32000C40D1 /* MSNavigationPaneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNavigationPaneViewController.m; sourceTree = "<group>"; };
 		17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSBarButtonIconNavigationPane.png; sourceTree = "<group>"; };
 		17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MSBarButtonIconNavigationPane@2x.png"; sourceTree = "<group>"; };
-		17A970DA187E5F66000C40D1 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		17A970DB187E5F66000C40D1 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		17B7F8751874FAF6002ED94B /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
 		17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		17B91B0C18628DC00018D4E2 /* ImageViewerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -523,8 +526,10 @@
 				17A46AA4186D5E2C0005475C /* ListAlbumsController.m */,
 				175EB644187D09A200E888F9 /* AboutViewController.h */,
 				175EB645187D09A200E888F9 /* AboutViewController.m */,
-				17A970DA187E5F66000C40D1 /* MasterViewController.h */,
-				17A970DB187E5F66000C40D1 /* MasterViewController.m */,
+				1717FADD18838AA100C2C033 /* MasterViewController.h */,
+				1717FADE18838AA100C2C033 /* MasterViewController.m */,
+				1717FAE01883939400C2C033 /* YourAlbumViewController.h */,
+				1717FAE11883939400C2C033 /* YourAlbumViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -861,7 +866,6 @@
 				172E7897187A903E00167BCF /* MWZoomingScrollView.m in Sources */,
 				B20A332F18810B3000217ACC /* ActivityViewCustomActivity.m in Sources */,
 				172E7891187A903E00167BCF /* MWGridCell.m in Sources */,
-				17A970DC187E5F66000C40D1 /* MasterViewController.m in Sources */,
 				17A46AF2186D71140005475C /* AFHTTPRequestOperation.m in Sources */,
 				172E78A6187A903E00167BCF /* PSTGridLayoutRow.m in Sources */,
 				17A970CD187E5C07000C40D1 /* PRTweenTimingFunctions.m in Sources */,
@@ -869,6 +873,7 @@
 				172E78B2187A903E00167BCF /* UIButton+WebCache.m in Sources */,
 				172E78AF187A903E00167BCF /* SDWebImageDownloaderOperation.m in Sources */,
 				17B7F8771874FAF6002ED94B /* CustomCollectionViewLayout.m in Sources */,
+				1717FAE21883939400C2C033 /* YourAlbumViewController.m in Sources */,
 				17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */,
 				17A46A98186D5DE80005475C /* CustomCellBackground.m in Sources */,
 				172E78B6187A903E00167BCF /* UIImageView+WebCache.m in Sources */,
@@ -903,6 +908,7 @@
 				17A46B09186D71140005475C /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				17A46AF6186D71140005475C /* AFSecurityPolicy.m in Sources */,
 				172E78B3187A903E00167BCF /* UIImage+GIF.m in Sources */,
+				1717FADF18838AA100C2C033 /* MasterViewController.m in Sources */,
 				172E78AC187A903E00167BCF /* SDWebImageCompat.m in Sources */,
 				172E7899187A903E00167BCF /* MBProgressHUD.m in Sources */,
 				17A46AB1186D65E50005475C /* ServiceConfigs.m in Sources */,

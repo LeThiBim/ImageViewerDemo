@@ -27,6 +27,25 @@
     self.collectionView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0, 0.0);
 }
 
+- (instancetype) init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (instancetype) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+
+    
+}
 
 - (void)viewDidLoad
 {
@@ -41,13 +60,26 @@
         
     }];
     
-    self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] init];
-
 }
+
+- (void) dealloc
+{
+    self.dataSource.delegate = nil;
+    self.collectionView.delegate = nil;
+    self.collectionView.dataSource = nil;
+}
+
+
 
 - (void) viewDidAppear:(BOOL)animated
 {
 
+    [super viewDidAppear:YES];
+    
+    UIBarButtonItem* barButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MSBarButtonIconNavigationPane.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(navigationPaneRevealBarButtonItemTapped:)];
+
+    self.navigationItem.leftBarButtonItem = barButtonItem;
+    
     [self updateLayout];
 }
 
@@ -125,6 +157,16 @@
     return NO;
 }
 
+- (void)navigationPaneRevealBarButtonItemTapped:(id)sender
+{
+    [self.navigationPaneViewController setPaneState:MSNavigationPaneStateOpen animated:YES completion:nil];
+}
+
+- (void) setUpCustomLayOut
+{
+    self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] init];
+    [self updateLayout];
+}
 
 #pragma mark - DataSource delegate
 
@@ -137,6 +179,5 @@
     }
     
 }
-
 
 @end

@@ -161,37 +161,9 @@
             </objects>
             <point key="canvasLocation" x="2332" y="-663"/>
         </scene>
-        <!--Master View Controller-->
-        <scene sceneID="ZCA-kL-zTc">
-            <objects>
-                <viewController storyboardIdentifier="MasterViewController" id="fQL-lo-Bp6" customClass="MasterViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uJx-Gf-5l7"/>
-                        <viewControllerLayoutGuide type="bottom" id="27v-uA-eW7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="tI6-62-GW9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MasterViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vj-ZQ-NGG">
-                                <rect key="frame" x="0.0" y="207" width="320" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7dq-26-FC9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1852" y="903"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="EUO-Pf-8OM">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4S-kf-DQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ListAlbumsNavigationController" definesPresentationContext="YES" id="HXs-of-Iql" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iaq-c6-0Ob">
                         <autoresizingMask key="autoresizingMask"/>
@@ -200,8 +172,70 @@
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="lyW-fI-YTh"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4S-kf-DQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-237" y="30"/>
+            <point key="canvasLocation" x="447" y="-670"/>
+        </scene>
+        <!--Master View Controller-->
+        <scene sceneID="qdn-sW-qy0">
+            <objects>
+                <tableViewController storyboardIdentifier="MasterViewController" id="vcE-Fa-OuL" customClass="MasterViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Dn5-Lz-wAB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="mainScreenCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainScreenCell" id="MWU-o1-HI8">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MWU-o1-HI8" id="pLN-Ia-z6w">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vcE-Fa-OuL" id="KZM-6c-016"/>
+                            <outlet property="delegate" destination="vcE-Fa-OuL" id="SI6-0K-Vn6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yxq-Vn-erq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Osg-DU-GPE">
+            <objects>
+                <navigationController storyboardIdentifier="YourAlbumNavigationController" definesPresentationContext="YES" id="cyM-FN-byb" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Ah-Dc-i66">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eZ8-7k-Cqh" kind="relationship" relationship="rootViewController" id="jlg-LR-WuN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aL3-iR-qbs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-153" y="1047"/>
+        </scene>
+        <!--Your Album View Controller - Your Album-->
+        <scene sceneID="OPf-6c-cYh">
+            <objects>
+                <viewController storyboardIdentifier="YourAlbumViewController" id="eZ8-7k-Cqh" customClass="YourAlbumViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xcV-MY-DKH"/>
+                        <viewControllerLayoutGuide type="bottom" id="rXu-tZ-kFx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vRF-Bo-W7I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Your Album" id="jWe-AC-WgO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KlY-OW-Mqi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="339" y="1047"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

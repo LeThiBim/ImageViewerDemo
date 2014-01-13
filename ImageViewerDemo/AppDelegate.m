@@ -44,8 +44,12 @@
     UINavigationController *navigationController = (UINavigationController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"ListAlbumsNavigationController"];
     
     ListAlbumsController *viewController = (ListAlbumsController *)[navigationController.viewControllers objectAtIndex:0];
+    
+    [viewController setUpCustomLayOut];
+    
     viewController.dataSource = self.listAlbumSource;
     
+    viewController.navigationPaneViewController = self.navigationPaneViewController;
     viewController.dataSource.delegate = viewController;
     [viewController.dataSource getImageLinksFromServer];
     
