@@ -90,11 +90,17 @@
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               [self.delegate performSelector:@selector(finishGetImageLinksFromServer) withObject:nil];
+                               [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
                            });
         }
 
     } faildBlock:^(NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           [self.delegate performSelector:@selector(finishGetImageLinksFromServerFailed) withObject:nil];
+                       });
+
         
     }];
     

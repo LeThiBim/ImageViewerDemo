@@ -62,7 +62,6 @@
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
     {
         [viewController setWantsFullScreenLayout:YES];
-
     }
     else
     {

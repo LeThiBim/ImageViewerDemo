@@ -156,7 +156,7 @@
 
 #pragma mark - DataSource delegate
 
-- (void) finishGetImageLinksFromServer
+- (void) finishGetImageLinksFromServerSuccessful
 {
     if (self.collectionView)
     {

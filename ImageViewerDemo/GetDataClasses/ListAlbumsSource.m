@@ -234,11 +234,17 @@ Data Source to manage assets used by the app.
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServer)])
-                                   [self.delegate performSelector:@selector(finishGetImageLinksFromServer) withObject:nil];
+                               if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerSuccessful)])
+                                   [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
                            });
         }
     } faildBlock:^(NSError *error) {
+        
+        dispatch_async(dispatch_get_main_queue(),
+                       ^{
+                           [self.delegate performSelector:@selector(finishGetImageLinksFromServerFailed) withObject:nil];
+                       });
+
         
     }];
 

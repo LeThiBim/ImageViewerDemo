@@ -28,9 +28,12 @@
 {
     [super viewDidLoad];
 	   
+    typeof (&*self) __weak weakSelf = self;
+    
     [self.collectionView addPullToRefreshWithActionHandler:^{
         
         //TODO: reload data
+        [weakSelf.albumSource getImageLinksFromServer];
         
     }];
     
@@ -141,11 +144,20 @@
 
 #pragma mark - DataSource delegate
 
-- (void) finishGetImageLinksFromServer
+- (void) finishGetImageLinksFromServerFailed
+{
+    if (self.collectionView)
+    {
+        [self.collectionView.pullToRefreshView stopAnimating];
+    }
+}
+
+- (void) finishGetImageLinksFromServerSuccessful
 {
     if (self.collectionView)
     {
         [self.collectionView reloadData];
+        [self.collectionView.pullToRefreshView stopAnimating];
     }
 }
 

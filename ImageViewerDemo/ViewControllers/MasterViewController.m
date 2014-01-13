@@ -42,7 +42,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.mainScreenList = @[@"All Albums", @"Your Album", @"Login Facebook"];
-    
+    [self.tableView setBackgroundColor:[UIColor blackColor]];
     self.selectedIndex = 0;
 }
 
@@ -82,7 +82,8 @@
     else
         cell.textLabel.text = [[NSString alloc] initWithFormat:@"  %@", [self.mainScreenList objectAtIndex:indexPath.row]];
 
-    
+    [cell.textLabel setTextColor:[UIColor whiteColor]];
+    [cell.textLabel setBackgroundColor:[UIColor blackColor]];
 
     
     return cell;

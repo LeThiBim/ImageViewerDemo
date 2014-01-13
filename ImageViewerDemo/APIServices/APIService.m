@@ -28,6 +28,9 @@
          
          [self showErrorAlert:error];
          
+         if (faildBlock)
+             faildBlock(error);
+         
      }];
 
 }
@@ -47,6 +50,9 @@
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          [self showErrorAlert:error];
+         
+         if (faildBlock)
+             faildBlock(error);
 
      }];
 
@@ -69,6 +75,9 @@
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
          
          [self showErrorAlert:error];
+         
+         if (faildBlock)
+             faildBlock(error);
          
      }];
 

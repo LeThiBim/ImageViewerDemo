@@ -85,7 +85,7 @@
 - (CGSize)collectionViewContentSize
 {
     
-    CGSize contentSize = CGSizeZero;
+    CGSize contentSize = CGSizeMake( self.contentSizeWith, 1000);
     
     contentSize.width      = self.contentSizeWith;
     

@@ -173,7 +173,7 @@
 
 #pragma mark - DataSource delegate
 
-- (void) finishGetImageLinksFromServer
+- (void) finishGetImageLinksFromServerSuccessful
 {
     if (self.collectionView)
     {
@@ -181,6 +181,14 @@
         [self.collectionView.pullToRefreshView stopAnimating];
     }
     
+}
+
+- (void) finishGetImageLinksFromServerFailed
+{
+    if (self.collectionView)
+    {
+        [self.collectionView.pullToRefreshView stopAnimating];
+    }
 }
 
 @end
