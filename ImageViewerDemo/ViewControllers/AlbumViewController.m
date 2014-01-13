@@ -19,6 +19,7 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray* photos;
+@property (strong, nonatomic) UITextView* noDataTextView;
 
 @end
 
@@ -144,22 +145,40 @@
 
 #pragma mark - DataSource delegate
 
+- (void) finishGetImageLinksFromServerSuccessful
+{
+    if (self.collectionView)
+    {
+        if (self.noDataTextView && [self.albumSource.imageList count] >0)
+            [self.noDataTextView setHidden:YES];
+        
+        [self.collectionView reloadData];
+        [self.collectionView.pullToRefreshView stopAnimating];
+    }
+}
+
 - (void) finishGetImageLinksFromServerFailed
 {
     if (self.collectionView)
     {
         [self.collectionView.pullToRefreshView stopAnimating];
+        
+        if (!self.noDataTextView)
+        {
+            self.noDataTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
+            [self.noDataTextView setBackgroundColor:[UIColor blackColor]];
+            [self.noDataTextView setTextColor:[UIColor whiteColor]];
+            [self.noDataTextView setTextAlignment:NSTextAlignmentCenter];
+            
+            self.noDataTextView.text = NSLocalizedString(@"EMPTY_CONTENT_TEXT", nil);
+            
+            [self.view addSubview:self.noDataTextView];
+            
+        }
+        
     }
 }
 
-- (void) finishGetImageLinksFromServerSuccessful
-{
-    if (self.collectionView)
-    {
-        [self.collectionView reloadData];
-        [self.collectionView.pullToRefreshView stopAnimating];
-    }
-}
 
 
 #pragma mark - MWPhotoBrowser delegate

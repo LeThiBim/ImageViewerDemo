@@ -6,3 +6,5 @@
 "SUCCESSFUL"                        = "SUCCESSFUL";
 "SUCCESSFUL_MESSAGE"                = "This photo is added to your album!!!";
 "SUCCESSFUL_ALREADY_MESSAGE"        = "This photo is already added to your album!!!";
+
+"EMPTY_CONTENT_TEXT"                      = "Content is empty.\n Please scroll down to refresh";

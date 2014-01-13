@@ -18,6 +18,7 @@
 
 @interface ListAlbumsController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) UITextView* noDataTextView;
 
 @end
 
@@ -177,6 +178,9 @@
 {
     if (self.collectionView)
     {
+        if (self.noDataTextView && [self.dataSource.imageList count] >0)
+            [self.noDataTextView setHidden:YES];
+        
         [self.collectionView reloadData];
         [self.collectionView.pullToRefreshView stopAnimating];
     }
@@ -188,6 +192,20 @@
     if (self.collectionView)
     {
         [self.collectionView.pullToRefreshView stopAnimating];
+        
+        if (!self.noDataTextView)
+        {
+            self.noDataTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
+            [self.noDataTextView setBackgroundColor:[UIColor blackColor]];
+            [self.noDataTextView setTextColor:[UIColor whiteColor]];
+            [self.noDataTextView setTextAlignment:NSTextAlignmentCenter];
+        
+            self.noDataTextView.text = NSLocalizedString(@"EMPTY_CONTENT_TEXT", nil);
+            
+            [self.view addSubview:self.noDataTextView];
+            
+        }
+        
     }
 }
 

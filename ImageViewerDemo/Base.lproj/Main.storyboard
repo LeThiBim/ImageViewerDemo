@@ -77,7 +77,6 @@
         <!--Navigation Pane View Controller-->
         <scene sceneID="lTw-F7-ks8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ugd-bk-161" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="F7g-Ze-kqL" customClass="MSNavigationPaneViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XeG-zO-IV0"/>
@@ -89,6 +88,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ugd-bk-161" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1106" y="1094"/>
         </scene>

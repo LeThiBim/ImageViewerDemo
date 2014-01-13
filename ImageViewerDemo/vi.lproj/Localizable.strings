@@ -12,3 +12,5 @@
 "SUCCESSFUL"                        = "Thành công";
 "SUCCESSFUL_MESSAGE"                = "Photo này đã được thêm vào album của bạn!!!";
 "SUCCESSFUL_ALREADY_MESSAGE"        = "Photo này đã được thêm vào album của bạn trước đây!!!";
+
+"EMPTY_CONTENT_TEXT"                      = "Không tìm thấy album.\n Xin vui lòng scroll xuống để reload";
