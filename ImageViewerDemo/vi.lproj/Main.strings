@@ -1,0 +1,15 @@
+
+/* Class = "IBUILabel"; text = "MasterViewController"; ObjectID = "5vj-ZQ-NGG"; */
+"5vj-ZQ-NGG.text" = "MasterViewController";
+
+/* Class = "IBUINavigationItem"; title = "Photos"; ObjectID = "6YW-OO-CEy"; */
+"6YW-OO-CEy.title" = "Photos";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "Kze-8Q-sah"; */
+"Kze-8Q-sah.text" = "Label";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "oz4-EG-cWC"; */
+"oz4-EG-cWC.text" = "Label";
+
+/* Class = "IBUINavigationItem"; title = "Albums"; ObjectID = "zif-qM-zej"; */
+"zif-qM-zej.title" = "Albums";

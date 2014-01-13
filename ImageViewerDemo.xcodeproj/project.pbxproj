@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1717FAD418837EBD00C2C033 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAD618837EBD00C2C033 /* Localizable.strings */; };
 		172E782C187A8EB100167BCF /* MWPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 172E782B187A8EB100167BCF /* MWPhotoBrowser.bundle */; };
 		172E7832187A8F1A00167BCF /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172E7831187A8F1A00167BCF /* ImageIO.framework */; };
 		172E7834187A8F2800167BCF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172E7833187A8F2800167BCF /* MessageUI.framework */; };
@@ -117,6 +118,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1717FAD118837E1D00C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Main.strings; sourceTree = "<group>"; };
+		1717FAD218837E1D00C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1717FAD318837E1D00C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1717FAD718837ED400C2C033 /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1717FAD818837EF400C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = file; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1717FAD9188381B800C2C033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		172E782B187A8EB100167BCF /* MWPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MWPhotoBrowser.bundle; sourceTree = "<group>"; };
 		172E7831187A8F1A00167BCF /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		172E7833187A8F2800167BCF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -688,6 +695,7 @@
 				17B91B1818628DC00018D4E2 /* InfoPlist.strings */,
 				17B91B1B18628DC00018D4E2 /* main.m */,
 				17B91B1D18628DC00018D4E2 /* ImageViewerDemo-Prefix.pch */,
+				1717FAD618837EBD00C2C033 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -799,6 +807,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 17B91B0318628DC00018D4E2;
 			productRefGroup = 17B91B0D18628DC00018D4E2 /* Products */;
@@ -819,6 +828,7 @@
 				17A970D5187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png in Resources */,
 				B2F7F47F1871B94100D2ED95 /* media_app.png in Resources */,
 				17B91B2818628DC00018D4E2 /* Images.xcassets in Resources */,
+				1717FAD418837EBD00C2C033 /* Localizable.strings in Resources */,
 				172E78A8187A903E00167BCF /* LICENSE in Resources */,
 				172E789A187A903E00167BCF /* README.mdown in Resources */,
 				B2F7F4801871B94100D2ED95 /* media_app@2x.png in Resources */,
@@ -940,10 +950,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1717FAD618837EBD00C2C033 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1717FAD718837ED400C2C033 /* en */,
+				1717FAD818837EF400C2C033 /* vi */,
+				1717FAD9188381B800C2C033 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		17B91B1818628DC00018D4E2 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				17B91B1918628DC00018D4E2 /* en */,
+				1717FAD218837E1D00C2C033 /* vi */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -952,6 +973,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				17B91B2218628DC00018D4E2 /* Base */,
+				1717FAD118837E1D00C2C033 /* vi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -960,6 +982,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				17B91B3818628DC00018D4E2 /* en */,
+				1717FAD318837E1D00C2C033 /* vi */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

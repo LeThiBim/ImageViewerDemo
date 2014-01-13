@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  ImageViewerDemo
+
+  Created by HuyNguyenQuang on 1/13/14.
+  Copyright (c) 2014 HuyNguyenQuang. All rights reserved.
+*/
+
+"ERROR"                    = "Đã có lỗi";
+"INTERNET_OFFLINE_MESSAGE" = "Kết nối Internet có vẻ như không hoạt động.";
