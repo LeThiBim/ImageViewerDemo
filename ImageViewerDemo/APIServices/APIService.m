@@ -88,19 +88,9 @@
     NSString *msg = [error.userInfo objectForKey:@"NSLocalizedDescription"];
     if([msg isEqualToString:NSLocalizedString(@"INTERNET_OFFLINE_MESSAGE", nil)])
     {
-        dispatch_async(dispatch_get_main_queue(), ^{
         
-            UIAlertView* internetErrorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"ERROR", nil)
-                      message:NSLocalizedString(@"INTERNET_OFFLINE_MESSAGE", nil)
-                     delegate:self
-            cancelButtonTitle:@"OK"
-            otherButtonTitles:nil, nil];
-            
-            [internetErrorAlert show];
-            
-        });
-
-        
+        [self showAlertWithTitle:NSLocalizedString(@"ERROR", nil)
+                      andMessage:NSLocalizedString(@"INTERNET_OFFLINE_MESSAGE", nil)];
     }
 }
 

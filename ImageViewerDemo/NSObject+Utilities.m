@@ -14,6 +14,7 @@
 @implementation NSObject (Utilities)
 
 static NSString* staticUUID = nil;
+static UIAlertView* staticAlertView = nil;
 
 + (NSString*) getUUID
 {
@@ -63,6 +64,21 @@ static NSString* staticUUID = nil;
     
     return @"";
     
+}
+
++ (void) showAlertWithTitle:(NSString*) title andMessage:(NSString*) message
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if (!staticAlertView)
+        {
+        
+            staticAlertView = [[UIAlertView alloc] initWithTitle:title message:message  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [staticAlertView show];
+        }
+        
+    });
+
 }
 
 @end

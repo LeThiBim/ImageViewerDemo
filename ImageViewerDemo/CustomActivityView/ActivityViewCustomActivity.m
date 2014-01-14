@@ -11,6 +11,7 @@
 #import "IMAGE.h"
 #import "APIService.h"
 
+
 @implementation ActivityViewCustomActivity
 
 - (NSString *)activityType
@@ -74,28 +75,22 @@
                 
                 IMAGE *image = (IMAGE*) [NSEntityDescription insertNewObjectForEntityForName:@"IMAGE" inManagedObjectContext:managedObjectContext];
                 
-                image.imageId = [NSString stringWithFormat:@"%@", self.photo.photoId];
-                image.imagePath = [NSString stringWithFormat:@"%@", cachedImagePath];
+                image.imageId = self.photo.photoId;
+                image.imagePath = cachedImagePath;
+
                 
                 [[DataService sharedInstance] saveContext];
 
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    UIAlertView* internetErrorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SUCCESSFUL", nil) message:NSLocalizedString(@"SUCCESSFUL_MESSAGE", nil)  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [internetErrorAlert show];
-                    
-                });
+
+                [NSObject showAlertWithTitle:NSLocalizedString(@"SUCCESSFUL", nil)
+                                  andMessage:NSLocalizedString(@"SUCCESSFUL_MESSAGE", nil)];
                 
             }
             else if ([[result valueForKey:@"success"] intValue] == 0)
             {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    UIAlertView* internetErrorAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"SUCCESSFUL", nil) message:NSLocalizedString(@"SUCCESSFUL_ALREADY_MESSAGE", nil)  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                    [internetErrorAlert show];
-                    
-                });
+
+                [NSObject showAlertWithTitle:NSLocalizedString(@"SUCCESSFUL", nil)
+                                  andMessage:NSLocalizedString(@"SUCCESSFUL_ALREADY_MESSAGE", nil)];
 
             }
             

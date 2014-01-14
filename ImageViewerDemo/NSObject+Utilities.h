@@ -11,5 +11,6 @@
 @interface NSObject (Utilities)
 
 + (NSString*) getUUID;
++ (void) showAlertWithTitle:(NSString*) title andMessage:(NSString*) message;
 
 @end

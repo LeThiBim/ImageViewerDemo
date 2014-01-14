@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MWPhoto.h"
+#import "NSObject+Utilities.h"
 
 @interface ActivityViewCustomActivity : UIActivity
 

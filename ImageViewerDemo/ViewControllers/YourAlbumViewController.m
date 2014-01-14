@@ -113,7 +113,7 @@
     
     for (int i = 0; i < [self.yourAlbum count]; i++)
     {
-        IMAGE* image = (IMAGE*) [self.yourAlbum objectAtIndex:indexPath.row];
+        IMAGE* image = (IMAGE*) [self.yourAlbum objectAtIndex:i];
         
         MWPhoto* photo = [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:image.imagePath]];
         //photo.photoId = [self.albumSource getTitleOfIndex:i];
