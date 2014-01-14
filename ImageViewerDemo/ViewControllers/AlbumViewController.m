@@ -163,7 +163,7 @@
     {
         [self.collectionView.pullToRefreshView stopAnimating];
         
-        if (!self.noDataTextView)
+        if (!self.noDataTextView && [self.albumSource.imageList count] == 0)
         {
             self.noDataTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
             [self.noDataTextView setBackgroundColor:[UIColor blackColor]];
@@ -173,6 +173,7 @@
             self.noDataTextView.text = NSLocalizedString(@"EMPTY_CONTENT_TEXT", nil);
             
             [self.view addSubview:self.noDataTextView];
+            
             
         }
         

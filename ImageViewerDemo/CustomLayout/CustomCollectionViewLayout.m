@@ -20,9 +20,11 @@
 
 #pragma mark UICollectionViewLayoutDelegate
 
-- (instancetype) init {
+- (instancetype) initWithDataSource:(ListAlbumsSource*) dataSource {
     self = [super init];
     if (self) {
+        
+        self.listAlbumSource = dataSource;
         
         self.columnCount = 2;
         
@@ -46,12 +48,13 @@
     [super prepareLayout];
     
    
-    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-    
     
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
     
-    int itemCount = (int) [appDelegate.listAlbumSource.imageList count];
+    int itemCount = 0;
+    
+    if (self.listAlbumSource)
+        itemCount = (int) [self.listAlbumSource.imageList count];
     
     NSLog(@"Total Item : %d", itemCount);
     
@@ -98,7 +101,7 @@
         contentSize.height     = contentHeight;
     }
     
-    NSLog(@"TOTAL HEIGHT : %f", contentSize.height);
+//    NSLog(@"TOTAL HEIGHT : %f", contentSize.height);
     
     return contentSize;
 }

@@ -172,7 +172,8 @@
 {
     if (self.collectionView)
     {
-        self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] init];
+        self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] initWithDataSource:self.dataSource];
+
         [self updateLayout];
     }
 }
@@ -201,6 +202,11 @@
         if (self.noDataTextView && [self.dataSource.imageList count] >0)
             [self.noDataTextView setHidden:YES];
         
+        
+        CustomCollectionViewLayout* customCollectionViewLayout = (CustomCollectionViewLayout*) self.collectionView.collectionViewLayout;
+        
+        customCollectionViewLayout.listAlbumSource = self.dataSource;
+        
         [self.collectionView reloadData];
         [self.collectionView.pullToRefreshView stopAnimating];
     }
@@ -213,7 +219,7 @@
     {
         [self.collectionView.pullToRefreshView stopAnimating];
         
-        if (!self.noDataTextView)
+        if (!self.noDataTextView && [self.dataSource.imageList count] == 0)
         {
             self.noDataTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
             [self.noDataTextView setBackgroundColor:[UIColor blackColor]];

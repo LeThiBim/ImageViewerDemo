@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListAlbumsSource.h"
 
 @interface CustomCollectionViewLayout : UICollectionViewLayout
 
 @property (nonatomic, strong) NSMutableArray *itemAttributes;
 @property (assign, nonatomic) float contentSizeWith;
 @property (assign, nonatomic) int columnCount;
+
+@property (weak, nonatomic) ListAlbumsSource* listAlbumSource;
+
+
+- (instancetype) initWithDataSource:(ListAlbumsSource*) dataSource;
 
 @end
