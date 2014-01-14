@@ -52,6 +52,8 @@
     UIBarButtonItem* barButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MSBarButtonIconNavigationPane.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(navigationPaneRevealBarButtonItemTapped:)];
     
     self.navigationItem.leftBarButtonItem = barButtonItem;
+    
+    [self.collectionView reloadData];
 
 }
 
@@ -116,7 +118,7 @@
         IMAGE* image = (IMAGE*) [self.yourAlbum objectAtIndex:i];
         
         MWPhoto* photo = [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:image.imagePath]];
-        //photo.photoId = [self.albumSource getTitleOfIndex:i];
+        photo.photoId = image.imageId;
         
         [self.photos addObject:photo];
     }

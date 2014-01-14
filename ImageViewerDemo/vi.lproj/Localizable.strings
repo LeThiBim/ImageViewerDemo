@@ -14,3 +14,8 @@
 "SUCCESSFUL_ALREADY_MESSAGE"        = "Photo này đã được thêm vào album của bạn trước đây!!!";
 
 "EMPTY_CONTENT_TEXT"                      = "Không tìm thấy album.\n Xin vui lòng scroll xuống để reload";
+
+"CONFIRM_DELETE_ALERT_TITLE"   = "Xoá";
+"CONFIRM_DELETE_ALERT_CONTENT" = "Bạn thật sự muốn xoá photo này?";
+
+"DELETE_ALERT_CONTENT"         = "Photo này đã được xoá!!!";

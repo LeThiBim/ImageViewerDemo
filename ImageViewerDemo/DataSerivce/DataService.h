@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "IMAGE.h"
 
 @interface DataService : NSObject
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
@@ -16,6 +17,7 @@
 + (DataService*) sharedInstance;
 //+ (NSManagedObjectContext*) defaultContext;
 - (void) saveContext;
-- (void)deleteDataInEntity;
+- (void) deleteAllDataInEntity;
+- (void) deleteDataInEntityWithId:(NSString*) imageId;
 - (NSArray*) selectAllByContext;
 @end

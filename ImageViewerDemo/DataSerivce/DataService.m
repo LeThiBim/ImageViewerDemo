@@ -132,12 +132,12 @@
 }
 
 //delete 
-- (void)deleteDataInEntity 
+- (void)deleteAllDataInEntity 
 {
     NSManagedObjectContext *context = [[DataService sharedInstance] managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
-   NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMAGE" inManagedObjectContext:context];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMAGE" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
     NSError *error;
@@ -149,6 +149,38 @@
     [[DataService sharedInstance] saveContext];
     // NSLog(@"DONE DELETE");
 }
+
+- (void) deleteDataInEntityWithId:(NSString*) imageId
+{
+    NSManagedObjectContext *context = [[DataService sharedInstance] managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMAGE" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [context executeFetchRequest:fetchRequest error:&error];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"imageId == %@", imageId];
+    
+    NSArray* neededDeleteItems = [items filteredArrayUsingPredicate:predicate];
+    
+    if (neededDeleteItems && [neededDeleteItems count] >0)
+    {
+        IMAGE* image = (IMAGE*) [neededDeleteItems objectAtIndex:0];
+        
+        //Delete this image in document directory
+        [[NSFileManager defaultManager] removeItemAtPath: image.imagePath error: nil];
+        
+        for (NSManagedObject *managedObject in neededDeleteItems)
+        {
+            [context deleteObject:managedObject];
+        }
+        [[DataService sharedInstance] saveContext];
+    }
+}
+
+//get All
 
 - (NSArray*) selectAllByContext
 {

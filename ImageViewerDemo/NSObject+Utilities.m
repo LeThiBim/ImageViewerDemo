@@ -77,6 +77,11 @@ static float  staticConstraintAlbumCellWidth = 240;
             staticAlertView = [[UIAlertView alloc] initWithTitle:title message:message  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
         }
+        else
+        {
+            staticAlertView.title = title;
+            staticAlertView.message = message;
+        }
         
         [staticAlertView show];
         

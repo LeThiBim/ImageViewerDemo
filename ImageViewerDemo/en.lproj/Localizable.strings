@@ -8,3 +8,10 @@
 "SUCCESSFUL_ALREADY_MESSAGE"        = "This photo is already added to your album!!!";
 
 "EMPTY_CONTENT_TEXT"                      = "Content is empty.\n Please scroll down to refresh";
+
+
+"CONFIRM_DELETE_ALERT_TITLE"   = "DELETE";
+"CONFIRM_DELETE_ALERT_CONTENT" = "Are you sure you want to delete this photo?";
+
+
+"DELETE_ALERT_CONTENT"         = "This photo is deleted!!!";

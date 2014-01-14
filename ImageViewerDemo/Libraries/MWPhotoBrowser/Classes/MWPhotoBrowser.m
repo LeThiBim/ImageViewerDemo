@@ -98,6 +98,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [self releaseAllUnderlyingPhotos:NO];
     [[SDImageCache sharedImageCache] clearMemory]; // clear memory
+    
+    _confirmDeleteAlert = nil;
 }
 
 - (void)releaseAllUnderlyingPhotos:(BOOL)preserveCurrent {
@@ -298,7 +300,21 @@
         
         [_toolbar addSubview:button];
     }
-    
+    else if(appDelegate.currentMainScreenIndex == 1)
+    {
+        hideToolbar = NO;
+        
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake((320 - 35)/2, (_toolbar.frame.size.height - 100)/2, 35, 100)];
+        
+        //[button setImage:[UIImage imageNamed:@"heartIcon.png"] forState:UIControlStateNormal];
+        //[button setImage:[UIImage imageNamed:@"sel_heartIcon.png"] forState:UIControlStateHighlighted];
+        
+        [button setTitle:@"Delete" forState:UIControlStateNormal];
+        
+        [button addTarget:self action:@selector(tapDeleteButton) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_toolbar addSubview:button];
+    }
     
     for (UIBarButtonItem* item in _toolbar.items) {
         if (item != fixedSpace && item != flexSpace) {
@@ -1630,7 +1646,7 @@
     
     MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
     
-    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"imageId=%@", curentPhoto];
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"imageId=%@", curentPhoto.photoId];
     NSArray* fitledArray = [[[DataService sharedInstance] selectAllByContext] filteredArrayUsingPredicate:predicate];
     
     if ([fitledArray count] == 0)
@@ -1678,6 +1694,49 @@
     
 
 
+}
+
+- (void) tapDeleteButton
+{
+    //MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
+
+    //[[DataService sharedInstance] deleteDataInEntityWithId:curentPhoto.photoId];
+    
+    if (!self.confirmDeleteAlert)
+    {
+        self.confirmDeleteAlert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"CONFIRM_DELETE_ALERT_TITLE", nil) message:NSLocalizedString(@"CONFIRM_DELETE_ALERT_CONTENT", nil) delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    }
+    
+    [self.confirmDeleteAlert show];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    switch (buttonIndex)
+    {
+        case 0:
+        {
+            
+        }
+            break;
+            
+        case 1:
+        {
+            MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
+            [[DataService sharedInstance] deleteDataInEntityWithId:curentPhoto.photoId];
+            
+            [NSObject showAlertWithTitle:NSLocalizedString(@"CONFIRM_DELETE_ALERT_TITLE", nil) andMessage:NSLocalizedString(@"DELETE_ALERT_CONTENT", nil)];
+            
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+            break;
+
+            
+        default:
+            break;
+    }
 }
 
 @end
