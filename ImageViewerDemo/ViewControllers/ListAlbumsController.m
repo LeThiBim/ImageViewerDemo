@@ -14,7 +14,7 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "AlbumViewController.h"
 #import "CustomCollectionViewLayout.h"
-
+#import "NSObject+Utilities.h"
 
 @interface ListAlbumsController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -81,6 +81,10 @@
 
     self.navigationItem.leftBarButtonItem = barButtonItem;
     
+    UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grid" style:UIBarButtonItemStyleBordered target:self action:@selector(displayButtonTapped)];
+    
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
     [self updateLayout];
 }
 
@@ -97,7 +101,7 @@
     CustomCollectionViewLayout* layout = (CustomCollectionViewLayout*) self.collectionView.collectionViewLayout;
     
     layout.contentSizeWith  = self.collectionView.bounds.size.width;
-    layout.columnCount      = self.collectionView.bounds.size.width/150;
+    layout.columnCount      = self.collectionView.bounds.size.width/[NSObject getConstraintWidthForAlbumCell];
     
     [layout invalidateLayout];
     
@@ -124,11 +128,12 @@
         cell.label.textColor = [UIColor grayColor];
     }
     
+    [cell setConstraintForImageView];
     
     NSString *text = [self.dataSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
     
-    [cell.image setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
+    [cell.imageView setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
                placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
     [cell scheduleMoveTitle];
@@ -170,6 +175,21 @@
         self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] init];
         [self updateLayout];
     }
+}
+
+- (void) displayButtonTapped
+{
+    if ([NSObject getConstraintWidthForAlbumCell] == 150)
+    {
+        [NSObject setConstraintWidthForAlbumCellWithValue:240];
+    }
+    else
+    {
+        [NSObject setConstraintWidthForAlbumCellWithValue:150];
+    }
+    
+    [self updateLayout];
+    [self.collectionView reloadData];
 }
 
 #pragma mark - DataSource delegate

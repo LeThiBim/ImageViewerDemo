@@ -290,7 +290,9 @@
         hideToolbar = NO;
         
         UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake((320 - 35)/2, (_toolbar.frame.size.height - 35)/2, 35, 35)];
+        
         [button setImage:[UIImage imageNamed:@"heartIcon.png"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"sel_heartIcon.png"] forState:UIControlStateHighlighted];
         
         [button addTarget:self action:@selector(tapLikeButton) forControlEvents:UIControlEventTouchUpInside];
         

@@ -78,7 +78,7 @@
     
     NSString *text = [self.albumSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
-    [cell.image setImageWithURL:[self.albumSource getThumbImageURLOfIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
+    [cell.imageView setImageWithURL:[self.albumSource getThumbImageURLOfIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
     [cell scheduleMoveTitle];
     

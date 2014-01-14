@@ -8,6 +8,7 @@
 
 #import "CustomCollectionViewLayout.h"
 #import "AppDelegate.h"
+#import "NSObject+Utilities.h"
 
 @interface CustomCollectionViewLayout ()
 
@@ -159,7 +160,7 @@
     CGSize size = [appDelegate.listAlbumSource getSizeForItemAtIndexPath:index];
     
     
-    float interItemSpacing = (self.contentSizeWith - 150*self.columnCount)/(self.columnCount + 1);
+    float interItemSpacing = (self.contentSizeWith - [NSObject getConstraintWidthForAlbumCell]*self.columnCount)/(self.columnCount + 1);
     
     
     float scaledWidth  = size.width;
@@ -174,7 +175,7 @@
         int shortestColumnIndex = (int) [self shortestColumnIndex];
         
 
-        positionX = 150*shortestColumnIndex + (shortestColumnIndex + 1)*interItemSpacing;
+        positionX = [NSObject getConstraintWidthForAlbumCell]*shortestColumnIndex + (shortestColumnIndex + 1)*interItemSpacing;
         
         positionY = 0;
         
@@ -187,7 +188,7 @@
     }
     else
     {
-        positionX = [self.columnHeights count]*150 + ([self.columnHeights count] + 1)*interItemSpacing;
+        positionX = [self.columnHeights count]*[NSObject getConstraintWidthForAlbumCell] + ([self.columnHeights count] + 1)*interItemSpacing;
         positionY = interItemSpacing;
         [self.columnHeights addObject:@(positionY + scaledHeight)];
     }

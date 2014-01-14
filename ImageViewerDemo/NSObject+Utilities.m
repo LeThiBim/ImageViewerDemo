@@ -15,6 +15,7 @@
 
 static NSString* staticUUID = nil;
 static UIAlertView* staticAlertView = nil;
+static float  staticConstraintAlbumCellWidth = 240;
 
 + (NSString*) getUUID
 {
@@ -81,6 +82,16 @@ static UIAlertView* staticAlertView = nil;
         
     });
 
+}
+
++ (void) setConstraintWidthForAlbumCellWithValue:(float) value
+{
+    staticConstraintAlbumCellWidth = value;
+}
+
++ (float) getConstraintWidthForAlbumCell
+{
+    return staticConstraintAlbumCellWidth;
 }
 
 @end

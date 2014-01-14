@@ -13,4 +13,7 @@
 + (NSString*) getUUID;
 + (void) showAlertWithTitle:(NSString*) title andMessage:(NSString*) message;
 
+
++ (void) setConstraintWidthForAlbumCellWithValue:(float) value;
++ (float) getConstraintWidthForAlbumCell;
 @end

@@ -99,6 +99,7 @@ Data Source to manage assets used by the app.
 #import "AFAppDotNetAPIClient.h"
 #import "ServiceConfigs.h"
 #import "APIService.h"
+#import "NSObject+Utilities.h"
 
 @interface ListAlbumsSource ()
 
@@ -185,6 +186,7 @@ Data Source to manage assets used by the app.
 - (NSURL*) getImageURLOfIndex:(NSInteger)index
 {
     NSDictionary* item  = (NSDictionary*) [self.imageList objectAtIndex:index];
+    
     NSString* imageLink = [item objectForKey:@"thumb"];
     NSURL *imageURL     = [NSURL URLWithString:imageLink];
     
@@ -202,7 +204,7 @@ Data Source to manage assets used by the app.
     float realWidth  = [widthStr floatValue];
     float realHeight = [heightStr floatValue];
     
-    float scaledHeight = realHeight*150/realWidth;
+    float scaledHeight = realHeight*[NSObject getConstraintWidthForAlbumCell]/realWidth;
     
     return scaledHeight;
     
@@ -216,7 +218,7 @@ Data Source to manage assets used by the app.
 - (CGSize) getSizeForItemAtIndexPath:(NSInteger) index
 {
     
-    float scaledWidth  = 150;
+    float scaledWidth  = [NSObject getConstraintWidthForAlbumCell];
     float scaledHeight = [self getScaledHeightOfCellAtIndexPath:index] + 5;
     
     return CGSizeMake(scaledWidth, scaledHeight);

@@ -51,7 +51,7 @@
                                     <constraint firstItem="bC4-8w-CJR" firstAttribute="centerX" secondItem="Kze-8Q-sah" secondAttribute="centerX" id="sEz-WI-eYA"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="image" destination="bC4-8w-CJR" id="D5a-0f-5hG"/>
+                                    <outlet property="imageView" destination="bC4-8w-CJR" id="fhZ-YG-mux"/>
                                     <outlet property="label" destination="Kze-8Q-sah" id="Gh1-RO-fre"/>
                                     <segue destination="7eM-Ka-Cb1" kind="push" identifier="showAlbum" id="v05-DL-XkW"/>
                                 </connections>
@@ -142,7 +142,7 @@
                                     <constraint firstItem="PuA-XM-ozJ" firstAttribute="leading" secondItem="KgW-nz-zlT" secondAttribute="leading" id="hfh-TP-gPK"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="image" destination="PuA-XM-ozJ" id="Tnz-36-avj"/>
+                                    <outlet property="imageView" destination="PuA-XM-ozJ" id="XxJ-j6-kDa"/>
                                     <outlet property="label" destination="oz4-EG-cWC" id="o0y-np-ilk"/>
                                 </connections>
                             </collectionViewCell>
@@ -258,7 +258,7 @@
                                     <constraint firstItem="leA-tt-kN6" firstAttribute="top" secondItem="VV5-Md-SKF" secondAttribute="bottom" constant="8" symbolic="YES" id="dXs-zV-ia8"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="image" destination="VV5-Md-SKF" id="xKt-ks-cC5"/>
+                                    <outlet property="imageView" destination="VV5-Md-SKF" id="Q7X-0I-B0f"/>
                                     <outlet property="label" destination="leA-tt-kN6" id="YrC-Ld-8yZ"/>
                                 </connections>
                             </collectionViewCell>

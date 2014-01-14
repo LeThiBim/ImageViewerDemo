@@ -99,8 +99,9 @@
 
 @interface Cell : UICollectionViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *image;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 - (void) scheduleMoveTitle;
+- (void) setConstraintForImageView;
 @end

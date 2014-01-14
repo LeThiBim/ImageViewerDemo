@@ -91,6 +91,8 @@
 		17A970D6187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */; };
 		17AF9AB51884E50400E9B0BF /* heartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AF9AB31884E50400E9B0BF /* heartIcon.png */; };
 		17AF9AB61884E50400E9B0BF /* heartIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AF9AB41884E50400E9B0BF /* heartIcon@2x.png */; };
+		17AF9AB918850E4500E9B0BF /* sel_heartIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AF9AB718850E4500E9B0BF /* sel_heartIcon@2x.png */; };
+		17AF9ABA18850E4500E9B0BF /* sel_heartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AF9AB818850E4500E9B0BF /* sel_heartIcon.png */; };
 		17B7F8771874FAF6002ED94B /* CustomCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */; };
 		17B91B1018628DC00018D4E2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B0F18628DC00018D4E2 /* Foundation.framework */; };
 		17B91B1218628DC00018D4E2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B1118628DC00018D4E2 /* CoreGraphics.framework */; };
@@ -291,6 +293,8 @@
 		17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MSBarButtonIconNavigationPane@2x.png"; sourceTree = "<group>"; };
 		17AF9AB31884E50400E9B0BF /* heartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartIcon.png; sourceTree = "<group>"; };
 		17AF9AB41884E50400E9B0BF /* heartIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heartIcon@2x.png"; sourceTree = "<group>"; };
+		17AF9AB718850E4500E9B0BF /* sel_heartIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sel_heartIcon@2x.png"; sourceTree = "<group>"; };
+		17AF9AB818850E4500E9B0BF /* sel_heartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_heartIcon.png; sourceTree = "<group>"; };
 		17B7F8751874FAF6002ED94B /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
 		17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
 		17B91B0C18628DC00018D4E2 /* ImageViewerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -775,6 +779,8 @@
 		B20A333018810BA100217ACC /* ActivityViewImages */ = {
 			isa = PBXGroup;
 			children = (
+				17AF9AB718850E4500E9B0BF /* sel_heartIcon@2x.png */,
+				17AF9AB818850E4500E9B0BF /* sel_heartIcon.png */,
 				17AF9AB31884E50400E9B0BF /* heartIcon.png */,
 				17AF9AB41884E50400E9B0BF /* heartIcon@2x.png */,
 				B20A333118810BA100217ACC /* like_icon.png */,
@@ -885,6 +891,7 @@
 				1717FAFF1883DF0000C2C033 /* Icon.png in Resources */,
 				172E789A187A903E00167BCF /* README.mdown in Resources */,
 				1717FAFD1883DF0000C2C033 /* Icon-Small.png in Resources */,
+				17AF9ABA18850E4500E9B0BF /* sel_heartIcon.png in Resources */,
 				B2F7F4801871B94100D2ED95 /* media_app@2x.png in Resources */,
 				172E782C187A8EB100167BCF /* MWPhotoBrowser.bundle in Resources */,
 				1717FAFA1883DF0000C2C033 /* Default@2x.png in Resources */,
@@ -893,6 +900,7 @@
 				172E78A9187A903E00167BCF /* README.md in Resources */,
 				B20A333318810BA100217ACC /* like_icon.png in Resources */,
 				17B91B1A18628DC00018D4E2 /* InfoPlist.strings in Resources */,
+				17AF9AB918850E4500E9B0BF /* sel_heartIcon@2x.png in Resources */,
 				B20A333418810BA100217ACC /* like_icon@2x.png in Resources */,
 				1717FAFB1883DF0000C2C033 /* Icon-120.png in Resources */,
 				17AF9AB61884E50400E9B0BF /* heartIcon@2x.png in Resources */,

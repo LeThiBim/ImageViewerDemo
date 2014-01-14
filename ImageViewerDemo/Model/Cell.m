@@ -98,6 +98,7 @@
 
 #import "Cell.h"
 #import "CustomCellBackground.h"
+#import "NSObject+Utilities.h"
 
 @interface Cell()
 
@@ -119,6 +120,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         self.selectedBackgroundView = [[CustomCellBackground customCellBackground] init];
+        
     }
     return self;
 }
@@ -160,7 +162,7 @@
 {
     if (_isTitleMoveToRight)
     {
-        if (self.label.frame.origin.x < 54)
+        if (self.label.frame.origin.x < self.label.frame.size.width)
         {
             [self.label setFrame:CGRectMake(self.label.frame.origin.x + 3, self.label.frame.origin.y, self.label.frame.size.width, self.label.frame.size.height)];
             
@@ -173,7 +175,7 @@
     }
     else if(_isTitleMoveToLeft)
     {
-        if (self.label.frame.origin.x > -9)
+        if (self.label.frame.origin.x > - self.label.frame.size.width)
         {
             [self.label setFrame:CGRectMake(self.label.frame.origin.x - 3, self.label.frame.origin.y, self.label.frame.size.width, self.label.frame.size.height)];
             
@@ -186,8 +188,27 @@
 
     }
     
-    
-    
 }
+
+- (void) setConstraintForImageView
+{
+    NSArray *constraints = self.imageView.constraints;
+    
+    if (constraints != nil)
+    {
+        
+        for (NSLayoutConstraint *constraint in constraints)
+        {
+            if (constraint.firstAttribute == NSLayoutAttributeWidth)
+            {
+                constraint.constant = [NSObject getConstraintWidthForAlbumCell];
+            }
+        }
+        [self.imageView setNeedsUpdateConstraints];
+        self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, [NSObject getConstraintWidthForAlbumCell], self.imageView.frame.size.height);
+        
+    }
+}
+
 
 @end

@@ -84,7 +84,7 @@
     
     NSString *text = image.imageId;
     cell.label.text = text;
-    cell.image.image = [UIImage imageWithContentsOfFile:image.imagePath];
+    cell.imageView.image = [UIImage imageWithContentsOfFile:image.imagePath];
     [cell scheduleMoveTitle];
     
     return cell;
