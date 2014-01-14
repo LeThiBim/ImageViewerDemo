@@ -56,42 +56,44 @@
     // This is where you can do anything you want, and is the whole reason for creating a custom
     // UIActivity
     
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"imageId=%@", self.photo.photoId];
+    NSArray* fitledArray = [[[DataService sharedInstance] selectAllByContext] filteredArrayUsingPredicate:predicate];
+    
+    if ([fitledArray count] == 0)
+    {
+        NSLog(@"Save this photo");
+        
+        NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", self.photo.photoId]];
+        [UIImagePNGRepresentation(self.photo.underlyingImage) writeToFile:cachedImagePath atomically:YES];
+        
+        NSManagedObjectContext *managedObjectContext = [[DataService sharedInstance] managedObjectContext];
+        
+        IMAGE *image = (IMAGE*) [NSEntityDescription insertNewObjectForEntityForName:@"IMAGE" inManagedObjectContext:managedObjectContext];
+        
+        image.imageId = self.photo.photoId;
+        image.imagePath = cachedImagePath;
+        
+        
+        [[DataService sharedInstance] saveContext];
+        
+    }
+    
      if (_activityViewController)
     {
     
-        
         [APIService likePhotoWithPhotoId:self.photo.photoId successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-            
-            NSLog(@"LIKE RESULT : %@", responseObject);
+        
             NSDictionary* result = (NSDictionary*) responseObject;
             
-            if ([[result valueForKey:@"success"] intValue] == 1)
+            int successValue = [[result valueForKey:@"success"] intValue];
+            
+            if (successValue == 1 || successValue == 0)
             {
-                NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-                NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", self.photo.photoId]];
-                [UIImagePNGRepresentation(self.photo.underlyingImage) writeToFile:cachedImagePath atomically:YES];
                 
-                NSManagedObjectContext *managedObjectContext = [[DataService sharedInstance] managedObjectContext];
-                
-                IMAGE *image = (IMAGE*) [NSEntityDescription insertNewObjectForEntityForName:@"IMAGE" inManagedObjectContext:managedObjectContext];
-                
-                image.imageId = self.photo.photoId;
-                image.imagePath = cachedImagePath;
-
-                
-                [[DataService sharedInstance] saveContext];
-
-
-                [NSObject showAlertWithTitle:NSLocalizedString(@"SUCCESSFUL", nil)
-                                  andMessage:NSLocalizedString(@"SUCCESSFUL_MESSAGE", nil)];
-                
-            }
-            else if ([[result valueForKey:@"success"] intValue] == 0)
-            {
-
                 [NSObject showAlertWithTitle:NSLocalizedString(@"SUCCESSFUL", nil)
                                   andMessage:NSLocalizedString(@"SUCCESSFUL_ALREADY_MESSAGE", nil)];
-
             }
             
             

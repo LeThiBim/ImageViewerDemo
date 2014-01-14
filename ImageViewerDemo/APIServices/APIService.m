@@ -21,7 +21,7 @@
      {
          NSLog(@"LIST ALBUMS : %@", responseObject);
          
-         if (successBlock)
+         if (successBlock && [responseObject isKindOfClass:[NSDictionary class]])
              successBlock(operation, responseObject);
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -44,7 +44,7 @@
      {
          NSLog(@"LIST PHOTOS : %@", responseObject);
          
-         if (successBlock)
+         if (successBlock && [responseObject isKindOfClass:[NSDictionary class]])
              successBlock(operation, responseObject);
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -69,7 +69,7 @@
      {
          
          
-         if (successBlock)
+         if (successBlock && [responseObject isKindOfClass:[NSDictionary class]])
              successBlock(operation, responseObject);
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
