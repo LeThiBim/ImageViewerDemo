@@ -74,8 +74,10 @@ static UIAlertView* staticAlertView = nil;
         {
         
             staticAlertView = [[UIAlertView alloc] initWithTitle:title message:message  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [staticAlertView show];
+            
         }
+        
+        [staticAlertView show];
         
     });
 

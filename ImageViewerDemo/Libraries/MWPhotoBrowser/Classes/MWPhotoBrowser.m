@@ -13,6 +13,9 @@
 #import "SDImageCache.h"
 #import "ActivityViewCustomActivity.h"
 #import "AppDelegate.h"
+#import "DataService.h"
+#import "IMAGE.h"
+#import "APIService.h"
 
 #define PADDING                  10
 #define ACTION_SHEET_OLD_ACTIONS 2000
@@ -276,7 +279,25 @@
 
     // Toolbar visibility
     [_toolbar setItems:items];
+    
+    
     BOOL hideToolbar = YES;
+    
+    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    if (appDelegate.currentMainScreenIndex == 0)
+    {
+        hideToolbar = NO;
+        
+        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake((320 - 35)/2, (_toolbar.frame.size.height - 35)/2, 35, 35)];
+        [button setImage:[UIImage imageNamed:@"heartIcon.png"] forState:UIControlStateNormal];
+        
+        [button addTarget:self action:@selector(tapLikeButton) forControlEvents:UIControlEventTouchUpInside];
+        
+        [_toolbar addSubview:button];
+    }
+    
+    
     for (UIBarButtonItem* item in _toolbar.items) {
         if (item != fixedSpace && item != flexSpace) {
             hideToolbar = NO;
@@ -1389,27 +1410,7 @@
     MWPhoto* photo = (MWPhoto*) [self photoAtIndex:self.currentIndex];
     UIActivityViewController *avc = nil;
     
-    
-    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-
-    if (appDelegate.currentMainScreenIndex == 0)
-    {
-    
-        ActivityViewCustomActivity *ca = [[ActivityViewCustomActivity alloc]init];
-        ca.photo = photo;
-        
-        
-        avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObject:photo.underlyingImage] applicationActivities:[NSArray arrayWithObject:ca]];
-        
-
-        ca.activityViewController = avc;
-    }
-    else
-    {
-        avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObject:photo.underlyingImage] applicationActivities:nil];
-    }
-    
-    
+    avc = [[UIActivityViewController alloc] initWithActivityItems:[NSArray arrayWithObject:photo.underlyingImage] applicationActivities:nil];
     
     [self presentViewController:avc animated:YES completion:nil];
     
@@ -1619,6 +1620,62 @@
 		[alert show];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (void) tapLikeButton
+{
+    
+    MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
+    
+    NSPredicate* predicate = [NSPredicate predicateWithFormat:@"imageId=%@", curentPhoto];
+    NSArray* fitledArray = [[[DataService sharedInstance] selectAllByContext] filteredArrayUsingPredicate:predicate];
+    
+    if ([fitledArray count] == 0)
+    {
+        NSLog(@"Save this photo");
+        
+        NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", curentPhoto.photoId]];
+        [UIImagePNGRepresentation(curentPhoto.underlyingImage) writeToFile:cachedImagePath atomically:YES];
+        
+        NSManagedObjectContext *managedObjectContext = [[DataService sharedInstance] managedObjectContext];
+        
+        IMAGE *image = (IMAGE*) [NSEntityDescription insertNewObjectForEntityForName:@"IMAGE" inManagedObjectContext:managedObjectContext];
+        
+        image.imageId = curentPhoto.photoId;
+        image.imagePath = cachedImagePath;
+        
+        
+        [[DataService sharedInstance] saveContext];
+        
+    }
+    
+    
+    //Call API to log to server
+    
+    [APIService likePhotoWithPhotoId:curentPhoto.photoId successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary* result = (NSDictionary*) responseObject;
+        
+        int successValue = [[result valueForKey:@"success"] intValue];
+        
+        if (successValue == 1 || successValue == 0)
+        {
+            
+            [NSObject showAlertWithTitle:NSLocalizedString(@"SUCCESSFUL", nil)
+                              andMessage:NSLocalizedString(@"SUCCESSFUL_ALREADY_MESSAGE", nil)];
+        }
+        
+        
+    } faildBlock:^(NSError *error) {
+        
+        
+        
+    }];
+    
+
+
 }
 
 @end
