@@ -103,9 +103,6 @@
             
         }];
     
-        
-        
-        
         [_activityViewController dismissViewControllerAnimated:YES completion:^{
             
         }];

@@ -1698,9 +1698,6 @@
 
 - (void) tapDeleteButton
 {
-    //MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
-
-    //[[DataService sharedInstance] deleteDataInEntityWithId:curentPhoto.photoId];
     
     if (!self.confirmDeleteAlert)
     {
@@ -1733,7 +1730,7 @@
         }
             break;
 
-            
+
         default:
             break;
     }
