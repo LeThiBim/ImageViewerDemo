@@ -20,4 +20,6 @@
 - (void) deleteAllDataInEntity;
 - (void) deleteDataInEntityWithId:(NSString*) imageId;
 - (NSArray*) selectAllByContext;
+
+- (void) updateRecordWithImageId:(NSString*) imageId AndThumbPath:(NSString*) newThumbPath;
 @end

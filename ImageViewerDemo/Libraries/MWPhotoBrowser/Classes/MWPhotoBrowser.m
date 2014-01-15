@@ -1700,7 +1700,7 @@
         
         NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", curentPhoto.photoId]];
-        NSString *cachedThumbPath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_thumb.jpg", curentPhoto.photoId]];
+        //NSString *cachedThumbPath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_thumb.jpg", curentPhoto.photoId]];
         
         [UIImagePNGRepresentation(curentPhoto.underlyingImage) writeToFile:cachedImagePath atomically:YES];
         
@@ -1710,7 +1710,7 @@
         
         image.imageId = curentPhoto.photoId;
         image.imagePath = cachedImagePath;
-        image.thumbPath = cachedThumbPath;
+        image.thumbPath = nil;
         
         
         [[DataService sharedInstance] saveContext];
@@ -1729,6 +1729,7 @@
             NSString *cachedThumbPath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_thumb.jpg", curentPhoto.photoId]];
             [UIImagePNGRepresentation([UIImage imageWithData:imageData]) writeToFile:cachedThumbPath atomically:YES];
             
+            [[DataService sharedInstance] updateRecordWithImageId:curentPhoto.photoId AndThumbPath:cachedThumbPath];
             
         });
         

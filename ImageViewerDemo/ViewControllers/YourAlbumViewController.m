@@ -93,7 +93,10 @@
     
     NSString* filePath = image.imagePath;
     
-    if ([[NSFileManager defaultManager] fileExistsAtPath:image.thumbPath])
+    //if ([[NSFileManager defaultManager] fileExistsAtPath:image.thumbPath])
+    //    filePath = image.thumbPath;
+    
+    if (image.thumbPath)
         filePath = image.thumbPath;
         
     

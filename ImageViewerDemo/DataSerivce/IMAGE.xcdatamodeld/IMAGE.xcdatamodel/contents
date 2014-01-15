@@ -3,6 +3,7 @@
     <entity name="IMAGE" representedClassName="IMAGE" syncable="YES">
         <attribute name="imageId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbPath" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="IMAGE" positionX="0" positionY="0" width="0" height="0"/>

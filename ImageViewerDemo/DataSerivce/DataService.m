@@ -182,6 +182,34 @@
     }
 }
 
+//Update
+
+- (void) updateRecordWithImageId:(NSString*) imageId AndThumbPath:(NSString*) newThumbPath
+{
+    NSManagedObjectContext *context = [[DataService sharedInstance] managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMAGE" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [context executeFetchRequest:fetchRequest error:&error];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"imageId == %@", imageId];
+    
+    NSArray* neededUpdateItems = [items filteredArrayUsingPredicate:predicate];
+    
+    if (neededUpdateItems && [neededUpdateItems count] >0)
+    {
+        IMAGE* image = (IMAGE*) [neededUpdateItems objectAtIndex:0];
+        
+        image.thumbPath = newThumbPath;
+        
+        [[DataService sharedInstance] saveContext];
+    }
+    
+}
+
 //get All
 
 - (NSArray*) selectAllByContext
