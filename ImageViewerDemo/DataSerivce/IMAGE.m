@@ -13,5 +13,6 @@
 
 @dynamic imageId;
 @dynamic imagePath;
+@dynamic thumbPath;
 
 @end

@@ -90,8 +90,16 @@
     
     NSString *text = image.imageId;
     cell.label.text = text;
-    cell.imageView.image = [UIImage imageWithContentsOfFile:image.imagePath];
-    [cell scheduleMoveTitle];
+    
+    NSString* filePath = image.imagePath;
+    
+    if ([[NSFileManager defaultManager] fileExistsAtPath:image.thumbPath])
+        filePath = image.thumbPath;
+        
+    
+    cell.imageView.image = [UIImage imageWithContentsOfFile:filePath];
+    
+//    [cell scheduleMoveTitle];
     
     return cell;
 }

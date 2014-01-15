@@ -171,6 +171,8 @@
         
         //Delete this image in document directory
         [[NSFileManager defaultManager] removeItemAtPath: image.imagePath error: nil];
+        [[NSFileManager defaultManager] removeItemAtPath: image.thumbPath error: nil];
+
         
         for (NSManagedObject *managedObject in neededDeleteItems)
         {

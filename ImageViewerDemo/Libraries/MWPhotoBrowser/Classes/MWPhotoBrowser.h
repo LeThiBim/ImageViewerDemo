@@ -50,6 +50,7 @@
 @property (nonatomic, readonly) NSUInteger currentIndex;
 
 @property (strong, nonatomic) UIAlertView* confirmDeleteAlert;
+@property (strong, nonatomic) dispatch_queue_t myQueue;
 
 // Init
 - (id)initWithPhotos:(NSArray *)photosArray  __attribute__((deprecated("Use initWithDelegate: instead"))); // Depreciated

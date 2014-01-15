@@ -1657,6 +1657,8 @@
         
         NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", curentPhoto.photoId]];
+        NSString *cachedThumbPath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_thumb.jpg", curentPhoto.photoId]];
+        
         [UIImagePNGRepresentation(curentPhoto.underlyingImage) writeToFile:cachedImagePath atomically:YES];
         
         NSManagedObjectContext *managedObjectContext = [[DataService sharedInstance] managedObjectContext];
@@ -1665,11 +1667,30 @@
         
         image.imageId = curentPhoto.photoId;
         image.imagePath = cachedImagePath;
+        image.thumbPath = cachedThumbPath;
         
         
         [[DataService sharedInstance] saveContext];
         
+        
+        //Download thumb image
+        
+        if (!_myQueue)
+            _myQueue = dispatch_queue_create("com.myApp.myQueue", NULL);
+        
+        dispatch_async(_myQueue, ^{
+            
+            NSData *imageData = [ [NSData alloc] initWithContentsOfURL: curentPhoto.thumbURL];
+            
+            NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+            NSString *cachedThumbPath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_thumb.jpg", curentPhoto.photoId]];
+            [UIImagePNGRepresentation([UIImage imageWithData:imageData]) writeToFile:cachedThumbPath atomically:YES];
+            
+            
+        });
+        
     }
+    
     
     
     //Call API to log to server

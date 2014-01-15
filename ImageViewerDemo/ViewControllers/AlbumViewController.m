@@ -110,6 +110,7 @@
     {
         MWPhoto* photo = [MWPhoto photoWithURL:[self.albumSource getLargeImageURLOfIndex:i]];
         photo.photoId = [self.albumSource getTitleOfIndex:i];
+        photo.thumbURL = [self.albumSource getThumbImageURLOfIndex:i];
         
         [self.photos addObject:photo];
     }
