@@ -15,7 +15,7 @@
 
 static NSString* staticUUID = nil;
 static UIAlertView* staticAlertView = nil;
-static float  staticConstraintAlbumCellWidth = 240;
+static float staticConstraintAlbumCellWidth = 240;
 
 + (NSString*) getUUID
 {
@@ -99,4 +99,39 @@ static float  staticConstraintAlbumCellWidth = 240;
     return staticConstraintAlbumCellWidth;
 }
 
++ (CGRect) getScreenFrameForOrientation
+{
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    UIScreen *screen = [UIScreen mainScreen];
+    CGRect fullScreenRect = screen.bounds;
+    BOOL statusBarHidden = [UIApplication sharedApplication].statusBarHidden;
+    
+    //implicitly in Portrait orientation.
+    if(orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft)
+    {
+        CGRect temp = CGRectZero;
+        temp.size.width = fullScreenRect.size.height;
+        temp.size.height = fullScreenRect.size.width;
+        fullScreenRect = temp;
+    }
+    
+    if(!statusBarHidden)
+    {
+        CGFloat statusBarHeight = 20;//Needs a better solution, FYI statusBarFrame reports wrong in some cases..
+        fullScreenRect.size.height -= statusBarHeight;
+    }
+    
+    return fullScreenRect;
+}
+
++ (float) getScreenWidthForOrientation
+{
+    return [self getScreenFrameForOrientation].size.width;
+}
+
++ (float) getScreenHeightForOrientation
+{
+    return [self getScreenFrameForOrientation].size.height;
+}
 @end

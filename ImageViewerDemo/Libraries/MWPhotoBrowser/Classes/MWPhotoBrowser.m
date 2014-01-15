@@ -291,7 +291,7 @@
     {
         hideToolbar = NO;
         
-        _likeButton = [[UIButton alloc] initWithFrame:CGRectMake((320 - 40)/2, (_toolbar.frame.size.height - 35)/2, 40, 35)];
+        _likeButton = [[UIButton alloc] initWithFrame:CGRectMake(([NSObject getScreenWidthForOrientation] - 40)/2, (_toolbar.frame.size.height - 35)/2, 40, 35)];
         
         [_likeButton setImage:[UIImage imageNamed:@"like-gray.png"] forState:UIControlStateDisabled];
         [_likeButton setImage:[UIImage imageNamed:@"like-blue.png"] forState:UIControlStateNormal];
@@ -305,16 +305,16 @@
     {
         hideToolbar = NO;
         
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake((320 - 35)/2, (_toolbar.frame.size.height - 100)/2, 35, 100)];
+        _likeButton = [[UIButton alloc] initWithFrame:CGRectMake(([NSObject getScreenWidthForOrientation] - 35)/2, (_toolbar.frame.size.height - 100)/2, 35, 100)];
         
         //[button setImage:[UIImage imageNamed:@"heartIcon.png"] forState:UIControlStateNormal];
         //[button setImage:[UIImage imageNamed:@"sel_heartIcon.png"] forState:UIControlStateHighlighted];
         
-        [button setTitle:@"Delete" forState:UIControlStateNormal];
+        [_likeButton setTitle:@"Delete" forState:UIControlStateNormal];
         
-        [button addTarget:self action:@selector(tapDeleteButton) forControlEvents:UIControlEventTouchUpInside];
+        [_likeButton addTarget:self action:@selector(tapDeleteButton) forControlEvents:UIControlEventTouchUpInside];
         
-        [_toolbar addSubview:button];
+        [_toolbar addSubview:_likeButton];
     }
     
     for (UIBarButtonItem* item in _toolbar.items) {
@@ -581,6 +581,8 @@
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     
+
+    
 	// Remember page index before rotation
 	_pageIndexBeforeRotation = _currentPageIndex;
 	_rotating = YES;
@@ -595,6 +597,47 @@
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	
+    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    
+    if (appDelegate.currentMainScreenIndex == 0)
+    {
+        CGSize likeButtonSize = CGSizeMake(_likeButton.frame.size.width, _likeButton.frame.size.height);
+        
+        if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
+        {
+            likeButtonSize.width  = 35;
+            likeButtonSize.height = 30;
+        }
+        else
+        {
+            likeButtonSize.width  = 40;
+            likeButtonSize.height = 35;
+        }
+        
+        [_likeButton setFrame:CGRectMake(([NSObject getScreenWidthForOrientation] - likeButtonSize.width)/2, (_toolbar.frame.size.height - likeButtonSize.height)/2, likeButtonSize.width, likeButtonSize.height)];
+
+    }
+    else if (appDelegate.currentMainScreenIndex == 1)
+    {
+        CGSize likeButtonSize = CGSizeMake(_likeButton.frame.size.width, _likeButton.frame.size.height);
+
+        if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
+        {
+            
+        }
+        else
+        {
+            likeButtonSize.width  = 35;
+            likeButtonSize.height = 100;
+
+        }
+
+        [_likeButton setFrame:CGRectMake(([NSObject getScreenWidthForOrientation] - likeButtonSize.width)/2, (_toolbar.frame.size.height - likeButtonSize.height)/2, likeButtonSize.width, likeButtonSize.height)];
+
+    }
+    
 	// Perform layout
 	_currentPageIndex = _pageIndexBeforeRotation;
 	

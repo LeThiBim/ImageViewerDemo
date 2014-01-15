@@ -13,6 +13,7 @@
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "ImageViewController.h"
+#import "NSObject+Utilities.h"
 
 
 @interface AlbumViewController ()
@@ -166,7 +167,7 @@
         
         if (!self.noDataTextView && [self.albumSource.imageList count] == 0)
         {
-            self.noDataTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, 320, 200)];
+            self.noDataTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, [NSObject getScreenWidthForOrientation], ([NSObject getScreenHeightForOrientation] - 100)/2 )];
             [self.noDataTextView setBackgroundColor:[UIColor blackColor]];
             [self.noDataTextView setTextColor:[UIColor whiteColor]];
             [self.noDataTextView setTextAlignment:NSTextAlignmentCenter];

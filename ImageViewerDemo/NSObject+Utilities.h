@@ -16,4 +16,10 @@
 
 + (void) setConstraintWidthForAlbumCellWithValue:(float) value;
 + (float) getConstraintWidthForAlbumCell;
+
++ (CGRect) getScreenFrameForOrientation;
+
++ (float) getScreenWidthForOrientation;
++ (float) getScreenHeightForOrientation;
+
 @end
