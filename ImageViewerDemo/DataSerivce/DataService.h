@@ -19,5 +19,7 @@
 - (void) saveContext;
 - (void) deleteAllDataInEntity;
 - (void) deleteDataInEntityWithId:(NSString*) imageId;
+
+- (void) updateRecordWithOldImageId:(NSString*) imageId NewImageId:(NSString*) newImageId AndNewImagePath:(NSString*) newImagePath;
 - (NSArray*) selectAllByContext;
 @end

@@ -12,16 +12,20 @@
 @interface APIService : NSObject
 
 + (void) getListAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                           faildBlock:(void(^)(NSError *error))faildBlock;
+                           failBlock:(void(^)(NSError *error))failBlock;
 
 
 + (void) getListImageInAlbumWithAlbumId:(NSString*) albumId
                            successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                             faildBlock:(void(^)(NSError *error))faildBlock;
+                             failBlock:(void(^)(NSError *error))failBlock;
 
 + (void) likePhotoWithPhotoId:(NSString*) photoId
                            successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                             faildBlock:(void(^)(NSError *error))faildBlock;
+                             failBlock:(void(^)(NSError *error))failBlock;
+
++ (void) getYourAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
+                           failBlock:(void(^)(NSError *error))failBlock;
+
 
 
 @end

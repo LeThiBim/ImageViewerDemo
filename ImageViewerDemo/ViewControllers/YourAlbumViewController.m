@@ -22,8 +22,6 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray* photos;
 
-@property (strong, nonatomic) NSArray* yourAlbum;
-
 @end
 
 @implementation YourAlbumViewController
@@ -32,14 +30,13 @@
 {
     [super viewDidLoad];
     
-    self.yourAlbum = [[DataService sharedInstance] selectAllByContext];
-
     
+//    typeof (&*self) __weak weakSelf = self;
+//
 //    [self.collectionView addPullToRefreshWithActionHandler:^{
 //        
 //        //TODO: reload data
-//        
-//        
+//        //[weakSelf.yourAlbumSource getYourAlbumFromServer];
 //        
 //    }];
     
@@ -67,8 +64,12 @@
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
-    if (self.yourAlbum)
-        return [self.yourAlbum count];
+    if (self.yourAlbumSource.imageList)
+    {
+        NSLog(@"NUMBER OF PHOTO IN YOUR ALBUM : %d", [self.yourAlbumSource.imageList count]);
+        return [self.yourAlbumSource.imageList count];
+    }
+    
     return 0;
 }
 
@@ -82,12 +83,26 @@
     
     cell.tag = indexPath.row;
     
-    IMAGE* image = (IMAGE*) [self.yourAlbum objectAtIndex:indexPath.row];
+    IMAGE* image = (IMAGE*) [self.yourAlbumSource.imageList objectAtIndex:indexPath.row];
     
     NSString *text = image.imageId;
     cell.label.text = text;
-    cell.imageView.image = [UIImage imageWithContentsOfFile:image.imagePath];
-    [cell scheduleMoveTitle];
+
+    
+    //Image is not download finish
+    if ([image.imagePath rangeOfString:@"http"].length > 0)
+    {
+
+        [cell.imageView setImageWithURL:[NSURL URLWithString:image.imagePath]
+                       placeholderImage:[UIImage imageNamed:@"media_app.png"]];
+ 
+    }
+    //Image is in document directory
+    else
+    {
+        cell.imageView.image = [UIImage imageWithContentsOfFile:image.imagePath];
+    }
+    //[cell scheduleMoveTitle];
     
     return cell;
 }
@@ -113,11 +128,21 @@
     self.photos = [NSMutableArray array];
     //[self.photos addObject:[MWPhoto photoWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"photo2l" ofType:@"jpg"]]]];
     
-    for (int i = 0; i < [self.yourAlbum count]; i++)
+    for (int i = 0; i < [self.yourAlbumSource.imageList count]; i++)
     {
-        IMAGE* image = (IMAGE*) [self.yourAlbum objectAtIndex:i];
+        IMAGE* image = (IMAGE*) [self.yourAlbumSource.imageList objectAtIndex:i];
+        MWPhoto* photo;
         
-        MWPhoto* photo = [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:image.imagePath]];
+        if ([image.imagePath rangeOfString:@"http"].length > 0)
+        {
+            photo = [MWPhoto photoWithURL:[NSURL URLWithString:image.imagePath]];
+        }
+        else
+        {
+            photo = [MWPhoto photoWithImage:[UIImage imageWithContentsOfFile:image.imagePath]];
+        }
+        
+        
         photo.photoId = image.imageId;
         
         [self.photos addObject:photo];
@@ -156,14 +181,20 @@
     [self.navigationPaneViewController setPaneState:MSNavigationPaneStateOpen animated:YES completion:nil];
 }
 
-#pragma mark - DataSource delegate
+#pragma mark - GetYourAlbumSource delegate
 
-- (void) finishGetImageLinksFromServerSuccessful
+- (void) finishGetYourAlbumFromServerSuccessful
 {
     if (self.collectionView)
     {
+        [self.collectionView.pullToRefreshView stopAnimating];
         [self.collectionView reloadData];
     }
+}
+
+- (void) finishGetYourAlbumFromServerFailed
+{
+    [self.collectionView.pullToRefreshView stopAnimating];
 }
 
 
@@ -175,9 +206,29 @@
 
 - (id <MWPhoto>)photoBrowser:(MWPhotoBrowser *)photoBrowser photoAtIndex:(NSUInteger)index {
     if (index < self.photos.count)
+    {
+        MWPhoto* photo = (MWPhoto*) [self.photos objectAtIndex:index];
+        IMAGE* image = (IMAGE*) [self.yourAlbumSource.imageList objectAtIndex:index];
+
+        if ([image.imagePath rangeOfString:@"http"].length > 0)
+        {
+            [self saveImageDocumentDirectoryWithPhotoBrowser:photo];
+        }
+
+        
         return [self.photos objectAtIndex:index];
+        
+    }
     return nil;
 }
 
+- (void) saveImageDocumentDirectoryWithPhotoBrowser:(MWPhoto*) photo
+{
+    //Save image to file
+    NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+    NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", photo.photoId]];
+    [UIImagePNGRepresentation(photo.underlyingImage) writeToFile:cachedImagePath atomically:YES];
+
+}
 
 @end

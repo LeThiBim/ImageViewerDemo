@@ -240,7 +240,7 @@ Data Source to manage assets used by the app.
                                    [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
                            });
         }
-    } faildBlock:^(NSError *error) {
+    } failBlock:^(NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(),
                        ^{

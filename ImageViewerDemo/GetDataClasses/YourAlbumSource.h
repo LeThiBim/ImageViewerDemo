@@ -10,15 +10,17 @@
 
 @protocol GetYourAlbumSourceDelegate <NSObject>
 
-- (void) finishGetYourAlbumFromServer;
+- (void) finishGetYourAlbumFromServerSuccessful;
+- (void) finishGetYourAlbumFromServerFailed;
 
 @end
 
 
 @interface YourAlbumSource : NSObject
 
-@property (assign, nonatomic) id <GetAlbumSourceDelegate> delegate;
-@property (strong, nonatomic) NSMutableArray* photos;
-@property (strong, nonatomic) NSArray* yourAlbum;
+@property (assign, nonatomic) id <GetYourAlbumSourceDelegate> delegate;
+@property (strong, nonatomic) NSArray* imageList;
 
+
+- (void) getYourAlbumFromServer;
 @end

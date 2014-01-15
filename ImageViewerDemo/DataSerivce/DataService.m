@@ -197,4 +197,33 @@
     return items;
 }
 
+//Update
+
+- (void) updateRecordWithOldImageId:(NSString*) imageId NewImageId:(NSString*) newImageId AndNewImagePath:(NSString*) newImagePath
+{
+    NSManagedObjectContext *context = [[DataService sharedInstance] managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"IMAGE" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error;
+    NSArray *items = [context executeFetchRequest:fetchRequest error:&error];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"imageId == %@", imageId];
+    
+    NSArray* neededUpdateItems = [items filteredArrayUsingPredicate:predicate];
+    
+    if (neededUpdateItems && [neededUpdateItems count] >0)
+    {
+        IMAGE* image = (IMAGE*) [neededUpdateItems objectAtIndex:0];
+        
+        image.imageId   = newImageId;
+        image.imagePath = newImagePath;
+        
+        [[DataService sharedInstance] saveContext];
+    }
+
+}
+
 @end

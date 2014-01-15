@@ -63,6 +63,8 @@
 		172E78B5187A903E00167BCF /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 172E788D187A903E00167BCF /* UIImage+WebP.m */; };
 		172E78B6187A903E00167BCF /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 172E788F187A903E00167BCF /* UIImageView+WebCache.m */; };
 		175EB646187D09A200E888F9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175EB645187D09A200E888F9 /* AboutViewController.m */; };
+		17A4636818861A27000DB8E9 /* YourAlbumSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A4636618861A27000DB8E9 /* YourAlbumSource.m */; };
+		17A4636C18863DBF000DB8E9 /* ActivityAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A4636B18863DBF000DB8E9 /* ActivityAlertView.m */; };
 		17A46A97186D5DE80005475C /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46A88186D5DE80005475C /* Cell.m */; };
 		17A46A98186D5DE80005475C /* CustomCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46A8A186D5DE80005475C /* CustomCellBackground.m */; };
 		17A46A9C186D5DE80005475C /* ListAlbumsSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46A94186D5DE80005475C /* ListAlbumsSource.m */; };
@@ -239,6 +241,10 @@
 		172E788F187A903E00167BCF /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		175EB644187D09A200E888F9 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		175EB645187D09A200E888F9 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		17A4636618861A27000DB8E9 /* YourAlbumSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourAlbumSource.m; sourceTree = "<group>"; };
+		17A4636718861A27000DB8E9 /* YourAlbumSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourAlbumSource.h; sourceTree = "<group>"; };
+		17A4636A18863DBF000DB8E9 /* ActivityAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityAlertView.h; sourceTree = "<group>"; };
+		17A4636B18863DBF000DB8E9 /* ActivityAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityAlertView.m; sourceTree = "<group>"; };
 		17A46A87186D5DE80005475C /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		17A46A88186D5DE80005475C /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		17A46A89186D5DE80005475C /* CustomCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellBackground.h; sourceTree = "<group>"; };
@@ -523,6 +529,15 @@
 			path = SDWebImage;
 			sourceTree = "<group>";
 		};
+		17A4636918863DBF000DB8E9 /* ActivityAlertView */ = {
+			isa = PBXGroup;
+			children = (
+				17A4636A18863DBF000DB8E9 /* ActivityAlertView.h */,
+				17A4636B18863DBF000DB8E9 /* ActivityAlertView.m */,
+			);
+			path = ActivityAlertView;
+			sourceTree = "<group>";
+		};
 		17A46A1C186D5B040005475C /* APIServices */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +565,8 @@
 		17A46A92186D5DE80005475C /* GetDataClasses */ = {
 			isa = PBXGroup;
 			children = (
+				17A4636718861A27000DB8E9 /* YourAlbumSource.h */,
+				17A4636618861A27000DB8E9 /* YourAlbumSource.m */,
 				17A46A93186D5DE80005475C /* ListAlbumsSource.h */,
 				17A46A94186D5DE80005475C /* ListAlbumsSource.m */,
 				17A46A95186D5DE80005475C /* AlbumSource.h */,
@@ -717,6 +734,7 @@
 		17B91B1518628DC00018D4E2 /* ImageViewerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				17A4636918863DBF000DB8E9 /* ActivityAlertView */,
 				B2FB05E91882CF6400D65C2C /* DataSerivce */,
 				B20A332C18810B3000217ACC /* CustomActivityView */,
 				17B7F8741874FAF6002ED94B /* CustomLayout */,
@@ -965,6 +983,7 @@
 				17A46A9C186D5DE80005475C /* ListAlbumsSource.m in Sources */,
 				172E7895187A903E00167BCF /* MWTapDetectingImageView.m in Sources */,
 				B2B1CD241882DCA70017DA94 /* NSObject+Utilities.m in Sources */,
+				17A4636818861A27000DB8E9 /* YourAlbumSource.m in Sources */,
 				17A970CC187E5C07000C40D1 /* PRTween.m in Sources */,
 				17A46B09186D71140005475C /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				17A46AF6186D71140005475C /* AFSecurityPolicy.m in Sources */,
@@ -992,6 +1011,7 @@
 				172E7896187A903E00167BCF /* MWTapDetectingView.m in Sources */,
 				B2FB05EC1882CF6400D65C2C /* DataService.m in Sources */,
 				17B91B2018628DC00018D4E2 /* AppDelegate.m in Sources */,
+				17A4636C18863DBF000DB8E9 /* ActivityAlertView.m in Sources */,
 				172E78A7187A903E00167BCF /* PSTGridLayoutSection.m in Sources */,
 				172E7892187A903E00167BCF /* MWGridViewController.m in Sources */,
 				17B91B1C18628DC00018D4E2 /* main.m in Sources */,

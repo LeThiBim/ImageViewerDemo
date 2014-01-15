@@ -27,4 +27,9 @@
     return @"http://m.source.vn/api/photo/like/%@/%@";
 }
 
++(NSString*)  getYourAlbum
+{
+    return @"http://m.source.vn/api/photos/like/%@";
+}
+
 @end

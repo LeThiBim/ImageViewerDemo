@@ -14,7 +14,7 @@
 @implementation APIService
 
 + (void) getListAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                           faildBlock:(void(^)(NSError *error))faildBlock
+                           failBlock:(void(^)(NSError *error))failBlock
 {
     [[AFAppDotNetAPIClient sharedClient] GET:[ServiceConfigs getAlbumUrl]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -28,8 +28,8 @@
          
          [self showErrorAlert:error];
          
-         if (faildBlock)
-             faildBlock(error);
+         if (failBlock)
+             failBlock(error);
          
      }];
 
@@ -37,7 +37,7 @@
 
 + (void) getListImageInAlbumWithAlbumId:(NSString*) albumId
                            successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                             faildBlock:(void(^)(NSError *error))faildBlock
+                             failBlock:(void(^)(NSError *error))failBlock
 {
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs getImagesListOfAlbum], albumId]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -51,8 +51,8 @@
          
          [self showErrorAlert:error];
          
-         if (faildBlock)
-             faildBlock(error);
+         if (failBlock)
+             failBlock(error);
 
      }];
 
@@ -60,9 +60,9 @@
 
 + (void) likePhotoWithPhotoId:(NSString*) photoId
                  successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                   faildBlock:(void(^)(NSError *error))faildBlock
+                   failBlock:(void(^)(NSError *error))failBlock
 {
-    NSLog(@"URL LIKE PHOTO : %@", [NSString stringWithFormat:[ServiceConfigs likePhoto], [self getUUID], photoId]);
+  //  NSLog(@"URL LIKE PHOTO : %@", [NSString stringWithFormat:[ServiceConfigs likePhoto], [self getUUID], photoId]);
     
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs likePhoto], [self getUUID], photoId]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
@@ -76,11 +76,30 @@
          
          [self showErrorAlert:error];
          
-         if (faildBlock)
-             faildBlock(error);
+         if (failBlock)
+             failBlock(error);
          
      }];
 
+}
+
++ (void) getYourAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
+                            failBlock:(void(^)(NSError *error))failBlock
+{
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs getYourAlbum], [self getUUID]] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        if (successBlock)
+            successBlock(operation, responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        [self showErrorAlert:error];
+        
+        if (failBlock)
+            failBlock(error);
+    }];
+    
 }
 
 + (void)showErrorAlert:(NSError *)error{

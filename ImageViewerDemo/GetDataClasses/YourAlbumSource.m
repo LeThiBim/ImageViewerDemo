@@ -17,7 +17,7 @@
     if (self) {
         
         
-        
+        self.imageList = [[DataService sharedInstance] selectAllByContext];
         
     }
     return self;
@@ -37,17 +37,8 @@
 
 - (NSString*) getTitleOfIndex:(NSInteger) index
 {
-    NSDictionary* item = (NSDictionary*) [self.imageList objectAtIndex:index];
-    
-    NSString* title = [item objectForKey:@"id"];
-    
-    if (title == nil)
-    {
-        title = @"Image";
-    }
-    return title;
-    
-    
+    IMAGE* image = (IMAGE*) [self.imageList objectAtIndex:index];
+    return image.imageId;
 }
 
 - (NSURL*) getThumbImageURLOfIndex:(NSInteger)index
@@ -68,26 +59,69 @@
     return imageURL;
 }
 
-- (void) getImageLinksFromServer
+- (void) getYourAlbumFromServer
 {
-    [APIService getListImageInAlbumWithAlbumId:self.albumId
-                                  successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                      
-                                      self.imageList = [responseObject objectForKey:@"pictures"];
-                                      
-                                      if (self.delegate)
-                                      {
-                                          dispatch_async(dispatch_get_main_queue(),
-                                                         ^{
-                                                             [self.delegate performSelector:@selector(finishGetImageLinksFromServer) withObject:nil];
-                                                         });
-                                      }
-                                      
-                                  } faildBlock:^(NSError *error) {
-                                      
-                                  }];
+    
+    [APIService getYourAlbumWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        
+        NSArray* photosArray = [responseObject objectForKey:@"photos"];
+        
+        NSLog(@" THE NUMBER OF YOUR PHOTO FROM SERVER : %d", [photosArray count]);
+        
+        if ([photosArray count] >0)
+        {
+            [[DataService sharedInstance] deleteAllDataInEntity];
+
+            for (int i = 0; i < [photosArray count]; i++)
+            {
+                NSDictionary* photoDictionary = (NSDictionary*) [photosArray objectAtIndex:i];
+                
+                NSManagedObjectContext *managedObjectContext = [[DataService sharedInstance] managedObjectContext];
+                IMAGE *image = (IMAGE*) [NSEntityDescription insertNewObjectForEntityForName:@"IMAGE" inManagedObjectContext:managedObjectContext];
+                
+                image.imageId   = [photoDictionary valueForKey:@"id"];
+                
+                NSString *cachedFolderPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+                NSString *cachedImagePath = [cachedFolderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.jpg", image.imageId]];
+                
+                if ([[NSFileManager defaultManager] fileExistsAtPath:cachedImagePath])
+                    image.imagePath = cachedImagePath;
+                else
+                    image.imagePath = [photoDictionary valueForKey:@"url"];
+            }
+            [[DataService sharedInstance] saveContext];
+
+             self.imageList = [[DataService sharedInstance] selectAllByContext];
+            
+            if (self.delegate)
+            {
+                dispatch_async(dispatch_get_main_queue(),
+                               ^{
+                                   
+                                   [self.delegate performSelector:@selector(finishGetYourAlbumFromServerSuccessful) withObject:nil];
+                               });
+            }
+
+        }
+        
+        
+       
+        
+        
+    } failBlock:^(NSError *error) {
+        
+        if (self.delegate)
+        {
+            dispatch_async(dispatch_get_main_queue(),
+                           ^{
+                               
+                               [self.delegate performSelector:@selector(finishGetYourAlbumFromServerFailed) withObject:nil];
+                    });
+        }
+        
+    }];
     
 }
-
 
 @end

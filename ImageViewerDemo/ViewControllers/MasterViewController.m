@@ -92,14 +92,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    MSPaneViewControllerType paneViewControllerType = [self paneViewControllerTypeForIndexPath:indexPath];
-//    [self transitionToViewController:paneViewControllerType];
-//    if (self.paneViewControllerAppearanceTypes[@(paneViewControllerType)]) {
-//        self.navigationPaneViewController.appearanceType = [self.paneViewControllerAppearanceTypes[@(paneViewControllerType)] unsignedIntegerValue];
-//        // Update row titles
-//        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationFade];
-//    }
-//    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.row == self.selectedIndex)
     {
@@ -151,6 +143,9 @@
                 YourAlbumViewController *yourAlbumController = (YourAlbumViewController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"YourAlbumViewController"];
 
                 yourAlbumController.navigationPaneViewController = self.navigationPaneViewController;
+                yourAlbumController.yourAlbumSource = [[YourAlbumSource alloc] init];
+                yourAlbumController.yourAlbumSource.delegate = yourAlbumController;
+                //[yourAlbumController.yourAlbumSource getYourAlbumFromServer];
                 
                 UINavigationController *paneNavigationViewController = [[UINavigationController alloc] initWithRootViewController:yourAlbumController];
                 

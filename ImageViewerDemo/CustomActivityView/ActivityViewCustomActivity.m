@@ -97,7 +97,7 @@
             }
             
             
-        } faildBlock:^(NSError *error) {
+        } failBlock:^(NSError *error) {
             
             
             

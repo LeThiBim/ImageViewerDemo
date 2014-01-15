@@ -16,4 +16,5 @@
 +(NSString*) getImagesListOfAlbum;
 
 +(NSString*) likePhoto;
++(NSString*)  getYourAlbum;
 @end
