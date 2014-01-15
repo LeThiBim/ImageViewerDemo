@@ -45,14 +45,17 @@
     
 }
 
-- (void) viewDidAppear:(BOOL)animated
+- (void) viewWillAppear:(BOOL)animated
 {
     //   [self.collectionView triggerPullToRefresh];
+    
+    [super viewWillAppear:animated];
     
     UIBarButtonItem* barButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MSBarButtonIconNavigationPane.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(navigationPaneRevealBarButtonItemTapped:)];
     
     self.navigationItem.leftBarButtonItem = barButtonItem;
-    
+
+    self.yourAlbum = [[DataService sharedInstance] selectAllByContext];
     [self.collectionView reloadData];
 
 }
@@ -75,7 +78,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0) {
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
+    {
         cell.label.textColor = [UIColor grayColor];
         
     }

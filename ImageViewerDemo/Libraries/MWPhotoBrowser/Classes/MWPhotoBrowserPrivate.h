@@ -67,6 +67,9 @@
     BOOL _viewHasAppearedInitially;
     CGPoint _currentGridContentOffset;
     
+    //Like button
+    UIButton* _likeButton;
+    
 }
 
 // Properties

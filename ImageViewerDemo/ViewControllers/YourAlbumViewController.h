@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AlbumSource.h"
 #import "MWPhotoBrowser.h"
 #import "MSNavigationPaneViewController.h"
 
-@interface YourAlbumViewController : UICollectionViewController <GetAlbumSourceDelegate, MWPhotoBrowserDelegate>
+@interface YourAlbumViewController : UICollectionViewController <MWPhotoBrowserDelegate>
 
 @property (nonatomic, weak) MSNavigationPaneViewController *navigationPaneViewController;
 

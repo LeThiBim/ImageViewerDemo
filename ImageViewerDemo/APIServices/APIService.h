@@ -23,5 +23,9 @@
                            successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                              faildBlock:(void(^)(NSError *error))faildBlock;
 
++ (void) unLikePhotoWithPhotoId:(NSString*) photoId
+                   successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
+                     faildBlock:(void(^)(NSError *error))faildBlock;
+
 
 @end

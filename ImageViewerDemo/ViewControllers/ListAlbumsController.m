@@ -81,8 +81,18 @@
 
     self.navigationItem.leftBarButtonItem = barButtonItem;
     
-    UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grid" style:UIBarButtonItemStyleBordered target:self action:@selector(displayButtonTapped)];
+    //UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grid" style:UIBarButtonItemStyleBordered target:self action:@selector(displayButtonTapped)];
     
+    UIButton* listGridButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 39, 38)];;
+    
+    if ([NSObject getConstraintWidthForAlbumCell] == 150)
+        [listGridButton setImage:[UIImage imageNamed:@"grid-white.png"] forState:UIControlStateNormal];
+    else
+        [listGridButton setImage:[UIImage imageNamed:@"list-white.png"] forState:UIControlStateNormal];
+    
+    UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:listGridButton];
+    
+    [listGridButton addTarget:self action:@selector(displayButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
     [self updateLayout];
@@ -92,6 +102,8 @@
                                          duration:(NSTimeInterval)duration {
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation
                                             duration:duration];
+    
+
     [self updateLayout];
     
 }
@@ -102,6 +114,23 @@
     
     layout.contentSizeWith  = self.collectionView.bounds.size.width;
     layout.columnCount      = self.collectionView.bounds.size.width/[NSObject getConstraintWidthForAlbumCell];
+    
+    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
+    
+    UIButton* listGridButton = (UIButton*) self.navigationItem.rightBarButtonItem.customView;
+    
+    if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
+    {
+        [listGridButton setFrame:CGRectMake(listGridButton.frame.origin.x, listGridButton.frame.origin.y, 25, 25)];
+        
+        if ([NSObject getConstraintWidthForAlbumCell] == 240)
+            layout.columnCount = 1;
+    }
+    else
+    {
+        [listGridButton setFrame:CGRectMake(listGridButton.frame.origin.x, listGridButton.frame.origin.y, 39, 38)];
+    }
+
     
     [layout invalidateLayout];
     
@@ -180,13 +209,17 @@
 
 - (void) displayButtonTapped
 {
+    UIButton* listGridButton = (UIButton*) self.navigationItem.rightBarButtonItem.customView;
+    
     if ([NSObject getConstraintWidthForAlbumCell] == 150)
     {
         [NSObject setConstraintWidthForAlbumCellWithValue:240];
+        [listGridButton setImage:[UIImage imageNamed:@"list-white.png"] forState:UIControlStateNormal];
     }
     else
     {
         [NSObject setConstraintWidthForAlbumCellWithValue:150];
+        [listGridButton setImage:[UIImage imageNamed:@"grid-white.png"] forState:UIControlStateNormal];
     }
     
     [self updateLayout];

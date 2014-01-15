@@ -27,4 +27,8 @@
     return @"http://m.source.vn/api/photo/like/%@/%@";
 }
 
++(NSString*) unLikePhoto
+{
+    return @"http://m.source.vn/api/photo/unlike/%@/%@";
+}
 @end

@@ -291,14 +291,15 @@
     {
         hideToolbar = NO;
         
-        UIButton* button = [[UIButton alloc] initWithFrame:CGRectMake((320 - 35)/2, (_toolbar.frame.size.height - 35)/2, 35, 35)];
+        _likeButton = [[UIButton alloc] initWithFrame:CGRectMake((320 - 40)/2, (_toolbar.frame.size.height - 35)/2, 40, 35)];
         
-        [button setImage:[UIImage imageNamed:@"heartIcon.png"] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"sel_heartIcon.png"] forState:UIControlStateHighlighted];
+        [_likeButton setImage:[UIImage imageNamed:@"like-gray.png"] forState:UIControlStateDisabled];
+        [_likeButton setImage:[UIImage imageNamed:@"like-blue.png"] forState:UIControlStateNormal];
+        [_likeButton setImage:[UIImage imageNamed:@"like-white.png"] forState:UIControlStateHighlighted];
         
-        [button addTarget:self action:@selector(tapLikeButton) forControlEvents:UIControlEventTouchUpInside];
+        [_likeButton addTarget:self action:@selector(tapLikeButton) forControlEvents:UIControlEventTouchUpInside];
         
-        [_toolbar addSubview:button];
+        [_toolbar addSubview:_likeButton];
     }
     else if(appDelegate.currentMainScreenIndex == 1)
     {
@@ -1087,6 +1088,7 @@
 	_previousButton.enabled = (_currentPageIndex > 0);
 	_nextButton.enabled = (_currentPageIndex < numberOfPhotos - 1);
     _actionButton.enabled = [[self photoAtIndex:_currentPageIndex] underlyingImage] != nil;
+    _likeButton.enabled = [[self photoAtIndex:_currentPageIndex] underlyingImage] != nil;
 	
 }
 
@@ -1723,6 +1725,13 @@
         {
             MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
             [[DataService sharedInstance] deleteDataInEntityWithId:curentPhoto.photoId];
+            
+            [APIService unLikePhotoWithPhotoId:curentPhoto.photoId
+                                  successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            } faildBlock:^(NSError *error) {
+                
+            }];
             
             [NSObject showAlertWithTitle:NSLocalizedString(@"CONFIRM_DELETE_ALERT_TITLE", nil) andMessage:NSLocalizedString(@"DELETE_ALERT_CONTENT", nil)];
             

@@ -83,6 +83,31 @@
 
 }
 
++ (void) unLikePhotoWithPhotoId:(NSString*) photoId
+                   successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
+                     faildBlock:(void(^)(NSError *error))faildBlock
+{
+    NSLog(@"URL UNLIKE PHOTO : %@", [NSString stringWithFormat:[ServiceConfigs unLikePhoto], [self getUUID], photoId]);
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs unLikePhoto], [self getUUID], photoId]
+                                  parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
+     {
+         NSLog(@"UNLIKE RESULT : %@", responseObject);
+         
+         if (successBlock)
+             successBlock(operation, responseObject);
+         
+     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         [self showErrorAlert:error];
+         
+         if (faildBlock)
+             faildBlock(error);
+         
+     }];
+
+}
+
 + (void)showErrorAlert:(NSError *)error{
     
     NSString *msg = [error.userInfo objectForKey:@"NSLocalizedDescription"];
