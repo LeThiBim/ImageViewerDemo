@@ -11,6 +11,7 @@
 #import "YourAlbumViewController.h"
 #import "ListAlbumsSource.h"
 #import "AppDelegate.h"
+#import "CustomMasterCellBackground.h"
 
 @interface MasterViewController ()
 
@@ -42,7 +43,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.mainScreenList = @[@"All Albums", @"Your Album"];
-    [self.tableView setBackgroundColor:[UIColor blackColor]];
+    //[self.tableView setBackgroundColor:[UIColor blackColor]];
     self.selectedIndex = 0;
 }
 
@@ -76,14 +77,23 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    // START NEW
+    if (![cell.backgroundView isKindOfClass:[CustomMasterCellBackground class]]) {
+        cell.backgroundView = [[CustomMasterCellBackground alloc] init];
+    }
+    
+    if (![cell.selectedBackgroundView isKindOfClass:[CustomMasterCellBackground class]]) {
+        cell.selectedBackgroundView = [[CustomMasterCellBackground alloc] init];
+    }
+    // END NEW
+
 
     if (indexPath.row == self.selectedIndex)
         cell.textLabel.text = [[NSString alloc] initWithFormat:@"✓ %@", [self.mainScreenList objectAtIndex:indexPath.row]];
     else
         cell.textLabel.text = [[NSString alloc] initWithFormat:@"  %@", [self.mainScreenList objectAtIndex:indexPath.row]];
 
-    [cell.textLabel setTextColor:[UIColor whiteColor]];
-    [cell.textLabel setBackgroundColor:[UIColor blackColor]];
+   // [cell.textLabel setTextColor:[UIColor whiteColor]];
 
     
     return cell;
