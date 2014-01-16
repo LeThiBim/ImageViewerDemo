@@ -10,6 +10,7 @@
 #import "MBProgressHUD.h"
 #import "MWGridViewController.h"
 #import "MWZoomingScrollView.h"
+#import "ActivityAlertView.h"
 
 // Declare private methods of browser
 @interface MWPhotoBrowser () {
@@ -69,6 +70,9 @@
     
     //Like/Unlike button
     UIButton* _likeButton;
+    
+    //Activity
+    ActivityAlertView* _activityAlertView;
     
 }
 

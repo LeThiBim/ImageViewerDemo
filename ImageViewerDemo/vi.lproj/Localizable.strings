@@ -19,3 +19,5 @@
 "CONFIRM_DELETE_ALERT_CONTENT" = "Bạn thật sự muốn xoá photo này?";
 
 "DELETE_ALERT_CONTENT"         = "Photo này đã được xoá!!!";
+
+"WAITING_MSG"                  = "Đang xử lý...";

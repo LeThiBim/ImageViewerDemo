@@ -15,3 +15,5 @@
 
 
 "DELETE_ALERT_CONTENT"         = "This photo is deleted!!!";
+
+"WAITING_MSG"                  = "Processing...";

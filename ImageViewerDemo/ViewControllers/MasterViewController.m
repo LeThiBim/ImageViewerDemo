@@ -41,7 +41,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.mainScreenList = @[@"All Albums", @"Your Album", @"Login Facebook"];
+    self.mainScreenList = @[@"All Albums", @"Your Album"];
     [self.tableView setBackgroundColor:[UIColor blackColor]];
     self.selectedIndex = 0;
 }

@@ -1689,6 +1689,16 @@
 - (void) tapLikeButton
 {
     
+    if (!_activityAlertView)
+        _activityAlertView =  [[ActivityAlertView alloc] initWithTitle:@""
+                                                               message: NSLocalizedString(@"WAITING_MSG", nil)
+                                                              delegate: self
+                                                     cancelButtonTitle: nil
+                                                     otherButtonTitles: nil
+                               ];
+    
+    [_activityAlertView show];
+    
     MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
     
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"imageId=%@", curentPhoto.photoId];
@@ -1747,6 +1757,7 @@
         
         if (successValue == 1 || successValue == 0)
         {
+            [_activityAlertView close];
             
             [NSObject showAlertWithTitle:NSLocalizedString(@"SUCCESSFUL", nil)
                               andMessage:NSLocalizedString(@"SUCCESSFUL_ALREADY_MESSAGE", nil)];
@@ -1765,6 +1776,8 @@
 
 - (void) tapDeleteButton
 {
+    
+   
     
     if (!self.confirmDeleteAlert)
     {
@@ -1788,11 +1801,24 @@
             
         case 1:
         {
+            if (!_activityAlertView)
+                _activityAlertView = [[ActivityAlertView alloc] initWithTitle:@""
+                                                                      message: NSLocalizedString(@"WAITING_MSG", nil)
+                                                                     delegate: self
+                                                            cancelButtonTitle: nil
+                                                            otherButtonTitles: nil
+                                      ];
+            
+            [_activityAlertView show];
+
+            
             MWPhoto* curentPhoto = [_photos objectAtIndex:self.currentIndex];
             [[DataService sharedInstance] deleteDataInEntityWithId:curentPhoto.photoId];
             
             [APIService unLikePhotoWithPhotoId:curentPhoto.photoId
                                   successBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                      
+                                      [_activityAlertView close];
             
             } faildBlock:^(NSError *error) {
                 
