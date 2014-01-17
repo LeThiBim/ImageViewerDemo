@@ -116,6 +116,7 @@
 		17B91B3118628DC00018D4E2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B91B1318628DC00018D4E2 /* UIKit.framework */; };
 		17B91B3918628DC00018D4E2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17B91B3718628DC00018D4E2 /* InfoPlist.strings */; };
 		17B91B3B18628DC00018D4E2 /* ImageViewerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B91B3A18628DC00018D4E2 /* ImageViewerDemoTests.m */; };
+		17BFE0E71888E17A007C6C34 /* CustomBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BFE0E61888E17A007C6C34 /* CustomBackgroundView.m */; };
 		17C0E6FE1887719E002DA562 /* ActivityAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0E6FD1887719E002DA562 /* ActivityAlertView.m */; };
 		17C0E7A91887C1CC002DA562 /* CustomMasterCellBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0E7A81887C1CC002DA562 /* CustomMasterCellBackground.m */; };
 		17C0E7AC1887C1E6002DA562 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0E7AB1887C1E6002DA562 /* Common.m */; };
@@ -335,6 +336,8 @@
 		17B91B3618628DC00018D4E2 /* ImageViewerDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ImageViewerDemoTests-Info.plist"; sourceTree = "<group>"; };
 		17B91B3818628DC00018D4E2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17B91B3A18628DC00018D4E2 /* ImageViewerDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageViewerDemoTests.m; sourceTree = "<group>"; };
+		17BFE0E51888E17A007C6C34 /* CustomBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBackgroundView.h; sourceTree = "<group>"; };
+		17BFE0E61888E17A007C6C34 /* CustomBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBackgroundView.m; sourceTree = "<group>"; };
 		17C0E6FC1887719E002DA562 /* ActivityAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityAlertView.h; sourceTree = "<group>"; };
 		17C0E6FD1887719E002DA562 /* ActivityAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityAlertView.m; sourceTree = "<group>"; };
 		17C0E7A71887C1CC002DA562 /* CustomMasterCellBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMasterCellBackground.h; sourceTree = "<group>"; };
@@ -773,6 +776,7 @@
 		17B91B1518628DC00018D4E2 /* ImageViewerDemo */ = {
 			isa = PBXGroup;
 			children = (
+				17BFE0E41888E164007C6C34 /* CustomViews */,
 				17C0E6FB1887719E002DA562 /* ActivityAlertView */,
 				B2FB05E91882CF6400D65C2C /* DataSerivce */,
 				B20A332C18810B3000217ACC /* CustomActivityView */,
@@ -822,6 +826,15 @@
 				17B91B3718628DC00018D4E2 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		17BFE0E41888E164007C6C34 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				17BFE0E51888E17A007C6C34 /* CustomBackgroundView.h */,
+				17BFE0E61888E17A007C6C34 /* CustomBackgroundView.m */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		17C0E6FB1887719E002DA562 /* ActivityAlertView */ = {
@@ -1037,6 +1050,7 @@
 				172E789E187A903E00167BCF /* PSTCollectionViewController.m in Sources */,
 				17A46AF5186D71140005475C /* AFNetworkReachabilityManager.m in Sources */,
 				17A46AF1186D71140005475C /* AFAppDotNetAPIClient.m in Sources */,
+				17BFE0E71888E17A007C6C34 /* CustomBackgroundView.m in Sources */,
 				172E78A2187A903E00167BCF /* PSTCollectionViewLayout.m in Sources */,
 				172E78B0187A903E00167BCF /* SDWebImageManager.m in Sources */,
 				17A46A9C186D5DE80005475C /* ListAlbumsSource.m in Sources */,

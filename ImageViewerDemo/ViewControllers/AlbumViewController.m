@@ -14,6 +14,7 @@
 #import "UIScrollView+SVInfiniteScrolling.h"
 #import "ImageViewController.h"
 #import "NSObject+Utilities.h"
+#import "CustomBackgroundView.h"
 
 
 @interface AlbumViewController ()
@@ -30,6 +31,9 @@
 {
     [super viewDidLoad];
 	   
+    
+    self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
+    
     typeof (&*self) __weak weakSelf = self;
     
     [self.collectionView addPullToRefreshWithActionHandler:^{
@@ -196,5 +200,9 @@
     return nil;
 }
 
+- (void)photoBrowser:(MWPhotoBrowser *)photoBrowser didDisplayPhotoAtIndex:(NSUInteger)index
+{
+    NSLog(@"Display photo at index : %ld", (long)index);
+}
 
 @end

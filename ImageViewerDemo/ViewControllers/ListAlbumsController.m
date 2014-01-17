@@ -15,6 +15,7 @@
 #import "AlbumViewController.h"
 #import "CustomCollectionViewLayout.h"
 #import "NSObject+Utilities.h"
+#import "CustomBackgroundView.h"
 
 @interface ListAlbumsController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -51,6 +52,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
     
     typeof (&*self) __weak weakSelf = self;
     

@@ -15,6 +15,7 @@
 #import "ImageViewController.h"
 #import "DataService.h"
 #import "IMAGE.h"
+#import "CustomBackgroundView.h"
 
 
 @interface YourAlbumViewController ()
@@ -33,6 +34,8 @@
     [super viewDidLoad];
     
     self.yourAlbum = [[DataService sharedInstance] selectAllByContext];
+
+    self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
 
     
 //    [self.collectionView addPullToRefreshWithActionHandler:^{
