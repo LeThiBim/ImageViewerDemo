@@ -104,4 +104,5 @@
 
 - (void) scheduleMoveTitle;
 - (void) setConstraintForImageView;
+- (void) adjustCellLayer;
 @end

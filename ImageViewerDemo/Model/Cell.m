@@ -210,5 +210,13 @@
     }
 }
 
+- (void) adjustCellLayer
+{
 
+    self.layer.backgroundColor = self.backgroundColor.CGColor;
+    self.layer.cornerRadius = 5.0;
+    self.layer.frame = self.frame;
+    
+
+}
 @end

@@ -16,6 +16,7 @@
 #import "CustomCollectionViewLayout.h"
 #import "NSObject+Utilities.h"
 #import "CustomBackgroundView.h"
+#import "CustomCellBackground.h"
 
 @interface ListAlbumsController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -155,6 +156,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 {
     Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"cellID" forIndexPath:indexPath];
+    
+    
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
     {
         cell.label.textColor = [UIColor grayColor];
@@ -168,6 +171,7 @@
     [cell.imageView setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
                placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
+    [cell adjustCellLayer];
     [cell scheduleMoveTitle];
     
     return cell;

@@ -85,7 +85,7 @@
     cell.label.text = text;
     [cell.imageView setImageWithURL:[self.albumSource getThumbImageURLOfIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
-    [cell scheduleMoveTitle];
+  //  [cell scheduleMoveTitle];
     
     return cell;
 }
