@@ -17,6 +17,8 @@
 #import "IMAGE.h"
 #import "CustomBackgroundView.h"
 
+#import "MFSideMenu.h"
+
 
 @interface YourAlbumViewController ()
 
@@ -171,7 +173,9 @@
 
 - (void)navigationPaneRevealBarButtonItemTapped:(id)sender
 {
-    [self.navigationPaneViewController setPaneState:MSNavigationPaneStateOpen animated:YES completion:nil];
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
+    
+  //  [self.navigationPaneViewController setPaneState:MSNavigationPaneStateOpen animated:YES completion:nil];
 }
 
 #pragma mark - DataSource delegate

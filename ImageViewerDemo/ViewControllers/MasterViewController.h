@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MSNavigationPaneViewController.h"
+
 
 @interface MasterViewController : UITableViewController
 
-@property (nonatomic, weak) MSNavigationPaneViewController *navigationPaneViewController;
 
 @end

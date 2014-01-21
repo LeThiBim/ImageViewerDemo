@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ListAlbumsSource.h"
 #import "ListAlbumsController.h"
-#import "MSNavigationPaneViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -18,7 +17,6 @@
 
 @property (strong, nonatomic) UINavigationController* listAlbumController;
 
-@property (strong, nonatomic) MSNavigationPaneViewController *navigationPaneViewController;
 
 @property (assign, nonatomic) int currentMainScreenIndex;
 @end

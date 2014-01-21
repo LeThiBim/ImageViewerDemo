@@ -8,12 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ListAlbumsSource.h"
-#import "MSNavigationPaneViewController.h"
+
 
 @interface ListAlbumsController : UICollectionViewController <ListAlbumsSourceDelegate>
 
 @property (nonatomic, strong) ListAlbumsSource *dataSource;
-@property (nonatomic, weak) MSNavigationPaneViewController *navigationPaneViewController;
 
 - (void) adjustContentInsetForLegacy;
 - (void) setUpCustomLayOut;

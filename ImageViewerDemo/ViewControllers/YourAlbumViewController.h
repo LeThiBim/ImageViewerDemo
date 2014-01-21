@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MWPhotoBrowser.h"
-#import "MSNavigationPaneViewController.h"
+
 
 @interface YourAlbumViewController : UICollectionViewController <MWPhotoBrowserDelegate>
 
-@property (nonatomic, weak) MSNavigationPaneViewController *navigationPaneViewController;
 
 @end

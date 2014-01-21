@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="1628" y="-655"/>
         </scene>
-        <!--Navigation Pane View Controller-->
+        <!--Side Menu Container View Controller-->
         <scene sceneID="lTw-F7-ks8">
             <objects>
-                <viewController id="F7g-Ze-kqL" customClass="MSNavigationPaneViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MFSideMenuContainerViewController" id="F7g-Ze-kqL" customClass="MFSideMenuContainerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XeG-zO-IV0"/>
                         <viewControllerLayoutGuide type="bottom" id="pjh-fD-jVO"/>
@@ -90,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ugd-bk-161" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1106" y="1094"/>
+            <point key="canvasLocation" x="-838" y="558"/>
         </scene>
         <!--AlbumController-->
         <scene sceneID="yfk-jy-X8Q">
@@ -176,10 +176,10 @@
             </objects>
             <point key="canvasLocation" x="447" y="-670"/>
         </scene>
-        <!--Master View Controller-->
+        <!--Side Menu View Controller-->
         <scene sceneID="qdn-sW-qy0">
             <objects>
-                <tableViewController storyboardIdentifier="MasterViewController" id="vcE-Fa-OuL" customClass="MasterViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SideMenuViewController" id="vcE-Fa-OuL" customClass="SideMenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Dn5-Lz-wAB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -206,6 +206,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yxq-Vn-erq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-660" y="-2086"/>
         </scene>
         <!--YourAlbumController-->
         <scene sceneID="MuI-dG-7Tm">

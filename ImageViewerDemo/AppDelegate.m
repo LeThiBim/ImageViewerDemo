@@ -9,7 +9,8 @@
 #import "AppDelegate.h"
 #import "ListAlbumsSource.h"
 #import "ListAlbumsController.h"
-#import "MasterViewController.h"
+#import "MFSideMenuContainerViewController.h"
+#import "SideMenuViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,17 +22,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
  
+    
 
     _currentMainScreenIndex = 0;
     
-    self.navigationPaneViewController = (MSNavigationPaneViewController *)self.window.rootViewController;
-
+//    self.navigationPaneViewController = (MSNavigationPaneViewController *)self.window.rootViewController;
+//
+//    
+//    MasterViewController *masterViewController = (MasterViewController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
+//
+//
+//    masterViewController.navigationPaneViewController = self.navigationPaneViewController;
+//    self.navigationPaneViewController.masterViewController = masterViewController;
     
-    MasterViewController *masterViewController = (MasterViewController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"MasterViewController"];
-
-
-    masterViewController.navigationPaneViewController = self.navigationPaneViewController;
-    self.navigationPaneViewController.masterViewController = masterViewController;
+    
+    
     
 
     
@@ -39,25 +44,62 @@
 
     
     // Override point for customization after application launch.
+//    self.listAlbumSource = [[ListAlbumsSource alloc] init];
+//    
+//    [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
+//    
+//    UINavigationController *navigationController = (UINavigationController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"ListAlbumsNavigationController"];
+//    
+//    ListAlbumsController *viewController = (ListAlbumsController *)[navigationController.viewControllers objectAtIndex:0];
+//    
+//    [viewController setUpCustomLayOut];
+//    
+//    viewController.dataSource = self.listAlbumSource;
+//    
+//    viewController.navigationPaneViewController = self.navigationPaneViewController;
+//    viewController.dataSource.delegate = viewController;
+//    [viewController.dataSource getImageLinksFromServer];
+//    
+//    navigationController.navigationBar.barStyle = UIBarStyleBlack;
+//    
+//    
+//    [self.window makeKeyAndVisible];
+//    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
+//    {
+//        [viewController setWantsFullScreenLayout:YES];
+//    }
+//    else
+//    {
+//        navigationController.navigationBar.translucent = YES;
+//    }
+//
+//
+//    [self.navigationPaneViewController setPaneViewController:navigationController animated:YES completion:nil];
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    MFSideMenuContainerViewController *container = (MFSideMenuContainerViewController *)self.window.rootViewController;
+    
+    
+    
     self.listAlbumSource = [[ListAlbumsSource alloc] init];
-    
+
     [[UIApplication sharedApplication]setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
-    
-    UINavigationController *navigationController = (UINavigationController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"ListAlbumsNavigationController"];
-    
+
+    UINavigationController *navigationController = (UINavigationController *)[storyboard instantiateViewControllerWithIdentifier:@"ListAlbumsNavigationController"];
+
     ListAlbumsController *viewController = (ListAlbumsController *)[navigationController.viewControllers objectAtIndex:0];
-    
+
     [viewController setUpCustomLayOut];
-    
+
     viewController.dataSource = self.listAlbumSource;
-    
-    viewController.navigationPaneViewController = self.navigationPaneViewController;
+
     viewController.dataSource.delegate = viewController;
     [viewController.dataSource getImageLinksFromServer];
-    
+
     navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    
+
+
     [self.window makeKeyAndVisible];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
     {
@@ -68,8 +110,16 @@
         navigationController.navigationBar.translucent = YES;
     }
 
-
-    [self.navigationPaneViewController setPaneViewController:navigationController animated:YES completion:nil];
+    
+    
+    //Master TableViewController (SideMenuViewController)
+    SideMenuViewController* sideMenuViewController = (SideMenuViewController*) [storyboard instantiateViewControllerWithIdentifier:@"SideMenuViewController"];
+    
+    
+    [container setCenterViewController:navigationController];
+    [container setLeftMenuViewController:sideMenuViewController];
+    
+    
 
     
     return YES;

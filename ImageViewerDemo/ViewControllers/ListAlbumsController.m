@@ -18,6 +18,9 @@
 #import "CustomBackgroundView.h"
 #import "CustomCellBackground.h"
 
+
+#import "MFSideMenu.h"
+
 @interface ListAlbumsController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UITextView* noDataTextView;
@@ -207,7 +210,9 @@
 
 - (void)navigationPaneRevealBarButtonItemTapped:(id)sender
 {
-    [self.navigationPaneViewController setPaneState:MSNavigationPaneStateOpen animated:YES completion:nil];
+   // [self.navigationPaneViewController setPaneState:MSNavigationPaneStateOpen animated:YES completion:nil];
+    
+    [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
 }
 
 - (void) setUpCustomLayOut
@@ -235,8 +240,9 @@
         [listGridButton setImage:[UIImage imageNamed:@"grid-white.png"] forState:UIControlStateNormal];
     }
     
-    [self updateLayout];
+    
     [self.collectionView reloadData];
+    [self updateLayout];
 }
 
 #pragma mark - DataSource delegate

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1717FAD418837EBD00C2C033 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAD618837EBD00C2C033 /* Localizable.strings */; };
-		1717FADF18838AA100C2C033 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1717FADE18838AA100C2C033 /* MasterViewController.m */; };
 		1717FAE21883939400C2C033 /* YourAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1717FAE11883939400C2C033 /* YourAlbumViewController.m */; };
 		1717FAF81883DF0000C2C033 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAEF1883DF0000C2C033 /* Default-568h@2x.png */; };
 		1717FAF91883DF0000C2C033 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1717FAF01883DF0000C2C033 /* Default.png */; };
@@ -93,11 +92,13 @@
 		17A46AFA186D71140005475C /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46ACC186D71140005475C /* AFURLSessionManager.m */; };
 		17A46B09186D71140005475C /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */; };
 		17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */; };
-		17A970CC187E5C07000C40D1 /* PRTween.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A970C9187E5C07000C40D1 /* PRTween.m */; };
-		17A970CD187E5C07000C40D1 /* PRTweenTimingFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A970CB187E5C07000C40D1 /* PRTweenTimingFunctions.m */; };
-		17A970D2187E5C32000C40D1 /* MSNavigationPaneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A970D1187E5C32000C40D1 /* MSNavigationPaneViewController.m */; };
 		17A970D5187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */; };
 		17A970D6187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */; };
+		17ACE2A4188E4B06003BEFA3 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACE2A3188E4B06003BEFA3 /* SideMenuViewController.m */; };
+		17ACE2A7188E4ECC003BEFA3 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACE2A6188E4ECC003BEFA3 /* MasterViewController.m */; };
+		17ACE2B0188E58CF003BEFA3 /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACE2AB188E58CF003BEFA3 /* MFSideMenuContainerViewController.m */; };
+		17ACE2B1188E58CF003BEFA3 /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACE2AD188E58CF003BEFA3 /* MFSideMenuShadow.m */; };
+		17ACE2B2188E58CF003BEFA3 /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACE2AF188E58CF003BEFA3 /* UIViewController+MFSideMenuAdditions.m */; };
 		17AF9AB51884E50400E9B0BF /* heartIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AF9AB31884E50400E9B0BF /* heartIcon.png */; };
 		17AF9AB61884E50400E9B0BF /* heartIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AF9AB41884E50400E9B0BF /* heartIcon@2x.png */; };
 		17AF9AB918850E4500E9B0BF /* sel_heartIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17AF9AB718850E4500E9B0BF /* sel_heartIcon@2x.png */; };
@@ -151,8 +152,6 @@
 		1717FAD718837ED400C2C033 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1717FAD818837EF400C2C033 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1717FAD9188381B800C2C033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1717FADD18838AA100C2C033 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		1717FADE18838AA100C2C033 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		1717FAE01883939400C2C033 /* YourAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YourAlbumViewController.h; sourceTree = "<group>"; };
 		1717FAE11883939400C2C033 /* YourAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YourAlbumViewController.m; sourceTree = "<group>"; };
 		1717FAEF1883DF0000C2C033 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -305,14 +304,19 @@
 		17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		17A46AEF186D71140005475C /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
-		17A970C8187E5C07000C40D1 /* PRTween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTween.h; sourceTree = "<group>"; };
-		17A970C9187E5C07000C40D1 /* PRTween.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRTween.m; sourceTree = "<group>"; };
-		17A970CA187E5C07000C40D1 /* PRTweenTimingFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRTweenTimingFunctions.h; sourceTree = "<group>"; };
-		17A970CB187E5C07000C40D1 /* PRTweenTimingFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRTweenTimingFunctions.m; sourceTree = "<group>"; };
-		17A970D0187E5C32000C40D1 /* MSNavigationPaneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSNavigationPaneViewController.h; sourceTree = "<group>"; };
-		17A970D1187E5C32000C40D1 /* MSNavigationPaneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSNavigationPaneViewController.m; sourceTree = "<group>"; };
 		17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSBarButtonIconNavigationPane.png; sourceTree = "<group>"; };
 		17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MSBarButtonIconNavigationPane@2x.png"; sourceTree = "<group>"; };
+		17ACE2A2188E4B06003BEFA3 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		17ACE2A3188E4B06003BEFA3 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
+		17ACE2A5188E4ECC003BEFA3 /* MasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		17ACE2A6188E4ECC003BEFA3 /* MasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		17ACE2A9188E58CF003BEFA3 /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
+		17ACE2AA188E58CF003BEFA3 /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
+		17ACE2AB188E58CF003BEFA3 /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
+		17ACE2AC188E58CF003BEFA3 /* MFSideMenuShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuShadow.h; sourceTree = "<group>"; };
+		17ACE2AD188E58CF003BEFA3 /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
+		17ACE2AE188E58CF003BEFA3 /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
+		17ACE2AF188E58CF003BEFA3 /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
 		17AF9AB31884E50400E9B0BF /* heartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heartIcon.png; sourceTree = "<group>"; };
 		17AF9AB41884E50400E9B0BF /* heartIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heartIcon@2x.png"; sourceTree = "<group>"; };
 		17AF9AB718850E4500E9B0BF /* sel_heartIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sel_heartIcon@2x.png"; sourceTree = "<group>"; };
@@ -618,6 +622,8 @@
 		17A46A9E186D5E2C0005475C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				17ACE2A5188E4ECC003BEFA3 /* MasterViewController.h */,
+				17ACE2A6188E4ECC003BEFA3 /* MasterViewController.m */,
 				17A46A9F186D5E2C0005475C /* AlbumViewController.h */,
 				17A46AA0186D5E2C0005475C /* AlbumViewController.m */,
 				17A46AA1186D5E2C0005475C /* ImageViewController.h */,
@@ -626,10 +632,10 @@
 				17A46AA4186D5E2C0005475C /* ListAlbumsController.m */,
 				175EB644187D09A200E888F9 /* AboutViewController.h */,
 				175EB645187D09A200E888F9 /* AboutViewController.m */,
-				1717FADD18838AA100C2C033 /* MasterViewController.h */,
-				1717FADE18838AA100C2C033 /* MasterViewController.m */,
 				1717FAE01883939400C2C033 /* YourAlbumViewController.h */,
 				1717FAE11883939400C2C033 /* YourAlbumViewController.m */,
+				17ACE2A2188E4B06003BEFA3 /* SideMenuViewController.h */,
+				17ACE2A3188E4B06003BEFA3 /* SideMenuViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -652,7 +658,7 @@
 		17A46AB6186D71140005475C /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				17A970C6187E5C07000C40D1 /* Vendor */,
+				17ACE2A8188E58CF003BEFA3 /* MFSideMenu */,
 				172E781F187A8CFD00167BCF /* MWPhotoBrowser */,
 				17A46AB7186D71140005475C /* AFNetworking */,
 				17A46AEB186D71140005475C /* SVPullToRefresh */,
@@ -700,33 +706,18 @@
 			path = SVPullToRefresh;
 			sourceTree = "<group>";
 		};
-		17A970C6187E5C07000C40D1 /* Vendor */ = {
+		17ACE2A8188E58CF003BEFA3 /* MFSideMenu */ = {
 			isa = PBXGroup;
 			children = (
-				17A970CF187E5C32000C40D1 /* MSNavigationPaneViewController */,
-				17A970C7187E5C07000C40D1 /* PRTween */,
+				17ACE2A9188E58CF003BEFA3 /* MFSideMenu.h */,
+				17ACE2AA188E58CF003BEFA3 /* MFSideMenuContainerViewController.h */,
+				17ACE2AB188E58CF003BEFA3 /* MFSideMenuContainerViewController.m */,
+				17ACE2AC188E58CF003BEFA3 /* MFSideMenuShadow.h */,
+				17ACE2AD188E58CF003BEFA3 /* MFSideMenuShadow.m */,
+				17ACE2AE188E58CF003BEFA3 /* UIViewController+MFSideMenuAdditions.h */,
+				17ACE2AF188E58CF003BEFA3 /* UIViewController+MFSideMenuAdditions.m */,
 			);
-			path = Vendor;
-			sourceTree = "<group>";
-		};
-		17A970C7187E5C07000C40D1 /* PRTween */ = {
-			isa = PBXGroup;
-			children = (
-				17A970C8187E5C07000C40D1 /* PRTween.h */,
-				17A970C9187E5C07000C40D1 /* PRTween.m */,
-				17A970CA187E5C07000C40D1 /* PRTweenTimingFunctions.h */,
-				17A970CB187E5C07000C40D1 /* PRTweenTimingFunctions.m */,
-			);
-			path = PRTween;
-			sourceTree = "<group>";
-		};
-		17A970CF187E5C32000C40D1 /* MSNavigationPaneViewController */ = {
-			isa = PBXGroup;
-			children = (
-				17A970D0187E5C32000C40D1 /* MSNavigationPaneViewController.h */,
-				17A970D1187E5C32000C40D1 /* MSNavigationPaneViewController.m */,
-			);
-			path = MSNavigationPaneViewController;
+			path = MFSideMenu;
 			sourceTree = "<group>";
 		};
 		17B7F8741874FAF6002ED94B /* CustomLayout */ = {
@@ -1017,12 +1008,14 @@
 				172E7891187A903E00167BCF /* MWGridCell.m in Sources */,
 				17A46AF2186D71140005475C /* AFHTTPRequestOperation.m in Sources */,
 				172E78A6187A903E00167BCF /* PSTGridLayoutRow.m in Sources */,
-				17A970CD187E5C07000C40D1 /* PRTweenTimingFunctions.m in Sources */,
+				17ACE2A7188E4ECC003BEFA3 /* MasterViewController.m in Sources */,
 				172E7893187A903E00167BCF /* MWPhoto.m in Sources */,
+				17ACE2B1188E58CF003BEFA3 /* MFSideMenuShadow.m in Sources */,
 				172E78B2187A903E00167BCF /* UIButton+WebCache.m in Sources */,
 				172E78AF187A903E00167BCF /* SDWebImageDownloaderOperation.m in Sources */,
 				17B7F8771874FAF6002ED94B /* CustomCollectionViewLayout.m in Sources */,
 				17C0E6FE1887719E002DA562 /* ActivityAlertView.m in Sources */,
+				17ACE2B2188E58CF003BEFA3 /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				17C0E7AC1887C1E6002DA562 /* Common.m in Sources */,
 				1717FAE21883939400C2C033 /* YourAlbumViewController.m in Sources */,
 				17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */,
@@ -1045,7 +1038,6 @@
 				17A46AF3186D71140005475C /* AFHTTPRequestOperationManager.m in Sources */,
 				172E78AA187A903E00167BCF /* NSData+GIF.m in Sources */,
 				172E78A0187A903E00167BCF /* PSTCollectionViewFlowLayout.m in Sources */,
-				17A970D2187E5C32000C40D1 /* MSNavigationPaneViewController.m in Sources */,
 				17A46A9D186D5DE80005475C /* AlbumSource.m in Sources */,
 				172E789E187A903E00167BCF /* PSTCollectionViewController.m in Sources */,
 				17A46AF5186D71140005475C /* AFNetworkReachabilityManager.m in Sources */,
@@ -1056,15 +1048,15 @@
 				17A46A9C186D5DE80005475C /* ListAlbumsSource.m in Sources */,
 				172E7895187A903E00167BCF /* MWTapDetectingImageView.m in Sources */,
 				B2B1CD241882DCA70017DA94 /* NSObject+Utilities.m in Sources */,
-				17A970CC187E5C07000C40D1 /* PRTween.m in Sources */,
 				17A46B09186D71140005475C /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				17A46AF6186D71140005475C /* AFSecurityPolicy.m in Sources */,
 				172E78B3187A903E00167BCF /* UIImage+GIF.m in Sources */,
-				1717FADF18838AA100C2C033 /* MasterViewController.m in Sources */,
 				172E78AC187A903E00167BCF /* SDWebImageCompat.m in Sources */,
 				172E7899187A903E00167BCF /* MBProgressHUD.m in Sources */,
+				17ACE2B0188E58CF003BEFA3 /* MFSideMenuContainerViewController.m in Sources */,
 				17A46AB1186D65E50005475C /* ServiceConfigs.m in Sources */,
 				B2FB05F71882DAAA00D65C2C /* KeychainItemWrapper.m in Sources */,
+				17ACE2A4188E4B06003BEFA3 /* SideMenuViewController.m in Sources */,
 				172E78A4187A903E00167BCF /* PSTGridLayoutInfo.m in Sources */,
 				172E78A5187A903E00167BCF /* PSTGridLayoutItem.m in Sources */,
 				17C0E7A91887C1CC002DA562 /* CustomMasterCellBackground.m in Sources */,
