@@ -102,6 +102,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
+@property (assign, nonatomic) BOOL isAnimated;
+
 - (void) scheduleMoveTitle;
 - (void) setConstraintForImageView;
 - (void) adjustCellLayer;

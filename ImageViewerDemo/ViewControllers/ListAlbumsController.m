@@ -168,11 +168,17 @@
     NSString *text = [self.dataSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
     
+   // CGSize labelSize = [text sizeWithFont:[UIFont boldSystemFontOfSize:17.0] constrainedToSize:cell.label.frame.size lineBreakMode:cell.label.lineBreakMode];
+    
+   // cell.label.frame = CGRectMake(0, cell.label.frame.origin.y, labelSize.width, labelSize.height);
+    
     [cell.imageView setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
                placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
     [cell adjustCellLayer];
-    [cell scheduleMoveTitle];
+    
+    if (!cell.isAnimated)
+        [cell scheduleMoveTitle];
     
     return cell;
 }

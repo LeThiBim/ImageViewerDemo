@@ -113,6 +113,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
+    _isAnimated = NO;
     
     _isTitleMoveToLeft = false;
     _isTitleMoveToRight = true;
@@ -151,43 +152,55 @@
 
 - (void) scheduleMoveTitle
 {
-    [NSTimer scheduledTimerWithTimeInterval: 0.5
-                                     target: self
-                                   selector: @selector(moveTitle)
-                                   userInfo: nil
-                                    repeats:YES];
+    _isAnimated = YES;
+    [self moveLabelToRight];
 }
 
-- (void) moveTitle
+- (void) moveLabelToRight
 {
-    if (_isTitleMoveToRight)
-    {
-        if (self.label.frame.origin.x < self.label.frame.size.width)
-        {
-            [self.label setFrame:CGRectMake(self.label.frame.origin.x + 3, self.label.frame.origin.y, self.label.frame.size.width, self.label.frame.size.height)];
-            
-            return;
-        }
-        _isTitleMoveToRight = false;
-        _isTitleMoveToLeft  = true;
-        
-        return;
-    }
-    else if(_isTitleMoveToLeft)
-    {
-        if (self.label.frame.origin.x > - self.label.frame.size.width)
-        {
-            [self.label setFrame:CGRectMake(self.label.frame.origin.x - 3, self.label.frame.origin.y, self.label.frame.size.width, self.label.frame.size.height)];
-            
-            return;
-        }
-        _isTitleMoveToRight = true;
-        _isTitleMoveToLeft  = false;
-        
-        return;
-
-    }
     
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                     
+                         
+                         [self.label setFrame:CGRectMake(self.label.frame.origin.x + 3, self.label.frame.origin.y, self.label.frame.size.width, self.label.frame.size.height)];
+                         
+                         
+                     }
+                     completion:^(BOOL finished){
+                         
+                         if (self.label.frame.origin.x >= self.label.frame.size.width)
+                             [self moveLabelToLeft];
+                         else
+                             [self moveLabelToRight];
+                         
+                     }];
+}
+
+- (void) moveLabelToLeft
+{
+    [UIView animateWithDuration:0.2
+                          delay:0
+                        options: UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         
+                         
+                         [self.label setFrame:CGRectMake(self.label.frame.origin.x - 3, self.label.frame.origin.y, self.label.frame.size.width, self.label.frame.size.height)];
+                         
+                         
+                         
+                     }
+                     completion:^(BOOL finished){
+                        
+                         if (self.label.frame.origin.x < - self.label.frame.size.width)
+                             [self moveLabelToRight];
+                         else
+                             [self moveLabelToLeft];
+
+                         
+                     }];
 }
 
 - (void) setConstraintForImageView
