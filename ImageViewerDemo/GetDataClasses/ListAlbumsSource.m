@@ -306,9 +306,14 @@ Data Source to manage assets used by the app.
         }
         else  //Get old albums
         {
-            self.oldAlbumsList = nil;
             
-            self.oldAlbumsList = [responseObject mutableCopy];
+            @autoreleasepool {
+                
+                self.oldAlbumsList = nil;
+                self.oldAlbumsList = [responseObject mutableCopy];
+                
+            };
+            
             
             if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetOldAlbumsFromServerSuccessful)])
             {

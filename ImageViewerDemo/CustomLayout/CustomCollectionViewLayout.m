@@ -37,8 +37,9 @@
 
 - (void)dealloc {
 
-    _columnHeights = nil;
-    _itemAttributes = nil;
+    self.columnHeights = nil;
+    self.itemAttributes = nil;
+    self.listAlbumSource = nil;
 }
 
 
@@ -48,7 +49,6 @@
     [super prepareLayout];
     
    
-    
     UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
     
     int itemCount = 0;
