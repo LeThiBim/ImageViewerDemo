@@ -12,7 +12,7 @@
 
 /*API Links*/
 
-+(NSString*) getAlbumUrl;
++(NSString*) getAlbumUrlAtPage;
 +(NSString*) getImagesListOfAlbum;
 
 +(NSString*) likePhoto;

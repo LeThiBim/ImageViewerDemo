@@ -11,6 +11,7 @@
 #import "ListAlbumsController.h"
 #import "MFSideMenuContainerViewController.h"
 #import "SideMenuViewController.h"
+#import "SDImageCache.h"
 
 @interface AppDelegate ()
 
@@ -95,7 +96,7 @@
     viewController.dataSource = self.listAlbumSource;
 
     viewController.dataSource.delegate = viewController;
-    [viewController.dataSource getImageLinksFromServer];
+    [viewController.dataSource getImageLinksFromServerAtPage:0];
 
     navigationController.navigationBar.barStyle = UIBarStyleBlack;
 
@@ -152,4 +153,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    
+    //call to clear all cached memory image
+    [[SDImageCache sharedImageCache] clearMemory];
+}
 @end

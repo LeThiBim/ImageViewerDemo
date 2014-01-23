@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UITextView* noDataTextView;
 
+@property (assign, nonatomic) BOOL currentOldPage;
+
 @end
 
 @implementation ListAlbumsController
@@ -47,6 +49,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
+        _currentOldPage = 1;
     }
     return self;
 
@@ -57,6 +60,7 @@
 {
     [super viewDidLoad];
     
+     _currentOldPage = 1;
     self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
     
     typeof (&*self) __weak weakSelf = self;
@@ -64,7 +68,16 @@
     [self.collectionView addPullToRefreshWithActionHandler:^{
         
         //TODO: reload data
-        [weakSelf.dataSource getImageLinksFromServer];
+        [weakSelf.dataSource getImageLinksFromServerAtPage:0];
+        
+    }];
+    
+    
+    [self.collectionView addInfiniteScrollingWithActionHandler:^{
+        
+        NSLog(@"OLD ALBUMS AT PAGE : %d",weakSelf.currentOldPage);
+        
+        [weakSelf.dataSource getImageLinksFromServerAtPage:weakSelf.currentOldPage];
         
     }];
     
@@ -88,7 +101,6 @@
 
     self.navigationItem.leftBarButtonItem = barButtonItem;
     
-    //UIBarButtonItem* rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Grid" style:UIBarButtonItemStyleBordered target:self action:@selector(displayButtonTapped)];
     
     UIButton* listGridButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 39, 38)];;
     
@@ -104,6 +116,15 @@
     
     [self updateLayout];
 }
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    
+     [[SDImageCache sharedImageCache] clearMemory];
+}
+
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
                                          duration:(NSTimeInterval)duration {
@@ -141,12 +162,6 @@
     
     [layout invalidateLayout];
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark CollectionView delegate
@@ -254,12 +269,16 @@
         if (self.noDataTextView && [self.dataSource.imageList count] >0)
             [self.noDataTextView setHidden:YES];
         
+        if (self.dataSource.isNeedToUpdate)
+        {
         
-        CustomCollectionViewLayout* customCollectionViewLayout = (CustomCollectionViewLayout*) self.collectionView.collectionViewLayout;
-        
-        customCollectionViewLayout.listAlbumSource = self.dataSource;
-        
-        [self.collectionView reloadData];
+            CustomCollectionViewLayout* customCollectionViewLayout = (CustomCollectionViewLayout*) self.collectionView.collectionViewLayout;
+            
+            customCollectionViewLayout.listAlbumSource = self.dataSource;
+            
+            [self.collectionView reloadData];
+            
+        }
         [self.collectionView.pullToRefreshView stopAnimating];
     }
     
@@ -285,6 +304,45 @@
         }
         
     }
+}
+
+- (void) finishGetOldAlbumsFromServerSuccessful
+{
+    
+    NSLog(@"OLD ALBUMS AT PAGE %d : %@", self.currentOldPage, self.dataSource.oldAlbumsList);
+    self.currentOldPage = self.currentOldPage + 1;
+
+    [self.collectionView.infiniteScrollingView stopAnimating];
+    
+    if (self.dataSource.oldAlbumsList && [self.dataSource.oldAlbumsList count] != 0)
+    {
+        //Add old albums to collectionView
+        [self.collectionView performBatchUpdates:^{
+            
+            int currentAlbumsCount = (int) [self.dataSource.imageList count];
+            
+            [self.dataSource.imageList addObjectsFromArray:self.dataSource.oldAlbumsList];
+            
+            NSMutableArray *arrayWithIndexPaths = [NSMutableArray array];
+            for (int i = currentAlbumsCount; i < currentAlbumsCount + [self.dataSource.oldAlbumsList count]; i++)
+            {
+                [arrayWithIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+            }
+            [self.collectionView insertItemsAtIndexPaths:arrayWithIndexPaths];
+            
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+
+    }
+
+    
+}
+
+- (void) finishGetOldAlbumsFromServerFailed
+{
+    [self.collectionView.infiniteScrollingView stopAnimating];
 }
 
 @end

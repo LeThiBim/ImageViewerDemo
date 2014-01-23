@@ -13,13 +13,14 @@
 
 @implementation APIService
 
-+ (void) getListAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                           faildBlock:(void(^)(NSError *error))faildBlock
++ (void) getListAlbumAtPage:(int) pageIndex
+           WithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
+                 faildBlock:(void(^)(NSError *error))faildBlock
 {
-    [[AFAppDotNetAPIClient sharedClient] GET:[ServiceConfigs getAlbumUrl]
+    [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs getAlbumUrlAtPage], pageIndex]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         NSLog(@"LIST ALBUMS : %@", responseObject);
+        // NSLog(@"LIST ALBUMS : %@", responseObject);
          
          if (successBlock)
              successBlock(operation, responseObject);

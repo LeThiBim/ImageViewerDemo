@@ -11,8 +11,10 @@
 
 @interface APIService : NSObject
 
-+ (void) getListAlbumWithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
-                           faildBlock:(void(^)(NSError *error))faildBlock;
++ (void) getListAlbumAtPage:(int) pageIndex
+           WithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
+                 faildBlock:(void(^)(NSError *error))faildBlock;
+
 
 
 + (void) getListImageInAlbumWithAlbumId:(NSString*) albumId

@@ -119,7 +119,7 @@
 
                 listAlbumsController.dataSource = [[ListAlbumsSource alloc] init];
                 listAlbumsController.dataSource.delegate = listAlbumsController;
-                [listAlbumsController.dataSource getImageLinksFromServer];
+                [listAlbumsController.dataSource getImageLinksFromServerAtPage:0];
                 [listAlbumsController setUpCustomLayOut];
 
                 UINavigationController *paneNavigationViewController = [[UINavigationController alloc] initWithRootViewController:listAlbumsController];

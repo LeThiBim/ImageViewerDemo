@@ -112,6 +112,7 @@ Data Source to manage assets used by the app.
     self = [super init];
     if (self) {
         
+   //     _currentOldPage = 0;
     }
     return self;
 }
@@ -225,26 +226,112 @@ Data Source to manage assets used by the app.
 
 }
 
+//FOR OLD ALBUM
 
-- (void) getImageLinksFromServer
+- (NSString*) getOldTitleOfIndex:(NSInteger) index
 {
+    NSDictionary* item = (NSDictionary*) [self.oldAlbumsList objectAtIndex:index];
+    
+    NSString* title = [item objectForKey:@"title"];
+    
+    if (title == nil)
+    {
+        title = @"Image";
+    }
+    return title;
+    
+    
+}
+
+- (NSURL*) getOldImageURLOfIndex:(NSInteger)index
+{
+    NSDictionary* item  = (NSDictionary*) [self.oldAlbumsList objectAtIndex:index];
+    
+    NSString* imageLink = [item objectForKey:@"thumb"];
+    NSURL *imageURL     = [NSURL URLWithString:imageLink];
+    
+    return imageURL;
+}
+
+
+- (void) getImageLinksFromServerAtPage:(int) pageIndex
+{
+
+    [APIService getListAlbumAtPage:pageIndex WithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-    [APIService getListAlbumWithSuccessBlock:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        self.imageList = responseObject;
-        if (self.delegate)
+        if(pageIndex == 0)
         {
-            dispatch_async(dispatch_get_main_queue(),
-                           ^{
-                               if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerSuccessful)])
-                                   [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
-                           });
+        
+            
+            if (self.imageList)
+            {
+                NSArray* listNewestAlbums = responseObject;
+                NSDictionary* newestAlbum = (NSDictionary*) [listNewestAlbums objectAtIndex:0];
+                NSString* newestAlbumId = [newestAlbum objectForKey:@"id"];
+                
+                
+                NSDictionary* currentAlbum = (NSDictionary*) [self.imageList objectAtIndex:0];
+                NSString* currentAlbumId = [currentAlbum objectForKey:@"id"];
+                
+                if ([newestAlbumId isEqualToString:currentAlbumId])
+                {
+                    //TODO: DON'T REFRESH
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerSuccessful)])
+                    {
+                        self.isNeedToUpdate = NO;
+                        [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
+                        return;
+                    }
+                    
+                }
+                
+            }
+            
+            
+            self.imageList = nil;
+            
+            self.imageList = [responseObject mutableCopy];
+            if (self.delegate)
+            {
+                dispatch_async(dispatch_get_main_queue(),
+                               ^{
+                                   if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerSuccessful)])
+                                   {
+                                       self.isNeedToUpdate = YES;
+                                       [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
+                                   }
+                               });
+            }
+            
+        }
+        else  //Get old albums
+        {
+            self.oldAlbumsList = nil;
+            
+            self.oldAlbumsList = [responseObject mutableCopy];
+            
+            if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetOldAlbumsFromServerSuccessful)])
+            {
+                [self.delegate performSelector:@selector(finishGetOldAlbumsFromServerSuccessful) ];
+            }
+            
         }
     } faildBlock:^(NSError *error) {
         
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           [self.delegate performSelector:@selector(finishGetImageLinksFromServerFailed) withObject:nil];
+                           
+                           if (pageIndex == 0)
+                           {
+                                if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerFailed)])
+                                    [self.delegate performSelector:@selector(finishGetImageLinksFromServerFailed) withObject:nil];
+                           }
+                           else
+                           {
+                               if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetOldAlbumsFromServerFailed)])
+                                   [self.delegate performSelector:@selector(finishGetOldAlbumsFromServerFailed) withObject:nil];
+
+                           }
                        });
 
         

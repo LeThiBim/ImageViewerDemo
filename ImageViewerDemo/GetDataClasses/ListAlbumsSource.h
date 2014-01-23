@@ -102,12 +102,21 @@ Data Source to manage assets used by the app.
 - (void) finishGetImageLinksFromServerSuccessful;
 - (void) finishGetImageLinksFromServerFailed;
 
+- (void) finishGetOldAlbumsFromServerSuccessful;
+- (void) finishGetOldAlbumsFromServerFailed;
+
 @end
 
 @interface ListAlbumsSource : NSObject <UIStateRestoring>
 
 @property (nonatomic) NSDictionary *data;
-@property (nonatomic) NSArray* imageList;
+
+@property (nonatomic) NSMutableArray* imageList;
+@property (nonatomic) NSMutableArray* oldAlbumsList;
+
+
+//@property (assign, nonatomic) int currentOldPage;
+@property (assign, nonatomic) BOOL isNeedToUpdate;
 
 @property (assign, nonatomic) id <ListAlbumsSourceDelegate> delegate;
 
@@ -117,7 +126,7 @@ Data Source to manage assets used by the app.
 - (UIImage *) thumbnailForIdentifier:(NSString *)identifier;
 - (UIImage *) imageForIdentifier:(NSString *)identifier;
 
-- (void) getImageLinksFromServer;
+- (void) getImageLinksFromServerAtPage:(int) pageIndex;
 
 - (NSString*) getTitleOfIndex:(NSInteger) index;
 - (NSURL*) getImageURLOfIndex:(NSInteger)index;

@@ -12,9 +12,9 @@
 
 /*API Links*/
 
-+(NSString*) getAlbumUrl
++(NSString*) getAlbumUrlAtPage
 {
-    return @"api/post";
+    return @"api/posts/%d";
 }
 
 +(NSString*) getImagesListOfAlbum
