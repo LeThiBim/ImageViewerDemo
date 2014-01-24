@@ -153,6 +153,8 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="Photos" id="6YW-OO-CEy" userLabel="Navigation Item - Album"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="hEH-fX-Wve" id="BXb-Ob-w7o"/>
                     </connections>

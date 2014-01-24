@@ -32,6 +32,22 @@
     [super viewDidLoad];
 	   
     
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
+    {
+        [self setWantsFullScreenLayout:YES];
+        self.navigationController.navigationBar.translucent = NO;
+        
+    }
+    else
+    {
+        self.navigationController.navigationBar.translucent = NO;
+    }
+
+    
+    
     self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
     
     typeof (&*self) __weak weakSelf = self;

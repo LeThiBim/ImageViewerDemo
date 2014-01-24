@@ -47,34 +47,12 @@
 	[trackPath addCurveToPoint:P(80, 380)
 				 controlPoint1:P(300, 200)
 				 controlPoint2:P(200, 480)];
-//
-//	[trackPath addCurveToPoint:P(140, 300)
-//				 controlPoint1:P(0, 300)
-//				 controlPoint2:P(200, 220)];
-//    
-//	[trackPath addCurveToPoint:P(210, 200)
-//				 controlPoint1:P(30, 420)
-//				 controlPoint2:P(280, 300)];
-//    
-//	[trackPath addCurveToPoint:P(70, 110)
-//				 controlPoint1:P(110, 80)
-//				 controlPoint2:P(110, 80)];
-//    
+
 	[trackPath addCurveToPoint:P(160, 280)
 				 controlPoint1:P(0, 160)
 				 controlPoint2:P(0, 40)];
     
     
-    
-    
-    
-    
-//    UIBezierPath *trackPath;
-//    trackPath = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(20, 80, 300, 300)];
-    
-    
-    
-
 	CAShapeLayer *racetrack = [CAShapeLayer layer];
 	racetrack.path = trackPath.CGPath;
 	racetrack.strokeColor = [UIColor blackColor].CGColor;
