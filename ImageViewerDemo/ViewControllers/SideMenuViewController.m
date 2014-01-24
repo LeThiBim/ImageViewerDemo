@@ -9,6 +9,7 @@
 #import "SideMenuViewController.h"
 #import "ListAlbumsController.h"
 #import "YourAlbumViewController.h"
+#import "AboutViewController.h"
 #import "ListAlbumsSource.h"
 #import "AppDelegate.h"
 #import "CustomMasterCellBackground.h"
@@ -44,7 +45,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    self.mainScreenList = @[@"All Albums", @"Your Album"];
+    self.mainScreenList = @[@"All Albums", @"Your Album", @"About"];
 
     self.selectedIndex = 0;
 
@@ -140,42 +141,14 @@
                 
                 [self.menuContainerViewController setCenterViewController:paneNavigationViewController];
                 [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+
                 
-//
-//                [self.navigationPaneViewController setPaneViewController:paneNavigationViewController animated:YES completion:nil];
-//
-//
-//                [listAlbumsController performSelector:@selector(setUpCustomLayOut) withObject:nil afterDelay:0.5];
             }
 
 
                 break;
             case 1:
             {
-//                YourAlbumViewController *yourAlbumController = (YourAlbumViewController *)[self.navigationPaneViewController.storyboard instantiateViewControllerWithIdentifier:@"YourAlbumViewController"];
-//
-//                yourAlbumController.navigationPaneViewController = self.navigationPaneViewController;
-//
-//                UINavigationController *paneNavigationViewController = [[UINavigationController alloc] initWithRootViewController:yourAlbumController];
-//
-//                paneNavigationViewController.navigationBar.barStyle = UIBarStyleBlack;
-//
-//
-//                if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
-//                {
-//                    [yourAlbumController setWantsFullScreenLayout:YES];
-//
-//                }
-//                else
-//                {
-//                    paneNavigationViewController.navigationBar.translucent = YES;
-//                }
-//
-//                [self.navigationPaneViewController setPaneViewController:paneNavigationViewController animated:YES completion:nil];
-//
-
-
-                
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                 
                 YourAlbumViewController *yourAlbumsController = (YourAlbumViewController *)[storyboard instantiateViewControllerWithIdentifier:@"YourAlbumViewController"];
@@ -199,7 +172,7 @@
                 
                 [self.menuContainerViewController setCenterViewController:paneNavigationViewController];
                 [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
-
+                
                 
 
             }
@@ -208,6 +181,32 @@
 
             case 2:
             {
+                
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+                
+                AboutViewController *aboutViewController = (AboutViewController *)[storyboard instantiateViewControllerWithIdentifier:@"AboutViewController"];
+                
+                
+                UINavigationController *paneNavigationViewController = [[UINavigationController alloc] initWithRootViewController:aboutViewController];
+                
+                paneNavigationViewController.navigationBar.barStyle = UIBarStyleBlack;
+                
+                
+                if ([[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)
+                {
+                    [aboutViewController setWantsFullScreenLayout:YES];
+                    
+                }
+                else
+                {
+                    paneNavigationViewController.navigationBar.translucent = YES;
+                }
+                
+                
+                [self.menuContainerViewController setCenterViewController:paneNavigationViewController];
+                [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+
+
 
             }
 

@@ -157,5 +157,7 @@
     
     //call to clear all cached memory image
     [[SDImageCache sharedImageCache] clearMemory];
+    
+     [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 @end

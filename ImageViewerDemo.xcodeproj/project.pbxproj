@@ -46,7 +46,6 @@
 		172E78A5187A903E00167BCF /* PSTGridLayoutItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 172E786C187A903D00167BCF /* PSTGridLayoutItem.m */; };
 		172E78A6187A903E00167BCF /* PSTGridLayoutRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 172E786E187A903D00167BCF /* PSTGridLayoutRow.m */; };
 		172E78A7187A903E00167BCF /* PSTGridLayoutSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 172E7870187A903D00167BCF /* PSTGridLayoutSection.m */; };
-		175EB646187D09A200E888F9 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 175EB645187D09A200E888F9 /* AboutViewController.m */; };
 		17A46378188669BC000DB8E9 /* grid-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A4636E188669BC000DB8E9 /* grid-blue.png */; };
 		17A46379188669BC000DB8E9 /* grid-gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A4636F188669BC000DB8E9 /* grid-gray.png */; };
 		17A4637A188669BC000DB8E9 /* grid-white.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A46370188669BC000DB8E9 /* grid-white.png */; };
@@ -67,6 +66,11 @@
 		17A46AB4186D67980005475C /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AB3186D67980005475C /* APIService.m */; };
 		17A46B09186D71140005475C /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */; };
 		17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */; };
+		17A8E65818924A9E00763E73 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A8E65718924A9E00763E73 /* AboutViewController.m */; };
+		17A8E65B18924B4700763E73 /* carmodel.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A8E65918924B4700763E73 /* carmodel.png */; };
+		17A8E65C18924B4700763E73 /* carmodel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A8E65A18924B4700763E73 /* carmodel@2x.png */; };
+		17A8E65F18924C7C00763E73 /* MyTortoise.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A8E65D18924C7C00763E73 /* MyTortoise.png */; };
+		17A8E66018924C7C00763E73 /* MyTortoise@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A8E65E18924C7C00763E73 /* MyTortoise@2x.png */; };
 		17A970D5187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */; };
 		17A970D6187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */; };
 		17ACE2A4188E4B06003BEFA3 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ACE2A3188E4B06003BEFA3 /* SideMenuViewController.m */; };
@@ -218,8 +222,6 @@
 		172E786E187A903D00167BCF /* PSTGridLayoutRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTGridLayoutRow.m; sourceTree = "<group>"; };
 		172E786F187A903D00167BCF /* PSTGridLayoutSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSTGridLayoutSection.h; sourceTree = "<group>"; };
 		172E7870187A903D00167BCF /* PSTGridLayoutSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSTGridLayoutSection.m; sourceTree = "<group>"; };
-		175EB644187D09A200E888F9 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		175EB645187D09A200E888F9 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		17A4636E188669BC000DB8E9 /* grid-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-blue.png"; sourceTree = "<group>"; };
 		17A4636F188669BC000DB8E9 /* grid-gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-gray.png"; sourceTree = "<group>"; };
 		17A46370188669BC000DB8E9 /* grid-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grid-white.png"; sourceTree = "<group>"; };
@@ -252,6 +254,12 @@
 		17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		17A46AEF186D71140005475C /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		17A8E65618924A9E00763E73 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		17A8E65718924A9E00763E73 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		17A8E65918924B4700763E73 /* carmodel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carmodel.png; sourceTree = "<group>"; };
+		17A8E65A18924B4700763E73 /* carmodel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carmodel@2x.png"; sourceTree = "<group>"; };
+		17A8E65D18924C7C00763E73 /* MyTortoise.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyTortoise.png; sourceTree = "<group>"; };
+		17A8E65E18924C7C00763E73 /* MyTortoise@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MyTortoise@2x.png"; sourceTree = "<group>"; };
 		17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MSBarButtonIconNavigationPane.png; sourceTree = "<group>"; };
 		17A970D4187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MSBarButtonIconNavigationPane@2x.png"; sourceTree = "<group>"; };
 		17ACE2A2188E4B06003BEFA3 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
@@ -580,12 +588,12 @@
 				17A46AA2186D5E2C0005475C /* ImageViewController.m */,
 				17A46AA3186D5E2C0005475C /* ListAlbumsController.h */,
 				17A46AA4186D5E2C0005475C /* ListAlbumsController.m */,
-				175EB644187D09A200E888F9 /* AboutViewController.h */,
-				175EB645187D09A200E888F9 /* AboutViewController.m */,
 				1717FAE01883939400C2C033 /* YourAlbumViewController.h */,
 				1717FAE11883939400C2C033 /* YourAlbumViewController.m */,
 				17ACE2A2188E4B06003BEFA3 /* SideMenuViewController.h */,
 				17ACE2A3188E4B06003BEFA3 /* SideMenuViewController.m */,
+				17A8E65618924A9E00763E73 /* AboutViewController.h */,
+				17A8E65718924A9E00763E73 /* AboutViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -593,6 +601,10 @@
 		17A46AB5186D6FB90005475C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				17A8E65D18924C7C00763E73 /* MyTortoise.png */,
+				17A8E65E18924C7C00763E73 /* MyTortoise@2x.png */,
+				17A8E65918924B4700763E73 /* carmodel.png */,
+				17A8E65A18924B4700763E73 /* carmodel@2x.png */,
 				17A4636D188669BC000DB8E9 /* ListGridButtonImage */,
 				17A46374188669BC000DB8E9 /* LikeButtonImage */,
 				1717FAEE1883DF0000C2C033 /* App'sImages */,
@@ -953,9 +965,11 @@
 				1717FAFD1883DF0000C2C033 /* Icon-Small.png in Resources */,
 				17A4637E188669BC000DB8E9 /* like-blue.png in Resources */,
 				17AF9ABA18850E4500E9B0BF /* sel_heartIcon.png in Resources */,
+				17A8E65C18924B4700763E73 /* carmodel@2x.png in Resources */,
 				17A4637D188669BC000DB8E9 /* list-white.png in Resources */,
 				B2F7F4801871B94100D2ED95 /* media_app@2x.png in Resources */,
 				172E782C187A8EB100167BCF /* MWPhotoBrowser.bundle in Resources */,
+				17A8E65F18924C7C00763E73 /* MyTortoise.png in Resources */,
 				1717FAFA1883DF0000C2C033 /* Default@2x.png in Resources */,
 				1717FAF81883DF0000C2C033 /* Default-568h@2x.png in Resources */,
 				17A970D6187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png in Resources */,
@@ -967,7 +981,9 @@
 				B20A333418810BA100217ACC /* like_icon@2x.png in Resources */,
 				1717FAFB1883DF0000C2C033 /* Icon-120.png in Resources */,
 				17AF9AB61884E50400E9B0BF /* heartIcon@2x.png in Resources */,
+				17A8E65B18924B4700763E73 /* carmodel.png in Resources */,
 				17B91B2318628DC00018D4E2 /* Main.storyboard in Resources */,
+				17A8E66018924C7C00763E73 /* MyTortoise@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1004,7 +1020,6 @@
 				1717FAE21883939400C2C033 /* YourAlbumViewController.m in Sources */,
 				17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */,
 				17A46A98186D5DE80005475C /* CustomCellBackground.m in Sources */,
-				175EB646187D09A200E888F9 /* AboutViewController.m in Sources */,
 				172E7894187A903E00167BCF /* MWPhotoBrowser.m in Sources */,
 				172E7890187A903E00167BCF /* MWCaptionView.m in Sources */,
 				B2FB05EF1882CFAB00D65C2C /* IMAGE.xcdatamodeld in Sources */,
@@ -1039,6 +1054,7 @@
 				17A46AB1186D65E50005475C /* ServiceConfigs.m in Sources */,
 				B2FB05F71882DAAA00D65C2C /* KeychainItemWrapper.m in Sources */,
 				17BB0C64189104A800A47A93 /* AFHTTPRequestOperation.m in Sources */,
+				17A8E65818924A9E00763E73 /* AboutViewController.m in Sources */,
 				17ACE2A4188E4B06003BEFA3 /* SideMenuViewController.m in Sources */,
 				172E78A4187A903E00167BCF /* PSTGridLayoutInfo.m in Sources */,
 				172E78A5187A903E00167BCF /* PSTGridLayoutItem.m in Sources */,

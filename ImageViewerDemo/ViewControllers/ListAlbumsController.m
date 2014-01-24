@@ -25,7 +25,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) UITextView* noDataTextView;
 
-@property (assign, nonatomic) BOOL currentOldPage;
+@property (assign, nonatomic) int currentOldPage;
 
 @end
 
@@ -194,8 +194,8 @@
     
     [cell adjustCellLayer];
     
-    if (!cell.isAnimated)
-        [cell scheduleMoveTitle];
+   // if (!cell.isAnimated)
+   //     [cell scheduleMoveTitle];
     
     return cell;
 }
