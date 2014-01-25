@@ -66,6 +66,10 @@
 		17A46AB4186D67980005475C /* APIService.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AB3186D67980005475C /* APIService.m */; };
 		17A46B09186D71140005475C /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */; };
 		17A46B0A186D71140005475C /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */; };
+		17A7561118935CF3003D471F /* deleteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7560F18935CF3003D471F /* deleteIcon.png */; };
+		17A7561218935CF3003D471F /* deleteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7561018935CF3003D471F /* deleteIcon@2x.png */; };
+		17A7561518935DE6003D471F /* sel_deleteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7561318935DE6003D471F /* sel_deleteIcon@2x.png */; };
+		17A7561618935DE6003D471F /* sel_deleteIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7561418935DE6003D471F /* sel_deleteIcon.png */; };
 		17A8E65818924A9E00763E73 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A8E65718924A9E00763E73 /* AboutViewController.m */; };
 		17A8E65B18924B4700763E73 /* carmodel.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A8E65918924B4700763E73 /* carmodel.png */; };
 		17A8E65C18924B4700763E73 /* carmodel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A8E65A18924B4700763E73 /* carmodel@2x.png */; };
@@ -254,6 +258,10 @@
 		17A46AEE186D71140005475C /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
 		17A46AEF186D71140005475C /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
 		17A46AF0186D71140005475C /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
+		17A7560F18935CF3003D471F /* deleteIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteIcon.png; sourceTree = "<group>"; };
+		17A7561018935CF3003D471F /* deleteIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "deleteIcon@2x.png"; sourceTree = "<group>"; };
+		17A7561318935DE6003D471F /* sel_deleteIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sel_deleteIcon@2x.png"; sourceTree = "<group>"; };
+		17A7561418935DE6003D471F /* sel_deleteIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_deleteIcon.png; sourceTree = "<group>"; };
 		17A8E65618924A9E00763E73 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		17A8E65718924A9E00763E73 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		17A8E65918924B4700763E73 /* carmodel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carmodel.png; sourceTree = "<group>"; };
@@ -530,13 +538,18 @@
 			path = ListGridButtonImage;
 			sourceTree = "<group>";
 		};
-		17A46374188669BC000DB8E9 /* LikeButtonImage */ = {
+		17A46374188669BC000DB8E9 /* Like_Delete_ButtonImage */ = {
 			isa = PBXGroup;
 			children = (
+				17A7561318935DE6003D471F /* sel_deleteIcon@2x.png */,
+				17A7561418935DE6003D471F /* sel_deleteIcon.png */,
+				17A7560F18935CF3003D471F /* deleteIcon.png */,
+				17A7561018935CF3003D471F /* deleteIcon@2x.png */,
 				17A46375188669BC000DB8E9 /* like-blue.png */,
 				17A46376188669BC000DB8E9 /* like-gray.png */,
 				17A46377188669BC000DB8E9 /* like-white.png */,
 			);
+			name = Like_Delete_ButtonImage;
 			path = LikeButtonImage;
 			sourceTree = "<group>";
 		};
@@ -606,7 +619,7 @@
 				17A8E65918924B4700763E73 /* carmodel.png */,
 				17A8E65A18924B4700763E73 /* carmodel@2x.png */,
 				17A4636D188669BC000DB8E9 /* ListGridButtonImage */,
-				17A46374188669BC000DB8E9 /* LikeButtonImage */,
+				17A46374188669BC000DB8E9 /* Like_Delete_ButtonImage */,
 				1717FAEE1883DF0000C2C033 /* App'sImages */,
 				B20A333018810BA100217ACC /* ActivityViewImages */,
 				17A970D3187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png */,
@@ -950,6 +963,7 @@
 				17A4637C188669BC000DB8E9 /* list-gray.png in Resources */,
 				17A970D5187E5DDB000C40D1 /* MSBarButtonIconNavigationPane.png in Resources */,
 				1717FAFC1883DF0000C2C033 /* Icon-80.png in Resources */,
+				17A7561518935DE6003D471F /* sel_deleteIcon@2x.png in Resources */,
 				B2F7F47F1871B94100D2ED95 /* media_app.png in Resources */,
 				17A46378188669BC000DB8E9 /* grid-blue.png in Resources */,
 				17B91B2818628DC00018D4E2 /* Images.xcassets in Resources */,
@@ -960,6 +974,7 @@
 				1717FAD418837EBD00C2C033 /* Localizable.strings in Resources */,
 				1717FAFE1883DF0000C2C033 /* Icon-Small@2x.png in Resources */,
 				17A4637F188669BC000DB8E9 /* like-gray.png in Resources */,
+				17A7561118935CF3003D471F /* deleteIcon.png in Resources */,
 				1717FAFF1883DF0000C2C033 /* Icon.png in Resources */,
 				172E789A187A903E00167BCF /* README.mdown in Resources */,
 				1717FAFD1883DF0000C2C033 /* Icon-Small.png in Resources */,
@@ -971,6 +986,7 @@
 				172E782C187A8EB100167BCF /* MWPhotoBrowser.bundle in Resources */,
 				17A8E65F18924C7C00763E73 /* MyTortoise.png in Resources */,
 				1717FAFA1883DF0000C2C033 /* Default@2x.png in Resources */,
+				17A7561218935CF3003D471F /* deleteIcon@2x.png in Resources */,
 				1717FAF81883DF0000C2C033 /* Default-568h@2x.png in Resources */,
 				17A970D6187E5DDB000C40D1 /* MSBarButtonIconNavigationPane@2x.png in Resources */,
 				B20A333318810BA100217ACC /* like_icon.png in Resources */,
@@ -979,6 +995,7 @@
 				17A4637B188669BC000DB8E9 /* list-blue.png in Resources */,
 				17A4637A188669BC000DB8E9 /* grid-white.png in Resources */,
 				B20A333418810BA100217ACC /* like_icon@2x.png in Resources */,
+				17A7561618935DE6003D471F /* sel_deleteIcon.png in Resources */,
 				1717FAFB1883DF0000C2C033 /* Icon-120.png in Resources */,
 				17AF9AB61884E50400E9B0BF /* heartIcon@2x.png in Resources */,
 				17A8E65B18924B4700763E73 /* carmodel.png in Resources */,

@@ -305,12 +305,10 @@
     {
         hideToolbar = NO;
         
-        _likeButton = [[UIButton alloc] initWithFrame:CGRectMake(([NSObject getScreenWidthForOrientation] - 35)/2, (_toolbar.frame.size.height - 100)/2, 35, 100)];
+        _likeButton = [[UIButton alloc] initWithFrame:CGRectMake(([NSObject getScreenWidthForOrientation] - 40)/2, (_toolbar.frame.size.height - 40)/2, 40, 40)];
         
-        //[button setImage:[UIImage imageNamed:@"heartIcon.png"] forState:UIControlStateNormal];
-        //[button setImage:[UIImage imageNamed:@"sel_heartIcon.png"] forState:UIControlStateHighlighted];
-        
-        [_likeButton setTitle:@"Delete" forState:UIControlStateNormal];
+        [_likeButton setImage:[UIImage imageNamed:@"deleteIcon.png"] forState:UIControlStateNormal];
+        [_likeButton setImage:[UIImage imageNamed:@"sel_deleteIcon.png"] forState:UIControlStateHighlighted];
         
         [_likeButton addTarget:self action:@selector(tapDeleteButton) forControlEvents:UIControlEventTouchUpInside];
         
@@ -625,12 +623,14 @@
 
         if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight)
         {
-            
+            likeButtonSize.width  = 30;
+            likeButtonSize.height = 30;
+
         }
         else
         {
-            likeButtonSize.width  = 35;
-            likeButtonSize.height = 100;
+            likeButtonSize.width  = 40;
+            likeButtonSize.height = 40;
 
         }
 
