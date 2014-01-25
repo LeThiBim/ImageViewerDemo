@@ -10,8 +10,8 @@
 
 @protocol GetAlbumSourceDelegate <NSObject>
 
-- (void) finishGetImageLinksFromServerSuccessful;
-- (void) finishGetImageLinksFromServerFailed;
+- (void) finishGetNewPhotosFromServerSuccessful;
+- (void) finishGetNewPhotosFromServerFailed;
 
 @end
 

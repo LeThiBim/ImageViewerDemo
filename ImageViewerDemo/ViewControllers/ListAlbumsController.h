@@ -12,7 +12,7 @@
 
 @interface ListAlbumsController : UICollectionViewController <ListAlbumsSourceDelegate>
 
-@property (nonatomic, strong) ListAlbumsSource *dataSource;
+@property (nonatomic, strong) ListAlbumsSource *listAlbumsSource;
 
 - (void) adjustContentInsetForLegacy;
 - (void) setUpCustomLayOut;

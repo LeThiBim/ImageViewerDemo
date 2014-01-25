@@ -99,8 +99,8 @@ Data Source to manage assets used by the app.
 
 @protocol ListAlbumsSourceDelegate <NSObject>
 
-- (void) finishGetImageLinksFromServerSuccessful;
-- (void) finishGetImageLinksFromServerFailed;
+- (void) finishGetNewAlbumsFromServerSuccessful;
+- (void) finishGetNewAlbumsFromServerFailed;
 
 - (void) finishGetOldAlbumsFromServerSuccessful;
 - (void) finishGetOldAlbumsFromServerFailed;

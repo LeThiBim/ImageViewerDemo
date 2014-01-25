@@ -10,8 +10,6 @@
 #import "YourAlbumViewController.h"
 #import "Cell.h"
 #import "UIImageView+WebCache.h"
-#import "UIScrollView+SVPullToRefresh.h"
-#import "UIScrollView+SVInfiniteScrolling.h"
 #import "ImageViewController.h"
 #import "DataService.h"
 #import "IMAGE.h"
@@ -39,21 +37,11 @@
 
     self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
 
-    
-//    [self.collectionView addPullToRefreshWithActionHandler:^{
-//        
-//        //TODO: reload data
-//        
-//        
-//        
-//    }];
-    
 }
 
 - (void) viewWillAppear:(BOOL)animated
 {
-    //   [self.collectionView triggerPullToRefresh];
-    
+
     [super viewWillAppear:animated];
     
     UIBarButtonItem* barButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"MSBarButtonIconNavigationPane.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(navigationPaneRevealBarButtonItemTapped:)];
@@ -98,30 +86,18 @@
     
     NSString* filePath = image.imagePath;
     
-    //if ([[NSFileManager defaultManager] fileExistsAtPath:image.thumbPath])
-    //    filePath = image.thumbPath;
-    
     if (image.thumbPath)
         filePath = image.thumbPath;
         
     
     cell.imageView.image = [UIImage imageWithContentsOfFile:filePath];
     
-//    [cell scheduleMoveTitle];
     
     return cell;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-//    if ([[segue identifier] isEqualToString:@"ImageViewer"])
-//    {
-//        ImageViewController *imageViewController = [segue destinationViewController];
-//        imageViewController.albumSource = self.albumSource;
-//        
-//        UICollectionViewCell* selectedCell = (UICollectionViewCell*) sender;
-//        imageViewController.currentImageIndex = selectedCell.tag;
-//    }
 }
 
 
@@ -174,20 +150,7 @@
 - (void)navigationPaneRevealBarButtonItemTapped:(id)sender
 {
     [self.menuContainerViewController toggleLeftSideMenuCompletion:nil];
-    
-  //  [self.navigationPaneViewController setPaneState:MSNavigationPaneStateOpen animated:YES completion:nil];
 }
-
-#pragma mark - DataSource delegate
-
-- (void) finishGetImageLinksFromServerSuccessful
-{
-    if (self.collectionView)
-    {
-        [self.collectionView reloadData];
-    }
-}
-
 
 #pragma mark - MWPhotoBrowser delegate
 

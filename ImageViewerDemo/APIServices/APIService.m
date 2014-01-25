@@ -22,7 +22,7 @@
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs getAlbumUrlAtPage], pageIndex]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-        // NSLog(@"LIST ALBUMS : %@", responseObject);
+         NSLog(@"LIST ALBUMS : %@", responseObject);
          
          [NSObject hideWaitingAlert];
          
@@ -54,7 +54,7 @@
      {
          [NSObject hideWaitingAlert];
 
-         NSLog(@"LIST PHOTOS : %@", responseObject);
+         NSLog(@"LIST PHOTOS  OF ALBUM ID %@ : %@", albumId, responseObject);
          
          if (successBlock)
              successBlock(operation, responseObject);

@@ -63,7 +63,7 @@
 
 - (void) viewDidAppear:(BOOL)animated
 {
-    //   [self.collectionView triggerPullToRefresh];
+
 }
 
 - (void) dealloc
@@ -169,7 +169,7 @@
 
 #pragma mark - DataSource delegate
 
-- (void) finishGetImageLinksFromServerSuccessful
+- (void) finishGetNewPhotosFromServerSuccessful
 {
     if (self.collectionView)
     {
@@ -181,7 +181,7 @@
     }
 }
 
-- (void) finishGetImageLinksFromServerFailed
+- (void) finishGetNewPhotosFromServerFailed
 {
     if (self.collectionView)
     {

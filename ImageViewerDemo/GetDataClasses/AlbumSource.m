@@ -90,7 +90,7 @@
         {
             dispatch_async(dispatch_get_main_queue(),
                            ^{
-                               [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
+                               [self.delegate performSelector:@selector(finishGetNewPhotosFromServerSuccessful) withObject:nil];
                            });
         }
 
@@ -98,7 +98,7 @@
         
         dispatch_async(dispatch_get_main_queue(),
                        ^{
-                           [self.delegate performSelector:@selector(finishGetImageLinksFromServerFailed) withObject:nil];
+                           [self.delegate performSelector:@selector(finishGetNewPhotosFromServerFailed) withObject:nil];
                        });
 
         

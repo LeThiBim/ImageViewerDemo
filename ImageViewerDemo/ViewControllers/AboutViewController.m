@@ -80,12 +80,6 @@
 	anim.repeatCount = HUGE_VALF;
 	anim.duration = 8.0;
 	[car addAnimation:anim forKey:@"race"];
-//
-//    
-//    UIButton* websiteLink = [[UIButton alloc] initWithFrame:CGRectMake(170, 120, 100, 100)];
-//    websiteLink.titleLabel.text = @"source.vn";
-//    
-//    [self.view addSubview:websiteLink];
 
 }
 

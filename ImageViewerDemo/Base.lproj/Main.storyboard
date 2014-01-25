@@ -162,21 +162,6 @@
             </objects>
             <point key="canvasLocation" x="2065" y="-133"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="EUO-Pf-8OM">
-            <objects>
-                <navigationController storyboardIdentifier="ListAlbumsNavigationController" definesPresentationContext="YES" id="HXs-of-Iql" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iaq-c6-0Ob">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="lyW-fI-YTh"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y4S-kf-DQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="447" y="-670"/>
-        </scene>
         <!--Side Menu View Controller-->
         <scene sceneID="qdn-sW-qy0">
             <objects>

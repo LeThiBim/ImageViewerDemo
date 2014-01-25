@@ -118,9 +118,9 @@
                 
                 ListAlbumsController *listAlbumsController = (ListAlbumsController *)[storyboard instantiateViewControllerWithIdentifier:@"ListAlbumsController"];
 
-                listAlbumsController.dataSource = [[ListAlbumsSource alloc] init];
-                listAlbumsController.dataSource.delegate = listAlbumsController;
-                [listAlbumsController.dataSource getImageLinksFromServerAtPage:0];
+                listAlbumsController.listAlbumsSource = [[ListAlbumsSource alloc] init];
+                listAlbumsController.listAlbumsSource.delegate = listAlbumsController;
+                [listAlbumsController.listAlbumsSource getImageLinksFromServerAtPage:0];
                 [listAlbumsController setUpCustomLayOut];
 
                 UINavigationController *paneNavigationViewController = [[UINavigationController alloc] initWithRootViewController:listAlbumsController];
@@ -142,11 +142,9 @@
                 [self.menuContainerViewController setCenterViewController:paneNavigationViewController];
                 [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 
-                
             }
-
-
                 break;
+                
             case 1:
             {
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -173,10 +171,7 @@
                 [self.menuContainerViewController setCenterViewController:paneNavigationViewController];
                 [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
                 
-                
-
             }
-
                 break;
 
             case 2:
@@ -206,10 +201,7 @@
                 [self.menuContainerViewController setCenterViewController:paneNavigationViewController];
                 [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 
-
-
             }
-
                 break;
 
             default:

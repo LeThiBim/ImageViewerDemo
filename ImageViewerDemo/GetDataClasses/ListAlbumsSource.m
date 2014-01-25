@@ -276,10 +276,10 @@ Data Source to manage assets used by the app.
                 if ([newestAlbumId isEqualToString:currentAlbumId])
                 {
                     //TODO: DON'T REFRESH
-                    if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerSuccessful)])
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetNewAlbumsFromServerSuccessful)])
                     {
                         self.isNeedToUpdate = NO;
-                        [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
+                        [self.delegate performSelector:@selector(finishGetNewAlbumsFromServerSuccessful) withObject:nil];
                         return;
                     }
                     
@@ -295,10 +295,10 @@ Data Source to manage assets used by the app.
             {
                 dispatch_async(dispatch_get_main_queue(),
                                ^{
-                                   if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerSuccessful)])
+                                   if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetNewAlbumsFromServerSuccessful)])
                                    {
                                        self.isNeedToUpdate = YES;
-                                       [self.delegate performSelector:@selector(finishGetImageLinksFromServerSuccessful) withObject:nil];
+                                       [self.delegate performSelector:@selector(finishGetNewAlbumsFromServerSuccessful) withObject:nil];
                                    }
                                });
             }
@@ -328,8 +328,8 @@ Data Source to manage assets used by the app.
                            
                            if (pageIndex == 0)
                            {
-                                if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetImageLinksFromServerFailed)])
-                                    [self.delegate performSelector:@selector(finishGetImageLinksFromServerFailed) withObject:nil];
+                                if (self.delegate && [self.delegate respondsToSelector:@selector(finishGetNewAlbumsFromServerFailed)])
+                                    [self.delegate performSelector:@selector(finishGetNewAlbumsFromServerFailed) withObject:nil];
                            }
                            else
                            {

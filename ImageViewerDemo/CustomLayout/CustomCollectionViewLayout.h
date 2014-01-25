@@ -15,7 +15,7 @@
 @property (assign, nonatomic) float contentSizeWith;
 @property (assign, nonatomic) int columnCount;
 
-@property (weak, nonatomic) ListAlbumsSource* listAlbumSource;
+@property (assign, nonatomic) ListAlbumsSource* listAlbumSource;
 
 
 - (instancetype) initWithDataSource:(ListAlbumsSource*) dataSource;

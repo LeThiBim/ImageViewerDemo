@@ -159,9 +159,7 @@
 
 - (CGRect) getFrameForItemAtIndexPath:(NSInteger) index
 {
-    AppDelegate* appDelegate = [[UIApplication sharedApplication] delegate];
-    CGSize size = [appDelegate.listAlbumSource getSizeForItemAtIndexPath:index];
-    
+    CGSize size = [self.listAlbumSource getSizeForItemAtIndexPath:index];
     
     float interItemSpacing = (self.contentSizeWith - [NSObject getConstraintWidthForAlbumCell]*self.columnCount)/(self.columnCount + 1);
     

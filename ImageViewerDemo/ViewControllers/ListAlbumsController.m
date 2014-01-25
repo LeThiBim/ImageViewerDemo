@@ -62,13 +62,14 @@
     
      _currentOldPage = 1;
     self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
+
     
     typeof (&*self) __weak weakSelf = self;
     
     [self.collectionView addPullToRefreshWithActionHandler:^{
         
         //TODO: reload data
-        [weakSelf.dataSource getImageLinksFromServerAtPage:0];
+        [weakSelf.listAlbumsSource getImageLinksFromServerAtPage:0];
         
     }];
     
@@ -77,7 +78,7 @@
         
         NSLog(@"OLD ALBUMS AT PAGE : %d",weakSelf.currentOldPage);
         
-        [weakSelf.dataSource getImageLinksFromServerAtPage:weakSelf.currentOldPage];
+        [weakSelf.listAlbumsSource getImageLinksFromServerAtPage:weakSelf.currentOldPage];
         
     }];
     
@@ -85,7 +86,7 @@
 
 - (void) dealloc
 {
-    self.dataSource.delegate = nil;
+    self.listAlbumsSource.delegate = nil;
     self.collectionView.delegate = nil;
     self.collectionView.dataSource = nil;
 }
@@ -120,8 +121,8 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
     
+    // Dispose of any resources that can be recreated.
      [[SDImageCache sharedImageCache] clearMemory];
 }
 
@@ -131,7 +132,6 @@
     [super willAnimateRotationToInterfaceOrientation:toInterfaceOrientation
                                             duration:duration];
     
-
     [self updateLayout];
     
 }
@@ -168,7 +168,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section;
 {
-    return [self.dataSource numberOfItemsInSection:section];
+    return [self.listAlbumsSource numberOfItemsInSection:section];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath;
@@ -183,19 +183,16 @@
     
     [cell setConstraintForImageView];
     
-    NSString *text = [self.dataSource getTitleOfIndex:indexPath.row];
+    NSString *text = [self.listAlbumsSource getTitleOfIndex:indexPath.row];
     cell.label.text = text;
     
     @autoreleasepool {
         
-        [cell.imageView setImageWithURL:[self.dataSource getImageURLOfIndex:indexPath.row]
+        [cell.imageView setImageWithURL:[self.listAlbumsSource getImageURLOfIndex:indexPath.row]
                        placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     }
     
     [cell adjustCellLayer];
-    
-   // if (!cell.isAnimated)
-   //     [cell scheduleMoveTitle];
     
     return cell;
 }
@@ -207,7 +204,7 @@
     if ([[segue identifier] isEqualToString:@"showAlbum"])
     {
         NSIndexPath *selectedIndexPath = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
-        NSString *albumId = [self.dataSource getAlbumId:selectedIndexPath.row];
+        NSString *albumId = [self.listAlbumsSource getAlbumId:selectedIndexPath.row];
 
         
         AlbumViewController *albumViewController = [segue destinationViewController];
@@ -232,9 +229,8 @@
 {
     if (self.collectionView)
     {
-        self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] initWithDataSource:self.dataSource];
-
-       // [self updateLayout];
+        self.collectionView.collectionViewLayout = [[CustomCollectionViewLayout alloc] initWithDataSource:self.listAlbumsSource];
+        
     }
 }
 
@@ -260,19 +256,19 @@
 
 #pragma mark - DataSource delegate
 
-- (void) finishGetImageLinksFromServerSuccessful
+- (void) finishGetNewAlbumsFromServerSuccessful
 {
     if (self.collectionView)
     {
-        if (self.noDataTextView && [self.dataSource.imageList count] >0)
+        if (self.noDataTextView && [self.listAlbumsSource.imageList count] >0)
             [self.noDataTextView setHidden:YES];
         
-        if (self.dataSource.isNeedToUpdate)
+        if (self.listAlbumsSource.isNeedToUpdate)
         {
         
             CustomCollectionViewLayout* customCollectionViewLayout = (CustomCollectionViewLayout*) self.collectionView.collectionViewLayout;
             
-            customCollectionViewLayout.listAlbumSource = self.dataSource;
+            customCollectionViewLayout.listAlbumSource = self.listAlbumsSource;
             
             [self.collectionView reloadData];
             
@@ -282,13 +278,13 @@
     
 }
 
-- (void) finishGetImageLinksFromServerFailed
+- (void) finishGetNewAlbumsFromServerFailed
 {
     if (self.collectionView)
     {
         [self.collectionView.pullToRefreshView stopAnimating];
         
-        if (!self.noDataTextView && [self.dataSource.imageList count] == 0)
+        if (!self.noDataTextView && [self.listAlbumsSource.imageList count] == 0)
         {
             self.noDataTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 100, [NSObject getScreenWidthForOrientation], ([NSObject getScreenHeightForOrientation] - 100)/2 )];
             [self.noDataTextView setBackgroundColor:[UIColor blackColor]];
@@ -307,22 +303,22 @@
 - (void) finishGetOldAlbumsFromServerSuccessful
 {
     
-    NSLog(@"OLD ALBUMS AT PAGE %d : %@", self.currentOldPage, self.dataSource.oldAlbumsList);
+    NSLog(@"OLD ALBUMS AT PAGE %d : %@", self.currentOldPage, self.listAlbumsSource.oldAlbumsList);
     self.currentOldPage = self.currentOldPage + 1;
 
     [self.collectionView.infiniteScrollingView stopAnimating];
     
-    if (self.dataSource.oldAlbumsList && [self.dataSource.oldAlbumsList count] != 0)
+    if (self.listAlbumsSource.oldAlbumsList && [self.listAlbumsSource.oldAlbumsList count] != 0)
     {
         //Add old albums to collectionView
         [self.collectionView performBatchUpdates:^{
             
-            int currentAlbumsCount = (int) [self.dataSource.imageList count];
+            int currentAlbumsCount = (int) [self.listAlbumsSource.imageList count];
             
-            [self.dataSource.imageList addObjectsFromArray:self.dataSource.oldAlbumsList];
+            [self.listAlbumsSource.imageList addObjectsFromArray:self.listAlbumsSource.oldAlbumsList];
             
             NSMutableArray *arrayWithIndexPaths = [NSMutableArray array];
-            for (int i = currentAlbumsCount; i < currentAlbumsCount + [self.dataSource.oldAlbumsList count]; i++)
+            for (int i = currentAlbumsCount; i < currentAlbumsCount + [self.listAlbumsSource.oldAlbumsList count]; i++)
             {
                 [arrayWithIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
             }
