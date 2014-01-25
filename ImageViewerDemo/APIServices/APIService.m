@@ -17,15 +17,22 @@
            WithSuccessBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                  faildBlock:(void(^)(NSError *error))faildBlock
 {
+    [NSObject showWaitingAlert];
+    
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs getAlbumUrlAtPage], pageIndex]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
         // NSLog(@"LIST ALBUMS : %@", responseObject);
          
+         [NSObject hideWaitingAlert];
+         
          if (successBlock)
              successBlock(operation, responseObject);
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         [NSObject hideWaitingAlert];
+
          
          [self showErrorAlert:error];
          
@@ -40,15 +47,21 @@
                            successBlock:(void(^)(AFHTTPRequestOperation *operation, id responseObject))successBlock
                              faildBlock:(void(^)(NSError *error))faildBlock
 {
+    [NSObject showWaitingAlert];
+    
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs getImagesListOfAlbum], albumId]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
+         [NSObject hideWaitingAlert];
+
          NSLog(@"LIST PHOTOS : %@", responseObject);
          
          if (successBlock)
              successBlock(operation, responseObject);
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
+         [NSObject hideWaitingAlert];
          
          [self showErrorAlert:error];
          
@@ -68,12 +81,12 @@
     [[AFAppDotNetAPIClient sharedClient] GET:[NSString stringWithFormat:[ServiceConfigs likePhoto], [self getUUID], photoId]
                                   parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject)
      {
-         
-         
+
          if (successBlock)
              successBlock(operation, responseObject);
          
      } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         
          
          [self showErrorAlert:error];
          

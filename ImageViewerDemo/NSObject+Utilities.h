@@ -22,4 +22,8 @@
 + (float) getScreenWidthForOrientation;
 + (float) getScreenHeightForOrientation;
 
+
++ (void) showWaitingAlert;
++ (void) hideWaitingAlert;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "NSObject+Utilities.h"
 #import "KeychainItemWrapper.h"
+#import "ActivityAlertView.h"
 
 #define SAVED_DEVICE_IDENTIFIERFORVENDOR kSecAttrService
 
@@ -16,6 +17,7 @@
 static NSString* staticUUID = nil;
 static UIAlertView* staticAlertView = nil;
 static float staticConstraintAlbumCellWidth = 150;
+static ActivityAlertView* staticWaitingAlert = nil;
 
 + (NSString*) getUUID
 {
@@ -134,4 +136,27 @@ static float staticConstraintAlbumCellWidth = 150;
 {
     return [self getScreenFrameForOrientation].size.height;
 }
+
++ (void) showWaitingAlert
+{
+    if (!staticWaitingAlert)
+    {
+        staticWaitingAlert = [[ActivityAlertView alloc] initWithTitle: @""
+                                                              message: NSLocalizedString(@"LOADING_MSG", nil)
+                                                             delegate: self
+                                                    cancelButtonTitle: nil
+                                                    otherButtonTitles: nil
+                                        ];
+
+    }
+    
+    [staticWaitingAlert show];
+}
+
++ (void) hideWaitingAlert
+{
+    if (staticWaitingAlert)
+        [staticWaitingAlert close];
+}
+
 @end

@@ -97,8 +97,10 @@
     
     cell.tag = indexPath.row;
     
-    NSString *text = [self.albumSource getTitleOfIndex:indexPath.row];
-    cell.label.text = text;
+   // NSString *text = [self.albumSource getTitleOfIndex:indexPath.row];
+   // cell.label.text = text;
+    
+    cell.label.hidden = YES;
     [cell.imageView setImageWithURL:[self.albumSource getThumbImageURLOfIndex:indexPath.row] placeholderImage:[UIImage imageNamed:@"media_app.png"]];
     
   //  [cell scheduleMoveTitle];

@@ -28,13 +28,10 @@
                                                 <constraint firstAttribute="width" constant="150" id="sJu-lp-4LT"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="44" translatesAutoresizingMaskIntoConstraints="NO" id="Kze-8Q-sah">
-                                            <rect key="frame" x="53" y="8" width="44" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="150" translatesAutoresizingMaskIntoConstraints="NO" id="Kze-8Q-sah">
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="QpT-od-W1j"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -45,10 +42,12 @@
                                 <constraints>
                                     <constraint firstItem="bC4-8w-CJR" firstAttribute="top" secondItem="O8G-Aj-Lzh" secondAttribute="top" id="EdJ-uj-x9G"/>
                                     <constraint firstItem="bC4-8w-CJR" firstAttribute="leading" secondItem="O8G-Aj-Lzh" secondAttribute="leading" id="QIa-YV-sRo"/>
-                                    <constraint firstItem="Kze-8Q-sah" firstAttribute="top" secondItem="bC4-8w-CJR" secondAttribute="bottom" constant="8" symbolic="YES" id="TYC-kK-ajU"/>
+                                    <constraint firstItem="Kze-8Q-sah" firstAttribute="top" secondItem="bC4-8w-CJR" secondAttribute="bottom" id="TYC-kK-ajU"/>
                                     <constraint firstItem="bC4-8w-CJR" firstAttribute="leading" secondItem="O8G-Aj-Lzh" secondAttribute="leading" id="VTS-Ci-TDi"/>
                                     <constraint firstAttribute="bottom" secondItem="bC4-8w-CJR" secondAttribute="bottom" constant="50" id="eFq-fA-Csa"/>
+                                    <constraint firstItem="bC4-8w-CJR" firstAttribute="width" secondItem="Kze-8Q-sah" secondAttribute="width" id="fOP-jN-yP3"/>
                                     <constraint firstItem="bC4-8w-CJR" firstAttribute="centerX" secondItem="Kze-8Q-sah" secondAttribute="centerX" id="sEz-WI-eYA"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kze-8Q-sah" secondAttribute="bottom" id="zm4-fU-lI6"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="imageView" destination="bC4-8w-CJR" id="fhZ-YG-mux"/>

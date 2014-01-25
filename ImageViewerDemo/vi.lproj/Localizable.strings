@@ -21,3 +21,5 @@
 "DELETE_ALERT_CONTENT"         = "Photo này đã được xoá!!!";
 
 "WAITING_MSG"                  = "Đang xử lý...";
+
+"LOADING_MSG"                  = "Đang tải...";
