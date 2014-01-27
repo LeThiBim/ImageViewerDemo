@@ -11,11 +11,11 @@
 #import "MWPhotoBrowser.h"
 #import "MWPhotoBrowserPrivate.h"
 #import "SDImageCache.h"
-#import "ActivityViewCustomActivity.h"
 #import "AppDelegate.h"
 #import "DataService.h"
 #import "IMAGE.h"
 #import "APIService.h"
+#import "NSObject+Utilities.h"
 
 #define PADDING                  10
 #define ACTION_SHEET_OLD_ACTIONS 2000

@@ -101,8 +101,6 @@
         contentSize.height     = contentHeight;
     }
     
-//    NSLog(@"TOTAL HEIGHT : %f", contentSize.height);
-    
     return contentSize;
 }
 

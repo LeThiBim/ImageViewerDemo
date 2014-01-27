@@ -10,7 +10,6 @@
 #import "YourAlbumViewController.h"
 #import "Cell.h"
 #import "UIImageView+WebCache.h"
-#import "ImageViewController.h"
 #import "DataService.h"
 #import "IMAGE.h"
 #import "CustomBackgroundView.h"

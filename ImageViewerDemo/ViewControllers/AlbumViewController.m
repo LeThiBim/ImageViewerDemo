@@ -12,7 +12,6 @@
 #import "UIImageView+WebCache.h"
 #import "UIScrollView+SVPullToRefresh.h"
 #import "UIScrollView+SVInfiniteScrolling.h"
-#import "ImageViewController.h"
 #import "NSObject+Utilities.h"
 #import "CustomBackgroundView.h"
 
@@ -110,14 +109,6 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if ([[segue identifier] isEqualToString:@"ImageViewer"])
-    {
-        ImageViewController *imageViewController = [segue destinationViewController];
-        imageViewController.albumSource = self.albumSource;
-        
-        UICollectionViewCell* selectedCell = (UICollectionViewCell*) sender;
-        imageViewController.currentImageIndex = selectedCell.tag;
-    }
 }
 
 
