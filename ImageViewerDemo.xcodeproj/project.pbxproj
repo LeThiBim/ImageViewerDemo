@@ -310,7 +310,7 @@
 		17AF9AB818850E4500E9B0BF /* sel_heartIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sel_heartIcon.png; sourceTree = "<group>"; };
 		17B7F8751874FAF6002ED94B /* CustomCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewLayout.h; sourceTree = "<group>"; };
 		17B7F8761874FAF6002ED94B /* CustomCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewLayout.m; sourceTree = "<group>"; };
-		17B91B0C18628DC00018D4E2 /* ImageViewerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageViewerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		17B91B0C18628DC00018D4E2 /* Source.vn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Source.vn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B91B0F18628DC00018D4E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17B91B1118628DC00018D4E2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		17B91B1318628DC00018D4E2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -719,7 +719,7 @@
 		17B91B0D18628DC00018D4E2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				17B91B0C18628DC00018D4E2 /* ImageViewerDemo.app */,
+				17B91B0C18628DC00018D4E2 /* Source.vn.app */,
 				17B91B2D18628DC00018D4E2 /* ImageViewerDemoTests.xctest */,
 			);
 			name = Products;
@@ -881,7 +881,7 @@
 			);
 			name = ImageViewerDemo;
 			productName = ImageViewerDemo;
-			productReference = 17B91B0C18628DC00018D4E2 /* ImageViewerDemo.app */;
+			productReference = 17B91B0C18628DC00018D4E2 /* Source.vn.app */;
 			productType = "com.apple.product-type.application";
 		};
 		17B91B2C18628DC00018D4E2 /* ImageViewerDemoTests */ = {
@@ -1225,7 +1225,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageViewerDemo/ImageViewerDemo-Prefix.pch";
 				INFOPLIST_FILE = "ImageViewerDemo/ImageViewerDemo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Source.vn;
 				PROVISIONING_PROFILE = "CC46815D-4C90-4AC3-ADD9-90CF5910C696";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1241,7 +1241,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ImageViewerDemo/ImageViewerDemo-Prefix.pch";
 				INFOPLIST_FILE = "ImageViewerDemo/ImageViewerDemo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Source.vn;
 				PROVISIONING_PROFILE = "CC46815D-4C90-4AC3-ADD9-90CF5910C696";
 				WRAPPER_EXTENSION = app;
 			};

@@ -60,7 +60,7 @@
 {
     [super viewDidLoad];
     
-     _currentOldPage = 1;
+    _currentOldPage = 1;
     self.collectionView.backgroundView = [[CustomBackgroundView alloc] init];
 
     

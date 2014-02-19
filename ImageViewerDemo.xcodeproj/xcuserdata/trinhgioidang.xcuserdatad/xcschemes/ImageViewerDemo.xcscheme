@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "17B91B0B18628DC00018D4E2"
-               BuildableName = "ImageViewerDemo.app"
+               BuildableName = "Source.vn.app"
                BlueprintName = "ImageViewerDemo"
                ReferencedContainer = "container:ImageViewerDemo.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "17B91B0B18628DC00018D4E2"
-            BuildableName = "ImageViewerDemo.app"
+            BuildableName = "Source.vn.app"
             BlueprintName = "ImageViewerDemo"
             ReferencedContainer = "container:ImageViewerDemo.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "17B91B0B18628DC00018D4E2"
-            BuildableName = "ImageViewerDemo.app"
+            BuildableName = "Source.vn.app"
             BlueprintName = "ImageViewerDemo"
             ReferencedContainer = "container:ImageViewerDemo.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "17B91B0B18628DC00018D4E2"
-            BuildableName = "ImageViewerDemo.app"
+            BuildableName = "Source.vn.app"
             BlueprintName = "ImageViewerDemo"
             ReferencedContainer = "container:ImageViewerDemo.xcodeproj">
          </BuildableReference>
